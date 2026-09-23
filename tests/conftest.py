@@ -13,7 +13,7 @@ for k in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN", "ANTHROPIC_BASE_URL", "AL
 import harness  # noqa: E402
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="module")
 def simulator():
     tmp = tempfile.mkdtemp(prefix="simtest_")
     req_log = os.path.join(tmp, "requests.jsonl")
