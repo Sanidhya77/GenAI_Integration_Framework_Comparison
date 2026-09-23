@@ -22,10 +22,13 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from flask import Flask, Response, jsonify, request
 
 from common.config import USER_PROMPT
-from common.anthropic_client import inference_sync, stream_sync
+from common.anthropic_client import get_sync_client, inference_sync, stream_sync
 from common.pipeline_service import run_pipeline_sync
 
 app = Flask(__name__)
+
+# Create the SDK client at worker startup, not inside the first measured request
+get_sync_client()
 
 FRAMEWORK_NAME = "flask"
 

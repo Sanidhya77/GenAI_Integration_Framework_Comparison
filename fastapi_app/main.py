@@ -22,10 +22,13 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, StreamingResponse
 
 from common.config import USER_PROMPT
-from common.anthropic_client import inference_async, stream_async
+from common.anthropic_client import get_async_client, inference_async, stream_async
 from common.pipeline_service import run_pipeline_async
 
 app = FastAPI()
+
+# Create the SDK client at server startup, not inside the first measured request
+get_async_client()
 
 FRAMEWORK_NAME = "fastapi"
 
