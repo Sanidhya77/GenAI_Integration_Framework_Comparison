@@ -73,7 +73,7 @@ def test_server_paths(simulator, fw):
         with open(clog) as f:
             startup = [json.loads(l) for l in f]
         report["constructions_at_startup_and_warmup"] = sorted({(c["cls"]) for c in startup})
-        t_after_warmup = time.time()
+        t_after_warmup = time.monotonic()  # CLOCK_MONOTONIC: comparable with the server's ts
 
         # T4: sequential single requests (c = 1)
         timing = {}

@@ -5,7 +5,8 @@ Per phase (A = FastAPI inference, B = FastAPI stream):
   1. drift        c = 1 today (data_v2_real) vs c = 1 in the thesis data (data/)
   2. load         c = 25 today vs c = 1 today (load dependence of API latency and TTFT)
   3. throughput   c = 25 today, completion rate in the steady window [first user start + 2 S, stop]
-                  and Locust Requests/s, vs the ceiling 25 / S_today (S_today = c = 1 today median)
+                  and Locust Requests/s, vs the ceiling 25 / S_today (S_today = c = 1 today median);
+                  the window uses the time.monotonic() columns and data without them is refused
   4. sim vs real  c = 25 real vs v2 simulated c = 25 (data_v2/), absolute and after scaling the
                   simulated latencies by S_today / S_sim (throughput by S_sim / S_today);
                   S_sim = simulated c = 1 median latency if data_v2 has it, else the calibrated
@@ -29,6 +30,7 @@ import glob
 import json
 import os
 import statistics
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CALIBRATION = os.path.join(ROOT, "simulated_endpoint", "calibration_v2.json")
@@ -117,9 +119,12 @@ def throughput(prefixes, s):
     rates, locust = [], []
     for p in prefixes:
         lm = json.load(open(p + "_locust_meta.json"))
-        lo, hi = lm["first_user_start_ts"] + 2 * s, lm["stop_ts"]
-        ends = sorted(float(r["end_ts"]) for r in read_csv(p + "_requests.csv")
-                      if r["success"] == "True" and lo <= float(r["end_ts"]) <= hi)
+        req = read_csv(p + "_requests.csv")
+        if lm.get("first_user_start_mono") is None or lm.get("stop_mono") is None or (req and "end_mono" not in req[0]):
+            sys.exit(f"{p}: no monotonic window columns (data predates v2-freeze); windows must not use the wall clock")
+        lo, hi = lm["first_user_start_mono"] + 2 * s, lm["stop_mono"]
+        ends = sorted(float(r["end_mono"]) for r in req
+                      if r["success"] == "True" and lo <= float(r["end_mono"]) <= hi)
         if len(ends) >= 2 and ends[-1] > ends[0]:
             rates.append((len(ends) - 1) / (ends[-1] - ends[0]))
         agg = [r for r in read_csv(p + "_stats.csv") if r["Name"] == "Aggregated"][0]

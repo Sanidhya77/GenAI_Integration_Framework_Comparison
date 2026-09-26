@@ -1,6 +1,6 @@
 """Test-only instrumentation (T2), active only when this directory is on PYTHONPATH and
 CONSTRUCTION_LOG is set: logs every httpx.Client / httpx.AsyncClient / Anthropic /
-AsyncAnthropic construction as one JSON line (pid, class, time)."""
+AsyncAnthropic construction as one JSON line (pid, class, time.monotonic())."""
 import json
 import os
 import time
@@ -16,7 +16,7 @@ if _LOG:
 
         def __init__(self, *args, **kwargs):
             with open(_LOG, "a", encoding="utf-8") as f:
-                f.write(json.dumps({"pid": os.getpid(), "cls": cls.__name__, "ts": time.time()}) + "\n")
+                f.write(json.dumps({"pid": os.getpid(), "cls": cls.__name__, "ts": time.monotonic()}) + "\n")
             original(self, *args, **kwargs)
 
         cls.__init__ = __init__

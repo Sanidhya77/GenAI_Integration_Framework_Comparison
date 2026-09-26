@@ -24,8 +24,8 @@ def sim_env(extra=None):
 
 
 def wait_http(url, timeout=20.0):
-    deadline = time.time() + timeout
-    while time.time() < deadline:
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
         try:
             with urllib.request.urlopen(url, timeout=1) as r:
                 return json.loads(r.read() or b"{}")

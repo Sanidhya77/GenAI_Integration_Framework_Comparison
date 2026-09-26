@@ -4,7 +4,10 @@ Real-API validation driver (v2). Spends money; run only via scripts/run_real_val
 Phases (PHASE env var, default A):
   A    FastAPI /api/inference: c = 1 anchor (3 runs), then c = 25 (3 runs)
   B    FastAPI /api/inference/stream: c = 1 anchor (3 runs), then c = 25 (3 runs)
-  all  A then B
+  C    /api/inference/stream at c = 1 for all four frameworks, 3 runs each, interleaved
+       (flask, django, fastapi, tornado, flask, django, ...): a same-day per-framework
+       TTFT anchor; output under data_v2_real/phase_c/ so it cannot collide with B
+  all  A then B (C only when asked for explicitly)
 The c = 1 anchor runs the same day, immediately before the c = 25 block, so API latency
 drift since April 2026 can be separated from concurrency effects.
 
@@ -23,7 +26,8 @@ stops.
 
 Guards: refuses without ALLOW_REAL_API=1; refuses if run_matrix.py, another validation, a
 benchmark server or the simulator is running (or ports 8000/9000 are busy); refuses a dirty
-tracked tree; prints expected requests and cost per phase and in total ($1 / $5 per MTok,
+tracked tree; refuses if systemd-timesyncd, chronyd or ntp is active unless ALLOW_TIMESYNC=1
+(scripts/run_matrix.py:clock_preflight; apt timers only warn); prints expected requests and cost per phase and in total ($1 / $5 per MTok,
 33 input + 256 output tokens per request, warm-ups included) and refuses if the total exceeds
 BUDGET_USD (default 5.00); asks for a typed "yes"; prints cumulative estimated spend after
 each run. Complete runs are skipped (resume); an existing invalid run blocks the phase until
@@ -31,6 +35,7 @@ its files are removed.
 
 Usage (through the wrapper):
   ALLOW_REAL_API=1 PHASE=A ./scripts/run_real_validation.sh
+  ALLOW_REAL_API=1 PHASE=C ./scripts/run_real_validation.sh
   venv/bin/python scripts/run_real_validation.py --plan-only   # prints the plan, no API contact
 """
 
@@ -52,9 +57,18 @@ import run_matrix as rm  # noqa: E402
 ROOT = rm.ROOT
 OUT = "data_v2_real"
 FRAMEWORK = "fastapi"
-PHASES = {"A": "inference", "B": "stream"}
+PHASES = {"A": "inference", "B": "stream", "C": "stream"}
 LEVELS = [1, 25]
 RUNS = [1, 2, 3]
+PHASE_C_FRAMEWORKS = ["flask", "django", "fastapi", "tornado"]
+PHASE_C_OUT = os.path.join(OUT, "phase_c")
+
+
+def phase_runs(ph):
+    """[(out_root, framework, endpoint, c, run)] in execution order."""
+    if ph == "C":
+        return [(PHASE_C_OUT, fw, "stream", 1, r) for r in RUNS for fw in PHASE_C_FRAMEWORKS]
+    return [(OUT, FRAMEWORK, PHASES[ph], c, r) for c in LEVELS for r in RUNS]
 DURATION = "60s"
 PRICE_IN, PRICE_OUT = 1.00, 5.00  # USD per million tokens, Claude Haiku 4.5 list price
 TOKENS_IN, TOKENS_OUT = 33, 256
@@ -77,7 +91,7 @@ def plan(phases, s_ep, duration_s):
     rows, total = [], 0.0
     for ph in phases:
         ep = PHASES[ph]
-        n = sum(len(RUNS) * expected_requests(c, s_ep[ep], duration_s) for c in LEVELS)
+        n = sum(expected_requests(c, s_ep[e], duration_s) for _o, _fw, e, c, _r in phase_runs(ph))
         rows.append((ph, ep, n, n * cost_per_request()))
         total += n
     return rows, total, total * cost_per_request()
@@ -88,6 +102,10 @@ def print_plan(phases, s_ep, duration_s, budget):
     print(f"Real-API validation plan (model claude-haiku-4-5-20251001, ${PRICE_IN:.2f} in / ${PRICE_OUT:.2f} out "
           f"per MTok, {TOKENS_IN} in + {TOKENS_OUT} out tokens per request):")
     for ph, ep, n, usd in rows:
+        if ph == "C":
+            print(f"  PHASE C ({', '.join(PHASE_C_FRAMEWORKS)} {ep}): c = 1, {len(RUNS)} runs each, interleaved, "
+                  f"{duration_s} s each: about {n:.0f} requests, about ${usd:.2f}")
+            continue
         per_min = 25 / s_ep[ep] * 60
         print(f"  PHASE {ph} ({FRAMEWORK} {ep}): c = 1 x {len(RUNS)} runs, then c = 25 x {len(RUNS)} runs, "
               f"{duration_s} s each: about {n:.0f} requests, about ${usd:.2f}")
@@ -138,8 +156,8 @@ def main():
     a = ap.parse_args()
 
     phase = os.environ.get("PHASE", "A").upper()
-    if phase not in ("A", "B", "ALL"):
-        sys.exit("PHASE must be A, B or all")
+    if phase not in ("A", "B", "C", "ALL"):
+        sys.exit("PHASE must be A, B, C or all")
     phases = ["A", "B"] if phase == "ALL" else [phase]
     budget = float(os.environ.get("BUDGET_USD", "5.00"))
     rest_mode = os.environ.get("REST_MODE", "thesis")
@@ -161,8 +179,16 @@ def main():
     dirty = rm.sh(["git", "status", "--porcelain", "--untracked-files=no"]).stdout.strip()
     if dirty:
         sys.exit(f"Refusing to start: tracked files have uncommitted changes:\n{dirty}")
+    clock_state = rm.clock_preflight()
+    problem = rm.timesync_problem(clock_state)
+    if problem:
+        sys.exit(f"Refusing to start: {problem}")
+    print(f"clock preflight: {clock_state}")
+    if rm.apt_warning(clock_state):
+        print(rm.apt_warning(clock_state))
     for ph in phases:
-        for meta in glob.glob(os.path.join(ROOT, OUT, FRAMEWORK, PHASES[ph], "*_meta.json")):
+        dirs = {os.path.join(ROOT, o, fw, ep) for o, fw, ep, _c, _r in phase_runs(ph)}
+        for meta in (m for d in sorted(dirs) for m in glob.glob(os.path.join(d, "*_meta.json"))):
             if json.load(open(meta)).get("status") == "invalid":
                 sys.exit(f"Refusing to run: {os.path.relpath(meta, ROOT)} is marked invalid; inspect and remove "
                          "that run's files first.")
@@ -177,57 +203,53 @@ def main():
     args = argparse.Namespace(mode="real", monitor_interval=0.25, duration=DURATION)
     spent_n = 0
 
-    for ph in phases:
-        ep = PHASES[ph]
-        print(f"##### PHASE {ph}: {FRAMEWORK} {ep}")
-        for c in LEVELS:
-            ran = False
-            for i, r in enumerate(RUNS):
-                out_dir = os.path.join(ROOT, OUT, FRAMEWORK, ep)
-                os.makedirs(out_dir, exist_ok=True)
-                prefix = os.path.join(out_dir, f"c{c}_run{r}")
-                if rm.run_complete(prefix, ep):
-                    print(f"skip {ep}/c{c}/run{r}: complete")
-                    continue
-                for stale in glob.glob(prefix + "_*"):
-                    os.remove(stale)
-                try:
-                    rm.run_one(FRAMEWORK, ep, c, r, prefix, args, duration_s, s_ep, None, git_sha, cal_sha,
-                               freeze_sha, rest_mode)
-                finally:
-                    meta_path = prefix + "_meta.json"
-                    meta = json.load(open(meta_path)) if os.path.exists(meta_path) else {"status": "started"}
-                    scan = scan_server_log(prefix + "_server.log") if os.path.exists(prefix + "_server.log") else {}
-                    meta["anthropic_log"] = "info"
-                    meta["retry_scan"] = scan
-                    meta["phase"] = ph
-                    bad = scan.get("retry_lines", 0) or scan.get("http_429", 0) or scan.get("http_5xx", 0)
-                    if bad:
-                        meta["status"] = "invalid"
-                        meta["invalid_reason"] = (f"{scan['retry_lines']} retry lines, {scan['http_429']} x 429, "
-                                                  f"{scan['http_5xx']} x 5xx in server log")
-                    with open(meta_path, "w", encoding="utf-8") as f:
-                        json.dump(meta, f, indent=2)
-                    if os.path.exists(prefix + "_requests.csv") and os.path.exists(prefix + "_inflight.csv"):
-                        spent_n += requests_sent(prefix)
-                    else:
-                        spent_n += rm.WARMUP_REQUESTS
-                    print(f"    retry scan: {scan}")
-                    print(f"    cumulative estimated spend: {spent_n} requests, "
-                          f"${spent_n * cost_per_request():.2f} of planned ${total_usd:.2f}")
-                if bad:
-                    sys.exit(f"STOP: {ep}/c{c}/run{r} marked invalid ({meta['invalid_reason']}).")
-                if meta.get("status") != "complete":
-                    sys.exit(f"STOP: {ep}/c{c}/run{r} did not complete; see its meta.json and logs.")
-                ran = True
-                if i < len(RUNS) - 1:
-                    rest = rm.rest_between(c, rest_mode)
-                    print(f"rest {rest}s")
-                    time.sleep(rest)
-            if ran and not (ph == phases[-1] and c == LEVELS[-1]):
-                rest = rm.rest_after_config(c, rest_mode)
-                print(f"configuration rest {rest}s")
-                time.sleep(rest)
+    sequence = [(ph,) + run for ph in phases for run in phase_runs(ph)]
+    for k, (ph, out, fw, ep, c, r) in enumerate(sequence):
+        if k == 0 or sequence[k - 1][0] != ph:
+            print(f"##### PHASE {ph}: {ep}")
+        out_dir = os.path.join(ROOT, out, fw, ep)
+        os.makedirs(out_dir, exist_ok=True)
+        prefix = os.path.join(out_dir, f"c{c}_run{r}")
+        tag = f"{fw}/{ep}/c{c}/run{r}"
+        if rm.run_complete(prefix, ep, "real"):
+            print(f"skip {tag}: complete")
+            continue
+        for stale in glob.glob(prefix + "_*"):
+            os.remove(stale)
+        try:
+            rm.run_one(fw, ep, c, r, prefix, args, duration_s, s_ep, None, git_sha, cal_sha,
+                       freeze_sha, rest_mode)
+        finally:
+            meta_path = prefix + "_meta.json"
+            meta = json.load(open(meta_path)) if os.path.exists(meta_path) else {"status": "started"}
+            scan = scan_server_log(prefix + "_server.log") if os.path.exists(prefix + "_server.log") else {}
+            meta["anthropic_log"] = "info"
+            meta["retry_scan"] = scan
+            meta["phase"] = ph
+            bad = scan.get("retry_lines", 0) or scan.get("http_429", 0) or scan.get("http_5xx", 0)
+            if bad:
+                meta["status"] = "invalid"
+                meta["invalid_reason"] = (f"{scan['retry_lines']} retry lines, {scan['http_429']} x 429, "
+                                          f"{scan['http_5xx']} x 5xx in server log")
+            with open(meta_path, "w", encoding="utf-8") as f:
+                json.dump(meta, f, indent=2)
+            if os.path.exists(prefix + "_requests.csv") and os.path.exists(prefix + "_inflight.csv"):
+                spent_n += requests_sent(prefix)
+            else:
+                spent_n += rm.WARMUP_REQUESTS
+            print(f"    retry scan: {scan}")
+            print(f"    cumulative estimated spend: {spent_n} requests, "
+                  f"${spent_n * cost_per_request():.2f} of planned ${total_usd:.2f}")
+        if bad:
+            sys.exit(f"STOP: {tag} marked invalid ({meta['invalid_reason']}).")
+        if meta.get("status") != "complete":
+            sys.exit(f"STOP: {tag} did not complete; see its meta.json and logs.")
+        if k < len(sequence) - 1:
+            nxt = sequence[k + 1]
+            same_config = nxt[2:5] == (fw, ep, c)
+            rest = rm.rest_between(c, rest_mode) if same_config else rm.rest_after_config(c, rest_mode)
+            print(f"{'rest' if same_config else 'configuration rest'} {rest}s")
+            time.sleep(rest)
     print(f"Done. Estimated spend: {spent_n} requests, ${spent_n * cost_per_request():.2f}. "
           f"Next: venv/bin/python scripts/validate_real_v2.py --phase {phase.lower()}")
 

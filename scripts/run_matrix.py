@@ -7,9 +7,30 @@ Per run:
   3. wait for /health, send 3 warm-up requests to the endpoint's own URL
   4. resolve the PID that serves requests (Gunicorn: the worker, via the process tree;
      multi-worker arm: the master, monitored as a tree)
-  5. start monitoring/resource_monitor_v2.py, run Locust with locust_tests/request_log.py,
-     stop the monitor, stop the server
+  5. start monitoring/resource_monitor_v2.py on the server and (simulator mode) a second one
+     on the simulator (<prefix>_sim_monitor.csv), run Locust with locust_tests/request_log.py,
+     stop the monitors, stop the server
   6. write data_v2/<framework>/<endpoint>/c<N>_run<R>_meta.json
+
+Clock. Every window marker, deadline and cross-process time is time.monotonic()
+(*_mono keys); *_ts keys are wall-clock labels. meta.json records (wall, monotonic) anchor
+pairs at run start and end.
+  - Clock-step guard: both monitors record time.time() - time.monotonic() per sample. If
+    that offset (with the two anchors) varies by more than 20 ms within a run, meta.json gets
+    clock_step_detected: true and clock_step_ms.
+  - Time-sync preflight: refuses to start (and aborts before a run) if systemd-timesyncd,
+    chronyd or ntp is active, unless ALLOW_TIMESYNC=1; records their state, the kernel
+    clocksource and apt-daily(-upgrade).timer (warning only) in meta.json.
+  - Host clock rate (scripts/hostclock.py): one Windows-host clock sample right before
+    Locust starts, one at the midpoint of the Locust run and one right after it stops;
+    clock_rate_ratio, clock_rate_uncertainty, half ratios, clock_rate_unstable and
+    clock_rate_off_nominal go to meta.json (null on failure; never aborts a run).
+  - --redo-clock-steps treats runs with clock_step_detected, clock_rate_unstable or
+    clock_rate_off_nominal as incomplete, so they are deleted and redone.
+
+Idle memory: idle_rss_mb and idle_uss_mb = median of the monitor samples in the 2 s lead
+before Locust starts; idle_drift = true if either differs by more than 2 MB from the first
+complete run of the same configuration (recorded, never aborts).
 
 Defaults follow the thesis: -t 60s, 5 runs, rest between runs 3c + 30 s and after a
 configuration 3c + 60 s (scripts/run_config.sh). REST_MODE=short uses a fixed 30 s instead.
@@ -33,13 +54,16 @@ Usage:
 """
 
 import argparse
+import csv
 import datetime
 import glob
 import hashlib
 import json
 import os
 import platform
+import re
 import signal
+import statistics
 import subprocess
 import sys
 import time
@@ -55,9 +79,17 @@ CALIBRATION = os.path.join(ROOT, "simulated_endpoint", "calibration_v2.json")
 WARMUP_REQUESTS = 3
 MONITOR_LEAD_S = 2  # as in scripts/run_config.sh (sleep 2 before Locust)
 PER_RUN_OVERHEAD_S = 8  # server start, health, monitor stop, server stop (estimate)
+TIMESYNC_SERVICES = ("systemd-timesyncd", "chronyd", "ntp")
+APT_TIMERS = ("apt-daily.timer", "apt-daily-upgrade.timer")
+CLOCKSOURCE = "/sys/devices/system/clocksource/clocksource0/current_clocksource"
+CLOCK_STEP_THRESHOLD_MS = 20.0
+IDLE_DRIFT_MB = 2.0
+ACTIVE_STATES = ("active", "activating", "reloading", "deactivating")
 
 sys.path.insert(0, ROOT)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common.config import USER_PROMPT  # noqa: E402
+import hostclock  # noqa: E402
 
 ENDPOINT_URL = {
     "inference": "/api/inference",
@@ -132,8 +164,8 @@ def base_env(mode):
 
 
 def wait_health(url, timeout=30.0):
-    deadline = time.time() + timeout
-    while time.time() < deadline:
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
         try:
             r = requests.get(url, timeout=2)
             if r.status_code == 200:
@@ -173,8 +205,8 @@ def resolve_pids(proc, kind, timeout=15.0):
     root = psutil.Process(proc.pid)
     if kind == "single":
         return proc.pid, [proc.pid], False
-    deadline = time.time() + timeout
-    while time.time() < deadline:
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
         kids = [p.pid for p in root.children(recursive=False)]
         if kids:
             if kind == "gunicorn":
@@ -202,24 +234,142 @@ def warmup(endpoint):
     return out
 
 
-def expected_files(prefix, endpoint):
+def expected_files(prefix, endpoint, mode="sim"):
     names = ["stats", "stats_history", "requests", "inflight", "resources", "locust_meta"]
     names += EXTRA_FILES[endpoint]
+    if mode == "sim":
+        names.append("sim_monitor")
     ext = {"locust_meta": "json"}
     return [f"{prefix}_{n}.{ext.get(n, 'csv')}" for n in names]
 
 
-def run_complete(prefix, endpoint):
+CLOCK_FLAGS = ("clock_step_detected", "clock_rate_unstable", "clock_rate_off_nominal")
+
+
+def clock_flagged(meta):
+    """Names of the clock flags set in a run's meta (empty list if none)."""
+    return [k for k in CLOCK_FLAGS if meta.get(k) is True]
+
+
+def run_complete(prefix, endpoint, mode="sim", redo_clock_steps=False):
     meta = prefix + "_meta.json"
     if not os.path.exists(meta):
         return False
     try:
         with open(meta, encoding="utf-8") as f:
-            if json.load(f).get("status") != "complete":
-                return False
+            m = json.load(f)
     except (OSError, ValueError):
         return False
-    return all(os.path.exists(p) for p in expected_files(prefix, endpoint))
+    if m.get("status") != "complete":
+        return False
+    if redo_clock_steps and clock_flagged(m):
+        return False
+    return all(os.path.exists(p) for p in expected_files(prefix, endpoint, mode))
+
+
+# ---------------------------------------------------------------- clock and idle checks
+
+def anchor():
+    """(wall, monotonic) pair; the wall clock is read between two monotonic reads."""
+    m0 = time.monotonic()
+    w = time.time()
+    m1 = time.monotonic()
+    return {"wall": w, "mono": (m0 + m1) / 2}
+
+
+def _systemctl_state(unit):
+    try:
+        r = subprocess.run(["systemctl", "is-active", unit], capture_output=True, text=True, timeout=10)
+        return r.stdout.strip() or "unknown"
+    except (OSError, subprocess.TimeoutExpired) as e:
+        return f"error: {e}"
+
+
+def clock_preflight():
+    """State of time-sync services, the kernel clocksource and apt timers."""
+    try:
+        with open(CLOCKSOURCE, encoding="utf-8") as f:
+            source = f.read().strip()
+    except OSError as e:
+        source = f"error: {e}"
+    return {"timesync_state": {u: _systemctl_state(u) for u in TIMESYNC_SERVICES},
+            "clocksource": source,
+            "apt_timers": {u: _systemctl_state(u) for u in APT_TIMERS},
+            "allow_timesync": os.environ.get("ALLOW_TIMESYNC") == "1"}
+
+
+def timesync_problem(state):
+    """Reason to refuse, or None. Unknown states (systemctl missing) also refuse."""
+    if state["allow_timesync"]:
+        return None
+    bad = {u: v for u, v in state["timesync_state"].items()
+           if v in ACTIVE_STATES or v.startswith("error")}
+    if bad:
+        return (f"time-sync service state {bad}: a running NTP client steps and slews the clock "
+                "(PAPER_CONTEXT §13). Stop it, or set ALLOW_TIMESYNC=1 to override.")
+    return None
+
+
+def apt_warning(state):
+    act = [u for u, v in state["apt_timers"].items() if v in ACTIVE_STATES]
+    return f"WARNING: {', '.join(act)} active (background apt runs may disturb a run)" if act else None
+
+
+def detect_clock_step(offsets, threshold_ms=CLOCK_STEP_THRESHOLD_MS):
+    """(detected, step_ms) for a sequence of wall - monotonic offsets in seconds.
+
+    step_ms = max - min of the offsets; detected when it exceeds threshold_ms."""
+    vals = [o for o in offsets if o is not None]
+    if len(vals) < 2:
+        return False, 0.0
+    step_ms = (max(vals) - min(vals)) * 1000
+    return step_ms > threshold_ms, step_ms
+
+
+def monitor_offsets(path):
+    rows = []
+    if os.path.exists(path):
+        with open(path, newline="", encoding="utf-8") as f:
+            rows = [float(r["wall_minus_mono_s"]) for r in csv.DictReader(f)]
+    return rows
+
+
+def idle_memory(resources_path, locust_start_mono, lead_s=MONITOR_LEAD_S):
+    """Median RSS and USS of the samples in [locust_start - lead, locust_start)."""
+    rss, uss = [], []
+    with open(resources_path, newline="", encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            if locust_start_mono - lead_s <= float(r["mono"]) < locust_start_mono:
+                rss.append(float(r["rss_mb"]))
+                uss.append(float(r["uss_mb"]))
+    if not rss:
+        return None, None, 0
+    return statistics.median(rss), statistics.median(uss), len(rss)
+
+
+def idle_reference(prefix, run):
+    """(run, idle_rss_mb, idle_uss_mb) of the lowest-numbered complete run of this configuration."""
+    base = re.sub(r"_run\d+$", "", prefix)
+    best = None
+    for path in glob.glob(base + "_run*_meta.json"):
+        try:
+            with open(path, encoding="utf-8") as f:
+                m = json.load(f)
+        except (OSError, ValueError):
+            continue
+        if m.get("status") != "complete" or m.get("run") == run or m.get("idle_rss_mb") is None:
+            continue
+        if best is None or m["run"] < best[0]:
+            best = (m["run"], m["idle_rss_mb"], m["idle_uss_mb"])
+    return best
+
+
+def proc_cpu_s(pid):
+    try:
+        t = psutil.Process(pid).cpu_times()
+        return t.user + t.system
+    except (psutil.NoSuchProcess, psutil.AccessDenied):
+        return None
 
 
 # ---------------------------------------------------------------- estimate
@@ -262,6 +412,9 @@ def main():
     ap.add_argument("--mode", choices=["sim", "real"], default="sim")
     ap.add_argument("--monitor-interval", type=float, default=float(os.environ.get("MONITOR_INTERVAL", "0.25")))
     ap.add_argument("--estimate-only", action="store_true")
+    ap.add_argument("--redo-clock-steps", action="store_true",
+                    help="treat runs with clock_step_detected, clock_rate_unstable or clock_rate_off_nominal "
+                         "as incomplete (delete and redo them)")
     a = ap.parse_args()
 
     frameworks = [x for x in a.frameworks.split(",") if x]
@@ -294,6 +447,13 @@ def main():
     dirty = sh(["git", "status", "--porcelain", "--untracked-files=no"]).stdout.strip()
     if dirty:
         sys.exit(f"Refusing to start: tracked files have uncommitted changes:\n{dirty}")
+    clock_state = clock_preflight()
+    problem = timesync_problem(clock_state)
+    if problem:
+        sys.exit(f"Refusing to start: {problem}")
+    print(f"clock preflight: {clock_state}")
+    if apt_warning(clock_state):
+        print(apt_warning(clock_state))
     git_sha = sh(["git", "rev-parse", "HEAD"]).stdout.strip()
     cal_sha = sha256_file(CALIBRATION)
     freeze = sh([PY, "-m", "pip", "freeze"]).stdout
@@ -324,7 +484,7 @@ def main():
                         out_dir = os.path.join(out_root, fw, ep)
                         os.makedirs(out_dir, exist_ok=True)
                         prefix = os.path.join(out_dir, f"c{c}_run{r}")
-                        if run_complete(prefix, ep):
+                        if run_complete(prefix, ep, a.mode, a.redo_clock_steps):
                             print(f"skip {fw}/{ep}/c{c}/run{r}: complete")
                             continue
                         for stale in glob.glob(prefix + "_*"):
@@ -347,21 +507,32 @@ def main():
 def run_one(fw, ep, c, r, prefix, a, duration_s, s_ep, sim, git_sha, cal_sha, freeze_sha, rest_mode):
     label = f"{fw}/{ep}/c{c}/run{r}"
     print(f"=== {label} {datetime.datetime.now():%H:%M:%S}")
+    start_anchor = anchor()
     meta = {
         "status": "started", "framework": fw, "endpoint": ep, "concurrency": c, "run": r,
         "mode": a.mode, "git_sha": git_sha, "calibration_v2_sha256": cal_sha, "pip_freeze_sha256": freeze_sha,
         "python": platform.python_version(), "platform": platform.platform(),
         "nproc": len(os.sched_getaffinity(0)), "rest_mode": rest_mode, "duration_s": duration_s,
-        "monitor_interval_s": a.monitor_interval, "run_start_ts": time.time(),
+        "monitor_interval_s": a.monitor_interval, "run_start_ts": start_anchor["wall"],
+        "run_start_mono": start_anchor["mono"], "anchor_start": start_anchor,
     }
     vm = psutil.virtual_memory()
     meta["mem_available_mb_at_start"] = round(vm.available / 2**20, 1)
     meta["mem_total_mb"] = round(vm.total / 2**20, 1)
     meta["loadavg_at_start"] = os.getloadavg()
+    clock_state = clock_preflight()
+    meta.update(clock_state)
+    if apt_warning(clock_state):
+        print("    " + apt_warning(clock_state))
 
-    server = monitor = None
+    server = monitor = sim_monitor = None
+    samples = {"start": None, "mid": None, "end": None}
+    cpu_marks = {}
     env = base_env(a.mode)
     try:
+        problem = timesync_problem(clock_state)
+        if problem:
+            raise RuntimeError(problem)
         if sim is not None:
             h = wait_health(SIM_URL + "/health", timeout=5)
             if not h or sim.poll() is not None:
@@ -379,6 +550,7 @@ def run_one(fw, ep, c, r, prefix, a, duration_s, s_ep, sim, git_sha, cal_sha, fr
         if not wait_health(HOST + "/health"):
             raise RuntimeError("server /health did not respond")
         meta["server_ready_ts"] = time.time()
+        meta["server_ready_mono"] = time.monotonic()
 
         meta["warmup"] = warmup(ep)
         if any(w["status"] != 200 for w in meta["warmup"]):
@@ -392,36 +564,109 @@ def run_one(fw, ep, c, r, prefix, a, duration_s, s_ep, sim, git_sha, cal_sha, fr
             mon_cmd.append("--tree")
         meta["monitor_cmd"] = mon_cmd
         monitor = subprocess.Popen(mon_cmd, cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        if sim is not None:
+            sim_cmd = [PY, "monitoring/resource_monitor_v2.py", "--pid", str(sim.pid),
+                       "--output", prefix + "_sim_monitor.csv", "--interval", str(a.monitor_interval)]
+            meta["sim_monitor_cmd"] = sim_cmd
+            sim_monitor = subprocess.Popen(sim_cmd, cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         time.sleep(MONITOR_LEAD_S)
 
         rate = spawn_rate(c, s_ep[ep])
         locust_cmd = [PY, "-m", "locust", "-f", f"{LOCUST_FILE[ep]},locust_tests/request_log.py",
                       "--headless", "-u", str(c), "-r", str(rate), "-t", a.duration,
                       "--host", HOST, "--csv", prefix]
-        meta.update({"spawn_rate": rate, "service_time_s": s_ep[ep], "uniform_spawn": True,
-                     "locust_cmd": locust_cmd, "locust_start_ts": time.time()})
         lenv = dict(env, UNIFORM_SPAWN="1")
+        samples["start"] = hostclock.sample()
+        cpu_marks["start"] = {k: proc_cpu_s(p.pid) for k, p in (("monitor", monitor), ("sim_monitor", sim_monitor))
+                              if p is not None}
+        meta.update({"spawn_rate": rate, "service_time_s": s_ep[ep], "uniform_spawn": True,
+                     "locust_cmd": locust_cmd, "locust_start_ts": time.time(), "locust_start_mono": time.monotonic()})
         with open(prefix + "_locust.log", "w") as log:
-            rc = subprocess.run(locust_cmd, cwd=ROOT, env=lenv, stdout=log, stderr=subprocess.STDOUT,
-                                timeout=duration_s + 120).returncode
+            locust = subprocess.Popen(locust_cmd, cwd=ROOT, env=lenv, stdout=log, stderr=subprocess.STDOUT)
+            deadline = meta["locust_start_mono"] + duration_s + 120
+            try:
+                try:  # sleep until the midpoint of the Locust run (returns early if Locust exits)
+                    locust.wait(max(0.0, meta["locust_start_mono"] + duration_s / 2 - time.monotonic()))
+                except subprocess.TimeoutExpired:
+                    samples["mid"] = hostclock.sample()
+                rc = locust.wait(max(0.0, deadline - time.monotonic()))
+            except subprocess.TimeoutExpired:
+                locust.kill()
+                locust.wait()
+                raise
         meta["locust_end_ts"] = time.time()
+        meta["locust_end_mono"] = time.monotonic()
+        cpu_marks["end"] = {k: proc_cpu_s(p.pid) for k, p in (("monitor", monitor), ("sim_monitor", sim_monitor))
+                            if p is not None}
+        samples["end"] = hostclock.sample()
         meta["locust_returncode"] = rc
     finally:
-        if monitor is not None and monitor.poll() is None:
-            monitor.send_signal(signal.SIGTERM)
-            try:
-                monitor.wait(10)
-            except subprocess.TimeoutExpired:
-                monitor.kill()
+        for p in (monitor, sim_monitor):
+            if p is not None and p.poll() is None:
+                p.send_signal(signal.SIGTERM)
+                try:
+                    p.wait(10)
+                except subprocess.TimeoutExpired:
+                    p.kill()
         stop_proc(server)
-        meta["run_end_ts"] = time.time()
-        missing = [p for p in expected_files(prefix, ep) if not os.path.exists(p)]
+        end_anchor = anchor()
+        meta["run_end_ts"] = end_anchor["wall"]
+        meta["run_end_mono"] = end_anchor["mono"]
+        meta["anchor_end"] = end_anchor
+        finish_meta(meta, prefix, r, samples, cpu_marks, start_anchor, end_anchor)
+        missing = [p for p in expected_files(prefix, ep, a.mode) if not os.path.exists(p)]
         meta["missing_files"] = [os.path.basename(p) for p in missing]
         if "locust_returncode" in meta and not missing:
             meta["status"] = "complete"
         with open(prefix + "_meta.json", "w", encoding="utf-8") as f:
             json.dump(meta, f, indent=2)
-        print(f"    {label}: {meta['status']}" + (f", missing {meta['missing_files']}" if missing else ""))
+        flags = clock_flagged(meta)
+        print(f"    {label}: {meta['status']}" + (f", missing {meta['missing_files']}" if missing else "")
+              + f", clock_rate_ratio {meta.get('clock_rate_ratio')}, clock_step_ms {meta.get('clock_step_ms')}"
+              + (f", CLOCK FLAGS {flags}" if flags else "")
+              + (f", IDLE DRIFT {meta.get('idle_rss_diff_mb')} / {meta.get('idle_uss_diff_mb')} MB"
+                 if meta.get("idle_drift") else ""))
+
+
+def finish_meta(meta, prefix, run, samples, cpu_marks, start_anchor, end_anchor):
+    """Clock step, clock rate, monitor CPU and idle memory. Each part records null on failure."""
+    offs = [start_anchor["wall"] - start_anchor["mono"], end_anchor["wall"] - end_anchor["mono"]]
+    try:
+        offs += monitor_offsets(prefix + "_resources.csv") + monitor_offsets(prefix + "_sim_monitor.csv")
+        detected, step_ms = detect_clock_step(offs)
+        meta["clock_step_detected"], meta["clock_step_ms"] = detected, round(step_ms, 3)
+        meta["clock_offset_samples"] = len(offs)
+    except Exception as e:  # noqa: BLE001
+        meta["clock_step_detected"] = meta["clock_step_ms"] = None
+        meta["clock_step_error"] = repr(e)
+
+    meta["clock_sample_start"], meta["clock_sample_mid"], meta["clock_sample_end"] = (
+        samples["start"], samples["mid"], samples["end"])
+    meta.update(hostclock.rate(samples["start"], samples["mid"], samples["end"]))
+
+    window = (meta.get("locust_end_mono") or 0) - (meta.get("locust_start_mono") or 0)
+    for k in ("monitor", "sim_monitor"):
+        s0, s1 = cpu_marks.get("start", {}).get(k), cpu_marks.get("end", {}).get(k)
+        meta[f"{k}_cpu_pct"] = (round((s1 - s0) / window * 100, 3)
+                                if s0 is not None and s1 is not None and window > 0 else None)
+
+    meta["idle_rss_mb"] = meta["idle_uss_mb"] = meta["idle_drift"] = None
+    try:
+        if meta.get("locust_start_mono") is not None:
+            rss, uss, n = idle_memory(prefix + "_resources.csv", meta["locust_start_mono"])
+            meta["idle_rss_mb"], meta["idle_uss_mb"], meta["idle_samples"] = rss, uss, n
+            ref = idle_reference(prefix, run)
+            if rss is not None:
+                if ref is None:
+                    meta["idle_reference_run"], meta["idle_rss_diff_mb"], meta["idle_uss_diff_mb"] = run, 0.0, 0.0
+                else:
+                    meta["idle_reference_run"] = ref[0]
+                    meta["idle_rss_diff_mb"] = round(rss - ref[1], 3)
+                    meta["idle_uss_diff_mb"] = round(uss - ref[2], 3)
+                meta["idle_drift"] = (abs(meta["idle_rss_diff_mb"]) > IDLE_DRIFT_MB
+                                      or abs(meta["idle_uss_diff_mb"]) > IDLE_DRIFT_MB)
+    except Exception as e:  # noqa: BLE001
+        meta["idle_error"] = repr(e)
 
 
 if __name__ == "__main__":
