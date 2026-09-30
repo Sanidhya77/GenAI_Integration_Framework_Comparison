@@ -17,6 +17,15 @@ authors:
     given-names: Padmaraj
     affiliation: Riga Technical University
 version: "2.0"
+doi: 10.5281/zenodo.23062472
+date-released: "2026-09-30"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23062472
+    description: "Version DOI of the v2.0 release on Zenodo"
+  - type: doi
+    value: 10.5281/zenodo.23062471
+    description: "Concept DOI on Zenodo (all versions, resolves to the latest)"
 license: MIT
 repository-code: "https://github.com/Sanidhya77/GenAI_Integration_Framework_Comparison"
 keywords:

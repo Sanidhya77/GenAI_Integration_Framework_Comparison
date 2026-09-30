@@ -1,5 +1,7 @@
 # Benchmarking Python Web Frameworks under Generative AI Workloads
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23062471.svg)](https://doi.org/10.5281/zenodo.23062471)
+
 Code and data for the paper **"Benchmarking Python Web Frameworks under Generative AI Workloads: A Comparison of Synchronous and Asynchronous Architectures"** by Sanidhya Thakur and Padmaraj Nidagundi (Riga Technical University).
 
 Licences: code under the MIT License ([LICENSE](LICENSE)); data and analysis outputs under CC BY 4.0 ([LICENSE-DATA](LICENSE-DATA)).
@@ -218,7 +220,7 @@ python monitoring/resource_monitor.py --pid <SERVER_PID> --output data/flask/inf
 Please cite the paper, and the software and data record if you use the code or the data.
 
 - Paper: Sanidhya Thakur and Padmaraj Nidagundi. *Benchmarking Python Web Frameworks under Generative AI Workloads: A Comparison of Synchronous and Asynchronous Architectures.* arXiv:TODO, 2026.
-- Software and data: Sanidhya Thakur and Padmaraj Nidagundi. *Benchmarking Python Web Frameworks under Generative AI Workloads: benchmark code and data*, version 2.0. Zenodo, 2026. DOI: TODO.
+- Software and data: Sanidhya Thakur and Padmaraj Nidagundi. *Benchmarking Python Web Frameworks under Generative AI Workloads: benchmark code and data*, version 2.0. Zenodo, 2026. DOI: [10.5281/zenodo.23062472](https://doi.org/10.5281/zenodo.23062472). The concept DOI [10.5281/zenodo.23062471](https://doi.org/10.5281/zenodo.23062471) covers all versions and resolves to the latest one (the badge above).
 
 ```bibtex
 @misc{thakur2026benchmarking,
@@ -235,7 +237,7 @@ Please cite the paper, and the software and data record if you use the code or t
   version   = {2.0},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {TODO},
+  doi       = {10.5281/zenodo.23062472},
   url       = {https://github.com/Sanidhya77/GenAI_Integration_Framework_Comparison}
 }
 ```
