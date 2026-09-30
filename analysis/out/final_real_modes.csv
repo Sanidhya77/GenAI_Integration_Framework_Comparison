@@ -1,0 +1,67 @@
+phase,framework,endpoint,concurrency,run,mode,n,latency_median,latency_p95
+A,fastapi,inference,1,1,1190 B,5,3671.645,3699.053
+A,fastapi,inference,1,1,other,12,3173.612,3486.8216999999995
+A,fastapi,inference,1,2,1190 B,16,3656.2185,3736.59825
+A,fastapi,inference,1,2,other,0,,
+A,fastapi,inference,1,3,1190 B,0,,
+A,fastapi,inference,1,3,other,17,3256.388,3697.0173999999997
+A,fastapi,inference,25,1,1190 B,0,,
+A,fastapi,inference,25,1,other,365,3153.831,7194.330000000007
+A,fastapi,inference,25,2,1190 B,393,3557.883,3780.1708
+A,fastapi,inference,25,2,other,0,,
+A,fastapi,inference,25,3,1190 B,396,3557.978,3787.4359999999997
+A,fastapi,inference,25,3,other,0,,
+B,fastapi,stream,1,1,101 chunks,13,3556.297,3582.488
+B,fastapi,stream,1,1,16-100 chunks,4,3135.202,3220.5811
+B,fastapi,stream,1,1,<=15 chunks,0,,
+B,fastapi,stream,1,2,101 chunks,0,,
+B,fastapi,stream,1,2,16-100 chunks,17,3140.314,4954.393199999998
+B,fastapi,stream,1,2,<=15 chunks,0,,
+B,fastapi,stream,1,3,101 chunks,7,3575.574,3926.6925
+B,fastapi,stream,1,3,16-100 chunks,10,3146.857,3370.57675
+B,fastapi,stream,1,3,<=15 chunks,0,,
+B,fastapi,stream,25,1,101 chunks,129,3681.6,3965.4791999999998
+B,fastapi,stream,25,1,16-100 chunks,296,3094.0035,3508.87675
+B,fastapi,stream,25,1,<=15 chunks,2,3233.4545,3263.8389500000003
+B,fastapi,stream,25,2,101 chunks,0,,
+B,fastapi,stream,25,2,16-100 chunks,434,3096.9615,3605.4912000000004
+B,fastapi,stream,25,2,<=15 chunks,3,3378.624,4492.1175
+B,fastapi,stream,25,3,101 chunks,319,3546.715,3913.2919
+B,fastapi,stream,25,3,16-100 chunks,77,3132.176,3634.1834
+B,fastapi,stream,25,3,<=15 chunks,2,3961.4390000000003,3999.3101
+C,flask,stream,1,1,101 chunks,16,3533.636,3591.1825
+C,flask,stream,1,1,16-100 chunks,0,,
+C,flask,stream,1,1,<=15 chunks,0,,
+C,flask,stream,1,2,101 chunks,16,3527.041,4064.2177500000003
+C,flask,stream,1,2,16-100 chunks,0,,
+C,flask,stream,1,2,<=15 chunks,0,,
+C,flask,stream,1,3,101 chunks,16,3542.7635,3690.9610000000002
+C,flask,stream,1,3,16-100 chunks,0,,
+C,flask,stream,1,3,<=15 chunks,0,,
+C,django,stream,1,1,101 chunks,14,3514.2385,4025.4451999999997
+C,django,stream,1,1,16-100 chunks,0,,
+C,django,stream,1,1,<=15 chunks,2,3667.147,3716.2807
+C,django,stream,1,2,101 chunks,16,3524.7844999999998,3619.9357499999996
+C,django,stream,1,2,16-100 chunks,0,,
+C,django,stream,1,2,<=15 chunks,0,,
+C,django,stream,1,3,101 chunks,16,3528.56,3722.22725
+C,django,stream,1,3,16-100 chunks,0,,
+C,django,stream,1,3,<=15 chunks,0,,
+C,fastapi,stream,1,1,101 chunks,15,3557.279,3709.0930000000003
+C,fastapi,stream,1,1,16-100 chunks,0,,
+C,fastapi,stream,1,1,<=15 chunks,1,3763.685,3763.685
+C,fastapi,stream,1,2,101 chunks,16,3526.8615,3665.6552500000003
+C,fastapi,stream,1,2,16-100 chunks,0,,
+C,fastapi,stream,1,2,<=15 chunks,0,,
+C,fastapi,stream,1,3,101 chunks,16,3538.8289999999997,3669.44575
+C,fastapi,stream,1,3,16-100 chunks,0,,
+C,fastapi,stream,1,3,<=15 chunks,0,,
+C,tornado,stream,1,1,101 chunks,14,3545.24,4097.59745
+C,tornado,stream,1,1,16-100 chunks,0,,
+C,tornado,stream,1,1,<=15 chunks,2,3953.0235000000002,4037.4583500000003
+C,tornado,stream,1,2,101 chunks,16,3544.2815,3748.0995
+C,tornado,stream,1,2,16-100 chunks,0,,
+C,tornado,stream,1,2,<=15 chunks,0,,
+C,tornado,stream,1,3,101 chunks,16,3526.198,3631.14
+C,tornado,stream,1,3,16-100 chunks,0,,
+C,tornado,stream,1,3,<=15 chunks,0,,

@@ -1,0 +1,170 @@
+{
+  "status": "complete",
+  "framework": "flask",
+  "endpoint": "stream",
+  "concurrency": 1,
+  "run": 2,
+  "mode": "real",
+  "git_sha": "ada7ab16b70a67c57c21c4235d95c1270f00236b",
+  "calibration_v2_sha256": "a5b54888dc4b21650bb46a11e4804510b39e8f7dd795272284eaeee3cc22340e",
+  "pip_freeze_sha256": "785c031a2b025739aa42b0603c5b66bedb1b531ba24df3ec6de7f03b0fbdd523",
+  "python": "3.12.3",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "nproc": 8,
+  "rest_mode": "short",
+  "duration_s": 60,
+  "monitor_interval_s": 0.25,
+  "run_start_ts": 1790613911.390015,
+  "run_start_mono": 2266.326202445,
+  "anchor_start": {
+    "wall": 1790613911.390015,
+    "mono": 2266.326202445
+  },
+  "mem_available_mb_at_start": 7454.0,
+  "mem_total_mb": 7942.2,
+  "loadavg_at_start": [
+    0.01220703125,
+    0.04296875,
+    0.05419921875
+  ],
+  "timesync_state": {
+    "systemd-timesyncd": "inactive",
+    "chronyd": "inactive",
+    "ntp": "inactive"
+  },
+  "clocksource": "tsc",
+  "apt_timers": {
+    "apt-daily.timer": "inactive",
+    "apt-daily-upgrade.timer": "inactive"
+  },
+  "allow_timesync": false,
+  "server_cmd": [
+    "/home/sanidhya/experiment/venv/bin/python",
+    "-m",
+    "gunicorn",
+    "-c",
+    "flask_app/gunicorn_config.py",
+    "flask_app.app:app"
+  ],
+  "server_cwd": ".",
+  "server_env": {
+    "SIMULATE": "0",
+    "ALLOW_REAL_API": "1"
+  },
+  "server_pid": 743,
+  "server_ready_ts": 1790613912.4603653,
+  "server_ready_mono": 2267.396554204,
+  "warmup": [
+    {
+      "status": 200,
+      "seconds": 7.1096
+    },
+    {
+      "status": 200,
+      "seconds": 3.5808
+    },
+    {
+      "status": 200,
+      "seconds": 3.5165
+    }
+  ],
+  "monitored_pid": 744,
+  "worker_pids": [
+    744
+  ],
+  "monitor_tree": false,
+  "monitor_cmd": [
+    "/home/sanidhya/experiment/venv/bin/python",
+    "monitoring/resource_monitor_v2.py",
+    "--pid",
+    "744",
+    "--output",
+    "/home/sanidhya/experiment/data_v2_real/phase_c/flask/stream/c1_run2_resources.csv",
+    "--interval",
+    "0.25"
+  ],
+  "spawn_rate": 1.0,
+  "service_time_s": 2.7804,
+  "uniform_spawn": true,
+  "locust_cmd": [
+    "/home/sanidhya/experiment/venv/bin/python",
+    "-m",
+    "locust",
+    "-f",
+    "locust_tests/test_stream.py,locust_tests/request_log.py",
+    "--headless",
+    "-u",
+    "1",
+    "-r",
+    "1.0",
+    "-t",
+    "60s",
+    "--host",
+    "http://localhost:8000",
+    "--csv",
+    "/home/sanidhya/experiment/data_v2_real/phase_c/flask/stream/c1_run2"
+  ],
+  "locust_start_ts": 1790613928.6939385,
+  "locust_start_mono": 2283.630126893,
+  "locust_end_ts": 1790613989.0671136,
+  "locust_end_mono": 2344.003310409,
+  "locust_returncode": 0,
+  "run_end_ts": 1790613989.5282145,
+  "run_end_mono": 2344.4644018335002,
+  "anchor_end": {
+    "wall": 1790613989.5282145,
+    "mono": 2344.4644018335002
+  },
+  "clock_step_detected": false,
+  "clock_step_ms": 0.001,
+  "clock_offset_samples": 253,
+  "clock_sample_start": {
+    "mono_before": 2283.623751458,
+    "mono_after": 2283.628180237,
+    "mono_mid": 2283.6259658475,
+    "host_ts": 1790613928.684439,
+    "latency_s": 0.004428779000136274
+  },
+  "clock_sample_mid": {
+    "mono_before": 2313.651149885,
+    "mono_after": 2313.656645582,
+    "mono_mid": 2313.6538977335,
+    "host_ts": 1790613958.711252,
+    "latency_s": 0.005495696999787469
+  },
+  "clock_sample_end": {
+    "mono_before": 2344.016726822,
+    "mono_after": 2344.021923935,
+    "mono_mid": 2344.0193253785,
+    "host_ts": 1790613989.0758646,
+    "latency_s": 0.0051971130001220445
+  },
+  "clock_rate_ratio": 1.0000320231124178,
+  "clock_rate_uncertainty": 0.0006095723958913168,
+  "clock_rate_ratio_first_half": 1.0000372618884248,
+  "clock_rate_ratio_second_half": 1.0000268426166266,
+  "clock_rate_half_diff": 1.041927179823432e-05,
+  "clock_rate_unstable": false,
+  "clock_rate_off_nominal": false,
+  "monitor_cpu_pct": 0.58,
+  "sim_monitor_cpu_pct": null,
+  "idle_rss_mb": 58.31,
+  "idle_uss_mb": 44.12,
+  "idle_drift": false,
+  "idle_samples": 8,
+  "idle_reference_run": 1,
+  "idle_rss_diff_mb": 0.02,
+  "idle_uss_diff_mb": 0.0,
+  "missing_files": [],
+  "anthropic_log": "info",
+  "retry_scan": {
+    "retry_lines": 0,
+    "http_status_counts": {
+      "200": 20
+    },
+    "http_429": 0,
+    "http_5xx": 0,
+    "http_responses_logged": 20
+  },
+  "phase": "C"
+}

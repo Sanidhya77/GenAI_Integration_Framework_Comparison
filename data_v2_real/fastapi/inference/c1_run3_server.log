@@ -1,0 +1,50 @@
+INFO:     Started server process [504]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:43824 - "GET /health HTTP/1.1" 200 OK
+[2026-09-28 16:15:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:43826 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:43034 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:25 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:43042 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:34 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:37 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:40 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:43 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:47 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:50 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:54 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:15:57 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:16:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:16:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:16:07 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:16:10 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:16:13 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:16:17 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:16:21 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:16:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:49648 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:16:27 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [504]

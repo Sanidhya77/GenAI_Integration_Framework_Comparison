@@ -1,0 +1,24 @@
+6 runs in 4 configurations -> results_v2_smoke/freeze/ (uncorrected; *_clockcorrected.csv also written)
+Rule: stream connection success = HTTP 200 AND 12 content chunks AND done event seen (test_stream.py raises on a non-200 status before reading the body, so done seen implies 200; a stream failing any condition counts as failed)
+Rule: pipeline completion = HTTP 200 AND all 4 stage timings present in the response (stages_logged = 4)
+  fastapi   pipeline  c100 runs=1 X=35.988 share(rate)=0.995 p50=2775ms consistency=1.000 err=0.00% pcr=100.0% cens_frac=0.09 censored_runs=0 clock=1.00001
+  flask     pipeline  c10  runs=3 X=0.430 share(rate)=0.996 p50=7767ms consistency=0.325 err=0.00% pcr=100.0% cens_frac=0.67 censored_runs=3 clock=0.99999
+  flask_mw  inference c25  runs=1 X=5.967 share(rate)=1.009 p50=3804ms consistency=0.987 err=0.00% cens_frac=0.26 censored_runs=0 clock=1.00001
+  tornado   pipeline  c100 runs=1 X=35.960 share(rate)=0.995 p50=2775ms consistency=1.000 err=0.00% pcr=100.0% cens_frac=0.09 censored_runs=0 clock=1.00003
+clock_rate_ratio over 6 runs: mean 1.00001, min 0.99996, max 1.00010
+rc=0
+0 flagged run(s); redo with scripts/run_matrix.py --redo-clock-steps
+### validate_sim
+usage: validate_sim.py [-h] [--sim SIM] [--real REAL] [--out OUT]
+
+options:
+  -h, --help   show this help message and exit
+  --sim SIM
+framework endpoint    c metric                    sim       real   delta%  flag
+flask     pipeline   10 mean_latency_ms      7767.218  22875.432   -66.05  FLAG
+flask     pipeline   10 median_latency_ms    7766.611    28000.0   -72.26  FLAG
+flask     pipeline   10 p95_latency_ms      12260.803    31000.0   -60.45  tail
+flask     pipeline   10 stage2_ms              50.435      50.33     0.21  
+flask     pipeline   10 stage3_ms            2720.414    2780.49    -2.16  
+flask     pipeline   10 throughput_rps          0.361      0.336     7.26  FLAG
+6 comparisons, 3 medians more than 5 % apart -> results_v2_smoke/freeze/validation_sim_vs_real.csv

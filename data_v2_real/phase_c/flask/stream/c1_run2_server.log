@@ -1,0 +1,50 @@
+[2026-09-28 16:45:11 +0000] [743] [INFO] Starting gunicorn 25.3.0
+[2026-09-28 16:45:11 +0000] [743] [INFO] Listening at: http://0.0.0.0:8000 (743)
+[2026-09-28 16:45:11 +0000] [743] [INFO] Using worker: sync
+[2026-09-28 16:45:11 +0000] [744] [INFO] Booting worker with pid: 744
+[2026-09-28 16:45:11 +0000] [743] [INFO] Control socket listening at /run/user/1000/gunicorn.ctl
+127.0.0.1 - - [28/Sep/2026:16:45:12 +0000] "GET /health HTTP/1.1" 200 36 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:16 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:19 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:20 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:23 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:23 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:26 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:30 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:32 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:34 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:36 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:37 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:40 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:41 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:43 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:44 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:47 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:48 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:50 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:51 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:54 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:55 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:45:57 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:45:58 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:46:01 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:46:02 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:46:04 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:46:05 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:46:08 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:46:09 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:46:12 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:46:12 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:46:16 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:46:16 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:46:20 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:46:20 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:46:23 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:46:24 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:46:27 +0000] "POST /api/inference/stream HTTP/1.1" 200 4561 "-" "python-requests/2.33.1"
+[2026-09-28 16:46:27 - httpx:1025 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+127.0.0.1 - - [28/Sep/2026:16:46:29 +0000] "POST /api/inference/stream HTTP/1.1" 200 1845 "-" "python-requests/2.33.1"
+[2026-09-28 16:46:29 +0000] [743] [INFO] Handling signal: term
+[2026-09-28 16:46:29 +0000] [744] [INFO] Worker exiting (pid: 744)
+[2026-09-28 16:46:29 +0000] [743] [INFO] Worker (pid:744) was sent SIGTERM!
+[2026-09-28 16:46:29 +0000] [743] [INFO] Shutting down: Master

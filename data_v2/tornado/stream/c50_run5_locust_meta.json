@@ -1,0 +1,18 @@
+{
+  "spawn_rate": 17.983,
+  "uniform_spawn": true,
+  "first_user_start_ts": 1790482126.6462066,
+  "first_user_start_mono": 42170.251097973,
+  "stop_ts": 1790482186.4959967,
+  "stop_mono": 42230.100887126,
+  "users_started": 50,
+  "completed_rows": 1023,
+  "anchor_init": {
+    "wall": 1790482126.6440535,
+    "mono": 42170.248945496
+  },
+  "anchor_quit": {
+    "wall": 1790482186.5178115,
+    "mono": 42230.122703655
+  }
+}

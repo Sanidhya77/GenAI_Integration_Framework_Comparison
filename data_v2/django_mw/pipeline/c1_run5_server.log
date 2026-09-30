@@ -1,0 +1,81 @@
+[2026-09-27 18:42:17 +0000] [9293] [INFO] Starting gunicorn 25.3.0
+[2026-09-27 18:42:17 +0000] [9293] [INFO] Listening at: http://0.0.0.0:8000 (9293)
+[2026-09-27 18:42:17 +0000] [9293] [INFO] Using worker: sync
+[2026-09-27 18:42:17 +0000] [9294] [INFO] Booting worker with pid: 9294
+[2026-09-27 18:42:17 +0000] [9295] [INFO] Booting worker with pid: 9295
+[2026-09-27 18:42:17 +0000] [9296] [INFO] Booting worker with pid: 9296
+[2026-09-27 18:42:17 +0000] [9297] [INFO] Booting worker with pid: 9297
+[2026-09-27 18:42:17 +0000] [9298] [INFO] Booting worker with pid: 9298
+[2026-09-27 18:42:17 +0000] [9299] [INFO] Booting worker with pid: 9299
+[2026-09-27 18:42:17 +0000] [9300] [INFO] Booting worker with pid: 9300
+[2026-09-27 18:42:17 +0000] [9301] [INFO] Booting worker with pid: 9301
+[2026-09-27 18:42:17 +0000] [9302] [INFO] Booting worker with pid: 9302
+[2026-09-27 18:42:17 +0000] [9303] [INFO] Booting worker with pid: 9303
+[2026-09-27 18:42:17 +0000] [9304] [INFO] Booting worker with pid: 9304
+[2026-09-27 18:42:17 +0000] [9305] [INFO] Booting worker with pid: 9305
+[2026-09-27 18:42:17 +0000] [9306] [INFO] Booting worker with pid: 9306
+127.0.0.1 - - [27/Sep/2026:18:42:17 +0000] "GET /health HTTP/1.1" 200 39 "-" "python-requests/2.33.1"
+[2026-09-27 18:42:17 +0000] [9307] [INFO] Booting worker with pid: 9307
+[2026-09-27 18:42:17 +0000] [9309] [INFO] Booting worker with pid: 9309
+[2026-09-27 18:42:18 +0000] [9310] [INFO] Booting worker with pid: 9310
+[2026-09-27 18:42:18 +0000] [9311] [INFO] Booting worker with pid: 9311
+[2026-09-27 18:42:18 +0000] [9293] [INFO] Control socket listening at /run/user/1000/gunicorn.ctl
+127.0.0.1 - - [27/Sep/2026:18:42:20 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:23 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:26 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:31 +0000] "POST /api/pipeline HTTP/1.1" 200 1618 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:34 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:37 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:39 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:42 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:45 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:48 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:50 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:53 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:56 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:42:59 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:43:02 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:43:04 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:43:07 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:43:10 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:43:13 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:43:15 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:43:18 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:43:21 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:43:24 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:43:27 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+[2026-09-27 18:43:29 +0000] [9303] [INFO] Worker exiting (pid: 9303)
+[2026-09-27 18:43:29 +0000] [9311] [INFO] Worker exiting (pid: 9311)
+[2026-09-27 18:43:29 +0000] [9301] [INFO] Worker exiting (pid: 9301)
+[2026-09-27 18:43:29 +0000] [9302] [INFO] Worker exiting (pid: 9302)
+[2026-09-27 18:43:29 +0000] [9294] [INFO] Worker exiting (pid: 9294)
+[2026-09-27 18:43:29 +0000] [9299] [INFO] Worker exiting (pid: 9299)
+[2026-09-27 18:43:29 +0000] [9307] [INFO] Worker exiting (pid: 9307)
+[2026-09-27 18:43:29 +0000] [9310] [INFO] Worker exiting (pid: 9310)
+[2026-09-27 18:43:29 +0000] [9309] [INFO] Worker exiting (pid: 9309)
+[2026-09-27 18:43:29 +0000] [9305] [INFO] Worker exiting (pid: 9305)
+[2026-09-27 18:43:29 +0000] [9298] [INFO] Worker exiting (pid: 9298)
+[2026-09-27 18:43:29 +0000] [9304] [INFO] Worker exiting (pid: 9304)
+[2026-09-27 18:43:29 +0000] [9297] [INFO] Worker exiting (pid: 9297)
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Handling signal: term
+[2026-09-27 18:43:29 +0000] [9296] [INFO] Worker exiting (pid: 9296)
+[2026-09-27 18:43:29 +0000] [9295] [INFO] Worker exiting (pid: 9295)
+[2026-09-27 18:43:29 +0000] [9300] [INFO] Worker exiting (pid: 9300)
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9294) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9295) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9296) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9297) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9298) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9299) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9300) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9301) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9302) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9303) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9304) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9305) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9309) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9310) was sent SIGTERM!
+[2026-09-27 18:43:29 +0000] [9293] [INFO] Worker (pid:9311) was sent SIGTERM!
+127.0.0.1 - - [27/Sep/2026:18:43:29 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+[2026-09-27 18:43:29 +0000] [9306] [INFO] Worker exiting (pid: 9306)
+[2026-09-27 18:43:30 +0000] [9293] [INFO] Shutting down: Master
