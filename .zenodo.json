@@ -1,0 +1,23 @@
+{
+  "upload_type": "software",
+  "title": "Benchmarking Python Web Frameworks under Generative AI Workloads: benchmark code and data",
+  "creators": [
+    {"name": "Thakur, Sanidhya", "affiliation": "Riga Technical University"},
+    {"name": "Nidagundi, Padmaraj", "affiliation": "Riga Technical University"}
+  ],
+  "description": "<p>Benchmark harness and data for the paper \"Benchmarking Python Web Frameworks under Generative AI Workloads: A Comparison of Synchronous and Asynchronous Architectures\". Flask and Django (Gunicorn sync, 1 and 17 workers), FastAPI (Uvicorn) and Tornado serve blocking, SSE streaming and RAG-style pipeline endpoints in front of a calibrated simulator of the Anthropic Messages API, at 1 to 100 concurrent users with 5 runs per configuration, plus a validation against the live API. Code is MIT licensed; the data in data_v2/, data_v2_real/, results_v2/, analysis/out/, data/ and results/ are licensed CC BY 4.0 (see LICENSE-DATA).</p>",
+  "license": "MIT",
+  "keywords": [
+    "benchmark",
+    "web frameworks",
+    "Python",
+    "Flask",
+    "Django",
+    "FastAPI",
+    "Tornado",
+    "asynchronous",
+    "large language models",
+    "generative AI",
+    "performance evaluation"
+  ]
+}

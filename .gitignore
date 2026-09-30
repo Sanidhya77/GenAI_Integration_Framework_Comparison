@@ -1,8 +1,10 @@
 # Virtual environment
 venv/
+.venv/
 
 # API keys
 .env
+*.env
 
 # Python bytecode
 __pycache__/
@@ -32,6 +34,10 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
 # v2 smoke-test outputs (not part of the rerun data)
 data_v2_smoke/
 results_v2_smoke/

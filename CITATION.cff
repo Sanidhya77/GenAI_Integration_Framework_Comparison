@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the paper (preferred-citation) and this software record."
+type: software
+title: "Benchmarking Python Web Frameworks under Generative AI Workloads: benchmark code and data"
+abstract: >-
+  Controlled benchmark of Flask and Django (Gunicorn sync, 1 and 17 workers),
+  FastAPI (Uvicorn) and Tornado as the web layer in front of a hosted LLM API,
+  with blocking, SSE streaming and RAG-style pipeline endpoints at 1 to 100
+  concurrent users and 5 runs per configuration. Includes the harness, a
+  calibrated simulator of the Anthropic Messages API, the raw per-run data, a
+  real-API validation and the analysis scripts.
+authors:
+  - family-names: Thakur
+    given-names: Sanidhya
+    affiliation: Riga Technical University
+  - family-names: Nidagundi
+    given-names: Padmaraj
+    affiliation: Riga Technical University
+version: "2.0"
+license: MIT
+repository-code: "https://github.com/Sanidhya77/GenAI_Integration_Framework_Comparision"
+keywords:
+  - benchmark
+  - web frameworks
+  - Python
+  - Flask
+  - Django
+  - FastAPI
+  - Tornado
+  - asynchronous
+  - large language models
+  - generative AI
+  - performance evaluation
+preferred-citation:
+  type: article
+  title: "Benchmarking Python Web Frameworks under Generative AI Workloads: A Comparison of Synchronous and Asynchronous Architectures"
+  authors:
+    - family-names: Thakur
+      given-names: Sanidhya
+      affiliation: Riga Technical University
+    - family-names: Nidagundi
+      given-names: Padmaraj
+      affiliation: Riga Technical University
+  year: 2026
+  # TODO: add the arXiv identifier (and url: "https://arxiv.org/abs/<id>") once the preprint is public
+  notes: "arXiv preprint, identifier TODO"
