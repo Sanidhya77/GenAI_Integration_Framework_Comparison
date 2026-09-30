@@ -1,0 +1,910 @@
+INFO:     Started server process [611]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:47720 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47728 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:47732 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37524 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:40 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38158 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38162 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38168 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38184 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38192 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38194 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38210 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38222 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38226 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:47 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38242 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38256 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:47 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:47 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38264 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38280 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38286 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:47 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:47 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38288 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38304 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38310 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:47 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:48 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:48 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38318 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38320 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:48 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38328 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:48 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:48 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38338 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38340 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:48 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38348 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:48 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38360 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:48 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38366 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:48 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:49 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:49 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:49 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:49 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:49 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:49 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:49 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38368 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:49 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:49 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:50 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38372 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38376 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38386 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38392 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38406 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38422 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38438 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:50 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38440 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38454 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:51 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38466 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:51 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38472 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38482 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:51 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:51 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38498 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38510 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:51 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:51 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:51 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38520 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38526 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38532 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:51 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38542 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:52 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:52 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38552 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:52 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:52 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:52 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38564 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:52 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38580 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38586 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38594 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:52 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38608 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:52 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:52 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:53 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:53 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:53 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:53 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:53 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:53 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38610 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:53 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38618 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38630 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38632 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38636 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38650 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38652 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38662 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:54 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38672 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38680 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:54 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38696 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:54 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38710 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:55 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38724 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38732 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:55 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:55 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38748 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:55 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:55 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38754 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:55 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38756 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:55 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38758 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38774 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:55 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:55 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:38782 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:55 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:56 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57868 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57872 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:56 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:56 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57882 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:56 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57884 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57888 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:56 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:56 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:56 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:56 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:57 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:57 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:57 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:57 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57902 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57916 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57922 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57936 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57942 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57956 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57972 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57980 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57994 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:58 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:58 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:58 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58010 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58014 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58030 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:58 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58036 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:58 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:58 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:58 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58044 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58054 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:59 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58058 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:59 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58072 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:59 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58088 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58094 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:59 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:59 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:30:59 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58110 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:59 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58122 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:59 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58126 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:30:59 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58138 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58144 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58152 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58158 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58166 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58170 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58174 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58186 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58190 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58192 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:02 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:02 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:02 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58206 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:02 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58222 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58236 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58246 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58262 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:02 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:02 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58272 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:02 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58276 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:02 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58282 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58292 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58304 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58310 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58312 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58328 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58334 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58338 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58352 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58360 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:04 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:04 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:04 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:04 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:04 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:04 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58362 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58370 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58376 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58378 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58390 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58404 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58418 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58432 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58446 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58458 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:05 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:05 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:05 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58474 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:05 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:05 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58480 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58496 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:05 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58508 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58524 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:05 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:44848 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:06 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:06 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:06 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:06 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:44854 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44862 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:06 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:06 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:06 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:06 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:44874 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44882 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44890 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44898 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:07 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:44904 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:07 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:44918 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44924 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:07 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:07 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:07 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:07 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:07 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:44940 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44946 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44948 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44962 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44964 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:08 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:44970 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44980 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44988 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:08 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:08 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:44996 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:08 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:08 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:08 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:08 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45012 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45024 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45040 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45056 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:08 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45062 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:09 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:09 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45064 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:09 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:09 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:09 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:09 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:09 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45068 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45074 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:09 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45078 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:09 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45094 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:10 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45110 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45114 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:10 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:10 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45118 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:10 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:10 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45128 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:10 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45138 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45144 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:11 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45156 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45168 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45170 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:11 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:11 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45178 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45182 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45188 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:11 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:11 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45198 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:11 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45212 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45214 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45226 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45238 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45252 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45260 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45264 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45266 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45282 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45288 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:12 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45296 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:13 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45310 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45320 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:13 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45328 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:13 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:13 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:13 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45340 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:14 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45344 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45360 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45368 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45372 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:14 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45378 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45392 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45398 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45410 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:14 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45414 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45418 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:14 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:14 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45428 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:14 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:14 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:15 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45444 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45452 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45458 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45468 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:15 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:15 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45474 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:15 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:45488 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:15 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:15 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:15 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37080 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37088 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37100 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37108 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37114 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37118 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37122 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:16 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37136 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37150 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:17 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37162 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37164 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37166 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:17 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:17 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37180 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37194 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37210 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:17 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:17 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37212 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37220 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37230 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:17 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37234 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37236 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37240 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37252 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37268 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37272 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37286 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37288 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37294 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37296 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37298 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37302 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37316 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37332 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37336 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37350 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:20 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37358 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37372 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37388 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:20 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:20 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37396 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37412 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:20 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:20 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:20 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37424 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:20 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37434 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37440 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37456 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37470 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37476 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37482 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:21 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37494 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:21 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:21 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37508 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:21 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:21 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37516 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:21 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37530 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37532 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37548 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37556 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37568 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37582 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37596 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:23 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37604 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:23 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:23 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37608 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:23 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37614 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37630 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37638 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:23 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37648 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:23 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37664 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:23 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37674 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37682 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37696 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37712 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37720 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37728 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37744 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37758 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37768 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37776 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37790 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:25 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:25 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:25 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:37802 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37818 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37834 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37838 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37846 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37854 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:25 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:25 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:25 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:25 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:25 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59454 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59464 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59470 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:26 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59478 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:26 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:26 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59482 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59494 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59496 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59504 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:26 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:26 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:26 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59518 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:27 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:27 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59534 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:27 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59546 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59562 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59564 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59566 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:27 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:27 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59576 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:27 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:27 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:27 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59586 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:28 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59588 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:28 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59600 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:28 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:28 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:28 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59606 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59612 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59624 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59628 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59632 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:28 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59638 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:28 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:28 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:29 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59652 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59662 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:29 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59666 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59668 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:29 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:29 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59678 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:29 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:29 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:29 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59692 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59700 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59710 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59720 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59722 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59726 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59740 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59756 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59768 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59784 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:31 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59800 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:31 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:31 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59810 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59812 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:31 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59828 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59844 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59860 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59866 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:31 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:31 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59872 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59884 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:32 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59890 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59898 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:32 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:32 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:32 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59912 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:32 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59924 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:32 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:32 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59936 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59944 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59948 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59950 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:32 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59966 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59982 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59986 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:59998 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60006 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60018 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60026 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:34 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:34 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:34 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60034 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60042 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60044 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:34 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60056 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60064 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60070 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60072 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:34 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60086 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60096 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:35 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:35 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60100 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:35 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:35 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60106 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:35 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:35 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60110 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:35 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60112 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:35 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:35 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:60120 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60130 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60140 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56750 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56766 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56770 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56776 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56780 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56784 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56800 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56810 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:37 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:37 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:37 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:37 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:37 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56816 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56832 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56840 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:37 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56844 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56846 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56850 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56852 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56856 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56858 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56864 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56874 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56892 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56896 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56898 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56908 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56914 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56918 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56920 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:39 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56934 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:39 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56944 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56952 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:39 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56966 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:39 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:39 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:39 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:39 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:39 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56982 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:40 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:40 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:40 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:40 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:56998 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57002 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:40 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57018 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57032 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57040 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57042 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:40 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57058 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57064 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57068 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57080 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57096 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57106 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57110 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57122 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57138 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57140 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57142 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57144 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57156 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:42 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57166 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57174 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57184 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:42 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57200 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:42 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:42 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57212 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:42 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:42 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:43 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:43 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:43 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57228 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:43 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:43 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57238 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:43 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57246 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57256 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57264 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57270 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:43 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57280 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57296 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57308 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57322 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57330 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57340 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57350 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57360 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57366 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57382 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57386 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:45 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:45 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+[2026-09-28 16:31:45 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57392 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57402 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57418 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57424 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57432 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:31:45 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57448 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [611]

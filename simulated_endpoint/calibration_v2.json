@@ -1,0 +1,255 @@
+{
+  "schema": "calibration_v2",
+  "generated_by": "scripts/calibrate_from_data.py",
+  "values": {
+    "inference_delay_s": 2.878,
+    "pipeline_delay_s": 2.7115,
+    "pipeline_prompt_prefix": "Context from knowledge base:",
+    "stream_first_chunk_delay_s": 0.5573,
+    "stream_chunk_interval_s": 0.2021,
+    "chunks_per_second": 4.948,
+    "stream_chunk_count": 12,
+    "inference_text_bytes": 1084,
+    "pipeline_text_bytes": 1236,
+    "inference_input_tokens": 33,
+    "output_tokens": 256,
+    "stop_reason": "max_tokens",
+    "pipeline_input_tokens": 245,
+    "model": "claude-haiku-4-5-20251001",
+    "retrieval_delay_s": 0.05,
+    "service_time_s": {
+      "inference": 2.878,
+      "stream": 2.7804,
+      "pipeline": 2.7615
+    }
+  },
+  "provenance": {
+    "inference_delay_s": {
+      "source": "simulated_endpoint/calibration.json (local, untracked); thesis Chapter 3",
+      "n": 5,
+      "method": "median of 5 real non-streaming calls (scripts/calibrate_simulator.py); kept unchanged"
+    },
+    "pipeline_delay_s": {
+      "source": [
+        "data/django/pipeline/c1_run1_pipeline_metrics.csv",
+        "data/django/pipeline/c1_run2_pipeline_metrics.csv",
+        "data/django/pipeline/c1_run3_pipeline_metrics.csv",
+        "data/django/pipeline/c1_run4_pipeline_metrics.csv",
+        "data/django/pipeline/c1_run5_pipeline_metrics.csv",
+        "data/fastapi/pipeline/c1_run1_pipeline_metrics.csv",
+        "data/fastapi/pipeline/c1_run2_pipeline_metrics.csv",
+        "data/fastapi/pipeline/c1_run3_pipeline_metrics.csv",
+        "data/fastapi/pipeline/c1_run4_pipeline_metrics.csv",
+        "data/fastapi/pipeline/c1_run5_pipeline_metrics.csv",
+        "data/flask/pipeline/c1_run1_pipeline_metrics.csv",
+        "data/flask/pipeline/c1_run2_pipeline_metrics.csv",
+        "data/flask/pipeline/c1_run3_pipeline_metrics.csv",
+        "data/flask/pipeline/c1_run4_pipeline_metrics.csv",
+        "data/flask/pipeline/c1_run5_pipeline_metrics.csv",
+        "data/tornado/pipeline/c1_run1_pipeline_metrics.csv",
+        "data/tornado/pipeline/c1_run2_pipeline_metrics.csv",
+        "data/tornado/pipeline/c1_run3_pipeline_metrics.csv",
+        "data/tornado/pipeline/c1_run4_pipeline_metrics.csv",
+        "data/tornado/pipeline/c1_run5_pipeline_metrics.csv"
+      ],
+      "n": 401,
+      "method": "pooled median of server-side stage3_ms over completed requests, all 4 frameworks, c = 1"
+    },
+    "pipeline_prompt_prefix": {
+      "source": "common/pipeline_service.py _build_augmented_prompt",
+      "n": null,
+      "method": "a user message starting with this prefix is treated as a pipeline (Stage 3) call"
+    },
+    "stream_first_chunk_delay_s": {
+      "source": [
+        "data/django/stream/c1_run1_stream_metrics.csv",
+        "data/django/stream/c1_run2_stream_metrics.csv",
+        "data/django/stream/c1_run3_stream_metrics.csv",
+        "data/django/stream/c1_run4_stream_metrics.csv",
+        "data/django/stream/c1_run5_stream_metrics.csv",
+        "data/fastapi/stream/c1_run1_stream_metrics.csv",
+        "data/fastapi/stream/c1_run2_stream_metrics.csv",
+        "data/fastapi/stream/c1_run3_stream_metrics.csv",
+        "data/fastapi/stream/c1_run4_stream_metrics.csv",
+        "data/fastapi/stream/c1_run5_stream_metrics.csv",
+        "data/flask/stream/c1_run1_stream_metrics.csv",
+        "data/flask/stream/c1_run2_stream_metrics.csv",
+        "data/flask/stream/c1_run3_stream_metrics.csv",
+        "data/flask/stream/c1_run4_stream_metrics.csv",
+        "data/flask/stream/c1_run5_stream_metrics.csv",
+        "data/tornado/stream/c1_run1_stream_metrics.csv",
+        "data/tornado/stream/c1_run2_stream_metrics.csv",
+        "data/tornado/stream/c1_run3_stream_metrics.csv",
+        "data/tornado/stream/c1_run4_stream_metrics.csv",
+        "data/tornado/stream/c1_run5_stream_metrics.csv"
+      ],
+      "n": 401,
+      "method": "pooled median of client-side TTFT (ms) over successful streams, all 4 frameworks, c = 1"
+    },
+    "stream_chunk_interval_s": {
+      "source": [
+        "data/django/stream/c1_run1_stream_metrics.csv",
+        "data/django/stream/c1_run2_stream_metrics.csv",
+        "data/django/stream/c1_run3_stream_metrics.csv",
+        "data/django/stream/c1_run4_stream_metrics.csv",
+        "data/django/stream/c1_run5_stream_metrics.csv",
+        "data/fastapi/stream/c1_run1_stream_metrics.csv",
+        "data/fastapi/stream/c1_run2_stream_metrics.csv",
+        "data/fastapi/stream/c1_run3_stream_metrics.csv",
+        "data/fastapi/stream/c1_run4_stream_metrics.csv",
+        "data/fastapi/stream/c1_run5_stream_metrics.csv",
+        "data/flask/stream/c1_run1_stream_metrics.csv",
+        "data/flask/stream/c1_run2_stream_metrics.csv",
+        "data/flask/stream/c1_run3_stream_metrics.csv",
+        "data/flask/stream/c1_run4_stream_metrics.csv",
+        "data/flask/stream/c1_run5_stream_metrics.csv",
+        "data/tornado/stream/c1_run1_stream_metrics.csv",
+        "data/tornado/stream/c1_run2_stream_metrics.csv",
+        "data/tornado/stream/c1_run3_stream_metrics.csv",
+        "data/tornado/stream/c1_run4_stream_metrics.csv",
+        "data/tornado/stream/c1_run5_stream_metrics.csv"
+      ],
+      "n": 401,
+      "method": "pooled median of TPOT = (last - first text chunk) / (chunks - 1), c = 1"
+    },
+    "chunks_per_second": {
+      "source": [
+        "data/django/stream/c1_run1_stream_metrics.csv",
+        "data/django/stream/c1_run2_stream_metrics.csv",
+        "data/django/stream/c1_run3_stream_metrics.csv",
+        "data/django/stream/c1_run4_stream_metrics.csv",
+        "data/django/stream/c1_run5_stream_metrics.csv",
+        "data/fastapi/stream/c1_run1_stream_metrics.csv",
+        "data/fastapi/stream/c1_run2_stream_metrics.csv",
+        "data/fastapi/stream/c1_run3_stream_metrics.csv",
+        "data/fastapi/stream/c1_run4_stream_metrics.csv",
+        "data/fastapi/stream/c1_run5_stream_metrics.csv",
+        "data/flask/stream/c1_run1_stream_metrics.csv",
+        "data/flask/stream/c1_run2_stream_metrics.csv",
+        "data/flask/stream/c1_run3_stream_metrics.csv",
+        "data/flask/stream/c1_run4_stream_metrics.csv",
+        "data/flask/stream/c1_run5_stream_metrics.csv",
+        "data/tornado/stream/c1_run1_stream_metrics.csv",
+        "data/tornado/stream/c1_run2_stream_metrics.csv",
+        "data/tornado/stream/c1_run3_stream_metrics.csv",
+        "data/tornado/stream/c1_run4_stream_metrics.csv",
+        "data/tornado/stream/c1_run5_stream_metrics.csv"
+      ],
+      "n": 401,
+      "method": "1 / stream_chunk_interval_s (text chunks, not tokens)"
+    },
+    "stream_chunk_count": {
+      "source": [
+        "data/django/stream/c1_run1_stream_metrics.csv",
+        "data/django/stream/c1_run2_stream_metrics.csv",
+        "data/django/stream/c1_run3_stream_metrics.csv",
+        "data/django/stream/c1_run4_stream_metrics.csv",
+        "data/django/stream/c1_run5_stream_metrics.csv",
+        "data/fastapi/stream/c1_run1_stream_metrics.csv",
+        "data/fastapi/stream/c1_run2_stream_metrics.csv",
+        "data/fastapi/stream/c1_run3_stream_metrics.csv",
+        "data/fastapi/stream/c1_run4_stream_metrics.csv",
+        "data/fastapi/stream/c1_run5_stream_metrics.csv",
+        "data/flask/stream/c1_run1_stream_metrics.csv",
+        "data/flask/stream/c1_run2_stream_metrics.csv",
+        "data/flask/stream/c1_run3_stream_metrics.csv",
+        "data/flask/stream/c1_run4_stream_metrics.csv",
+        "data/flask/stream/c1_run5_stream_metrics.csv",
+        "data/tornado/stream/c1_run1_stream_metrics.csv",
+        "data/tornado/stream/c1_run2_stream_metrics.csv",
+        "data/tornado/stream/c1_run3_stream_metrics.csv",
+        "data/tornado/stream/c1_run4_stream_metrics.csv",
+        "data/tornado/stream/c1_run5_stream_metrics.csv"
+      ],
+      "n": 401,
+      "method": "modal token_count (text chunks) at c = 1; distribution {10: 9, 11: 91, 12: 267, 13: 34}, mode frequency 267"
+    },
+    "inference_text_bytes": {
+      "source": [
+        "data/flask/inference/c1_run1_stats.csv",
+        "data/flask/inference/c1_run2_stats.csv",
+        "data/flask/inference/c1_run3_stats.csv",
+        "data/flask/inference/c1_run4_stats.csv",
+        "data/flask/inference/c1_run5_stats.csv",
+        "data/django/inference/c1_run1_stats.csv",
+        "data/django/inference/c1_run2_stats.csv",
+        "data/django/inference/c1_run3_stats.csv",
+        "data/django/inference/c1_run4_stats.csv",
+        "data/django/inference/c1_run5_stats.csv",
+        "data/fastapi/inference/c1_run1_stats.csv",
+        "data/fastapi/inference/c1_run2_stats.csv",
+        "data/fastapi/inference/c1_run3_stats.csv",
+        "data/fastapi/inference/c1_run4_stats.csv",
+        "data/fastapi/inference/c1_run5_stats.csv",
+        "data/tornado/inference/c1_run1_stats.csv",
+        "data/tornado/inference/c1_run2_stats.csv",
+        "data/tornado/inference/c1_run3_stats.csv",
+        "data/tornado/inference/c1_run4_stats.csv",
+        "data/tornado/inference/c1_run5_stats.csv"
+      ],
+      "n": 391,
+      "method": "median over frameworks of (request-weighted mean Average Content Size at c = 1 minus the framework's own JSON envelope with empty text); per framework {'flask': 1082.5, 'django': 1087.3, 'fastapi': 1084.8, 'tornado': 1081.0}"
+    },
+    "pipeline_text_bytes": {
+      "source": [
+        "data/flask/pipeline/c1_run1_stats.csv",
+        "data/flask/pipeline/c1_run2_stats.csv",
+        "data/flask/pipeline/c1_run3_stats.csv",
+        "data/flask/pipeline/c1_run4_stats.csv",
+        "data/flask/pipeline/c1_run5_stats.csv",
+        "data/django/pipeline/c1_run1_stats.csv",
+        "data/django/pipeline/c1_run2_stats.csv",
+        "data/django/pipeline/c1_run3_stats.csv",
+        "data/django/pipeline/c1_run4_stats.csv",
+        "data/django/pipeline/c1_run5_stats.csv",
+        "data/fastapi/pipeline/c1_run1_stats.csv",
+        "data/fastapi/pipeline/c1_run2_stats.csv",
+        "data/fastapi/pipeline/c1_run3_stats.csv",
+        "data/fastapi/pipeline/c1_run4_stats.csv",
+        "data/fastapi/pipeline/c1_run5_stats.csv",
+        "data/tornado/pipeline/c1_run1_stats.csv",
+        "data/tornado/pipeline/c1_run2_stats.csv",
+        "data/tornado/pipeline/c1_run3_stats.csv",
+        "data/tornado/pipeline/c1_run4_stats.csv",
+        "data/tornado/pipeline/c1_run5_stats.csv"
+      ],
+      "n": 395,
+      "method": "as inference_text_bytes, envelope = pipeline_result + a representative stage_timings dict; per framework {'flask': 1243.1, 'django': 1234.5, 'fastapi': 1234.4, 'tornado': 1237.8}"
+    },
+    "inference_input_tokens": {
+      "source": "simulated_endpoint/calibration.json (local, untracked); thesis Chapter 3",
+      "n": 5,
+      "method": "thesis calibration median"
+    },
+    "output_tokens": {
+      "source": "simulated_endpoint/calibration.json (local, untracked); thesis Chapter 3",
+      "n": 5,
+      "method": "thesis calibration median (all 5 calls returned 256 = max_tokens)"
+    },
+    "stop_reason": {
+      "source": "derived",
+      "n": null,
+      "method": "output_tokens == MAX_TOKENS (common/config.py) implies max_tokens"
+    },
+    "pipeline_input_tokens": {
+      "source": "document_store/genai_concepts.txt via common.retrieval._search",
+      "n": null,
+      "method": "ESTIMATE, not measured: inference input tokens + (augmented prompt chars - prompt chars) / 4; only echoed in the usage field"
+    },
+    "model": {
+      "source": "common/config.py",
+      "n": null,
+      "method": "ANTHROPIC_MODEL"
+    },
+    "retrieval_delay_s": {
+      "source": "common/config.py",
+      "n": null,
+      "method": "RETRIEVAL_DELAY_SECONDS (Stage 2 sleep)"
+    },
+    "service_time_s": {
+      "source": "derived",
+      "n": null,
+      "method": "inference = inference_delay_s; stream = first_chunk_delay + (chunk_count - 1) * interval; pipeline = retrieval_delay_s + pipeline_delay_s"
+    }
+  }
+}

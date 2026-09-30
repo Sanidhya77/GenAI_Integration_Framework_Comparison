@@ -1,0 +1,160 @@
+[2026-09-27 17:56:00 +0000] [8107] [INFO] Starting gunicorn 25.3.0
+[2026-09-27 17:56:00 +0000] [8107] [INFO] Listening at: http://0.0.0.0:8000 (8107)
+[2026-09-27 17:56:00 +0000] [8107] [INFO] Using worker: sync
+[2026-09-27 17:56:00 +0000] [8108] [INFO] Booting worker with pid: 8108
+[2026-09-27 17:56:00 +0000] [8109] [INFO] Booting worker with pid: 8109
+[2026-09-27 17:56:00 +0000] [8110] [INFO] Booting worker with pid: 8110
+[2026-09-27 17:56:01 +0000] [8111] [INFO] Booting worker with pid: 8111
+[2026-09-27 17:56:01 +0000] [8112] [INFO] Booting worker with pid: 8112
+[2026-09-27 17:56:01 +0000] [8113] [INFO] Booting worker with pid: 8113
+[2026-09-27 17:56:01 +0000] [8114] [INFO] Booting worker with pid: 8114
+[2026-09-27 17:56:01 +0000] [8115] [INFO] Booting worker with pid: 8115
+[2026-09-27 17:56:01 +0000] [8116] [INFO] Booting worker with pid: 8116
+[2026-09-27 17:56:01 +0000] [8117] [INFO] Booting worker with pid: 8117
+[2026-09-27 17:56:01 +0000] [8118] [INFO] Booting worker with pid: 8118
+[2026-09-27 17:56:01 +0000] [8119] [INFO] Booting worker with pid: 8119
+[2026-09-27 17:56:01 +0000] [8120] [INFO] Booting worker with pid: 8120
+[2026-09-27 17:56:01 +0000] [8121] [INFO] Booting worker with pid: 8121
+[2026-09-27 17:56:01 +0000] [8122] [INFO] Booting worker with pid: 8122
+127.0.0.1 - - [27/Sep/2026:17:56:01 +0000] "GET /health HTTP/1.1" 200 39 "-" "python-requests/2.33.1"
+[2026-09-27 17:56:01 +0000] [8124] [INFO] Booting worker with pid: 8124
+[2026-09-27 17:56:01 +0000] [8125] [INFO] Booting worker with pid: 8125
+[2026-09-27 17:56:01 +0000] [8107] [INFO] Control socket listening at /run/user/1000/gunicorn.ctl
+127.0.0.1 - - [27/Sep/2026:17:56:04 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:07 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:09 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:15 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:15 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:16 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:16 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:17 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:17 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:18 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:19 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:19 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:20 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:20 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:21 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:21 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:22 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:22 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:23 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:24 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:24 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:25 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:25 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:26 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:26 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:27 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:27 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:28 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:29 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:29 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:30 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:30 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:31 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:31 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:32 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:32 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:33 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:34 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:34 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:35 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:35 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:36 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:36 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:37 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:37 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:38 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:39 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:39 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:40 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:40 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:41 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:41 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:42 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:42 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:43 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:44 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:44 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:45 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:45 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:46 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:46 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:47 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:48 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:48 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:49 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:49 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:50 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:50 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:51 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:51 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:52 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:53 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:53 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:54 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:54 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:55 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:55 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:56 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:56 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:57 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:58 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:58 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:59 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:56:59 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:00 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:00 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:01 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:02 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:02 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:03 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:03 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:04 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:04 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:05 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:05 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:06 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:06 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:07 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:08 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:08 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:09 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:09 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:10 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:10 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:11 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:12 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:12 +0000] "POST /api/inference/stream HTTP/1.1" 200 1359 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:12 +0000] "POST /api/inference/stream HTTP/1.1" 200 987 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:12 +0000] "POST /api/inference/stream HTTP/1.1" 200 370 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:12 +0000] "POST /api/inference/stream HTTP/1.1" 200 740 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:57:12 +0000] "POST /api/inference/stream HTTP/1.1" 200 123 "-" "python-requests/2.33.1"
+[2026-09-27 17:57:12 +0000] [8125] [INFO] Worker exiting (pid: 8125)
+[2026-09-27 17:57:12 +0000] [8112] [INFO] Worker exiting (pid: 8112)
+[2026-09-27 17:57:12 +0000] [8124] [INFO] Worker exiting (pid: 8124)
+[2026-09-27 17:57:12 +0000] [8121] [INFO] Worker exiting (pid: 8121)
+[2026-09-27 17:57:12 +0000] [8120] [INFO] Worker exiting (pid: 8120)
+[2026-09-27 17:57:12 +0000] [8110] [INFO] Worker exiting (pid: 8110)
+[2026-09-27 17:57:12 +0000] [8118] [INFO] Worker exiting (pid: 8118)
+[2026-09-27 17:57:12 +0000] [8117] [INFO] Worker exiting (pid: 8117)
+[2026-09-27 17:57:12 +0000] [8122] [INFO] Worker exiting (pid: 8122)
+[2026-09-27 17:57:12 +0000] [8107] [INFO] Handling signal: term
+[2026-09-27 17:57:12 +0000] [8108] [INFO] Worker exiting (pid: 8108)
+[2026-09-27 17:57:12 +0000] [8115] [INFO] Worker exiting (pid: 8115)
+[2026-09-27 17:57:12 +0000] [8113] [INFO] Worker exiting (pid: 8113)
+[2026-09-27 17:57:12 +0000] [8114] [INFO] Worker exiting (pid: 8114)
+[2026-09-27 17:57:12 +0000] [8109] [INFO] Worker exiting (pid: 8109)
+[2026-09-27 17:57:12 +0000] [8111] [INFO] Worker exiting (pid: 8111)
+[2026-09-27 17:57:12 +0000] [8116] [INFO] Worker exiting (pid: 8116)
+[2026-09-27 17:57:12 +0000] [8119] [INFO] Worker exiting (pid: 8119)
+[2026-09-27 17:57:12 +0000] [8107] [INFO] Worker (pid:8110) was sent SIGTERM!
+[2026-09-27 17:57:12 +0000] [8107] [INFO] Worker (pid:8112) was sent SIGTERM!
+[2026-09-27 17:57:12 +0000] [8107] [INFO] Worker (pid:8117) was sent SIGTERM!
+[2026-09-27 17:57:12 +0000] [8107] [INFO] Worker (pid:8118) was sent SIGTERM!
+[2026-09-27 17:57:12 +0000] [8107] [INFO] Worker (pid:8120) was sent SIGTERM!
+[2026-09-27 17:57:12 +0000] [8107] [INFO] Worker (pid:8122) was sent SIGTERM!
+[2026-09-27 17:57:12 +0000] [8107] [INFO] Worker (pid:8124) was sent SIGTERM!
+[2026-09-27 17:57:12 +0000] [8107] [INFO] Worker (pid:8125) was sent SIGTERM!
+[2026-09-27 17:57:13 +0000] [8107] [INFO] Shutting down: Master

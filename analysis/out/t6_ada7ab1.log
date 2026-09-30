@@ -1,0 +1,38 @@
+### T6 at ada7ab16b70a67c57c21c4235d95c1270f00236b 2026-09-26T18:19:31+00:00
+### 1. flask pipeline c10 x3 15 s REST_MODE=short
+Estimated wall time (runs x (60 s + warm-up + ~10 s overhead) + rests):
+This invocation: 3 runs, about 0.05 h (REST_MODE=short, before skipping completed runs)
+clock preflight: {'timesync_state': {'systemd-timesyncd': 'inactive', 'chronyd': 'inactive', 'ntp': 'inactive'}, 'clocksource': 'tsc', 'apt_timers': {'apt-daily.timer': 'inactive', 'apt-daily-upgrade.timer': 'inactive'}, 'allow_timesync': False}
+=== flask/pipeline/c10/run1 18:19:32
+    flask/pipeline/c10/run1: complete, clock_rate_ratio 1.0000996101799227, clock_step_ms 0.001
+rest 30s
+=== flask/pipeline/c10/run2 18:20:31
+    flask/pipeline/c10/run2: complete, clock_rate_ratio 0.9999563728080593, clock_step_ms 0.001
+rest 30s
+=== flask/pipeline/c10/run3 18:21:29
+    flask/pipeline/c10/run3: complete, clock_rate_ratio 0.9999910638304458, clock_step_ms 0.001
+configuration rest 30s
+rc=0
+### 2. flask_mw inference c25 x1 15 s
+Estimated wall time (runs x (60 s + warm-up + ~10 s overhead) + rests):
+This invocation: 1 runs, about 0.02 h (REST_MODE=short, before skipping completed runs)
+clock preflight: {'timesync_state': {'systemd-timesyncd': 'inactive', 'chronyd': 'inactive', 'ntp': 'inactive'}, 'clocksource': 'tsc', 'apt_timers': {'apt-daily.timer': 'inactive', 'apt-daily-upgrade.timer': 'inactive'}, 'allow_timesync': False}
+=== flask_mw/inference/c25/run1 18:22:28
+    flask_mw/inference/c25/run1: complete, clock_rate_ratio 1.0000067552365084, clock_step_ms 0.001
+configuration rest 30s
+rc=0
+### 3. resume: same command as 1 (expect 3 skips)
+Estimated wall time (runs x (60 s + warm-up + ~10 s overhead) + rests):
+This invocation: 3 runs, about 0.05 h (REST_MODE=short, before skipping completed runs)
+clock preflight: {'timesync_state': {'systemd-timesyncd': 'inactive', 'chronyd': 'inactive', 'ntp': 'inactive'}, 'clocksource': 'tsc', 'apt_timers': {'apt-daily.timer': 'inactive', 'apt-daily-upgrade.timer': 'inactive'}, 'allow_timesync': False}
+skip flask/pipeline/c10/run1: complete
+skip flask/pipeline/c10/run2: complete
+skip flask/pipeline/c10/run3: complete
+rc=0
+### 4. dirty-tree refusal (temporary edit to tests/conftest.py)
+Estimated wall time (runs x (60 s + warm-up + ~10 s overhead) + rests):
+This invocation: 1 runs, about 0.02 h (REST_MODE=short, before skipping completed runs)
+Refusing to start: tracked files have uncommitted changes:
+M tests/conftest.py
+rc=1
+tracked changes after restore: 0

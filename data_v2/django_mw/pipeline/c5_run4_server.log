@@ -1,0 +1,165 @@
+[2026-09-27 18:49:13 +0000] [9441] [INFO] Starting gunicorn 25.3.0
+[2026-09-27 18:49:13 +0000] [9441] [INFO] Listening at: http://0.0.0.0:8000 (9441)
+[2026-09-27 18:49:13 +0000] [9441] [INFO] Using worker: sync
+[2026-09-27 18:49:13 +0000] [9442] [INFO] Booting worker with pid: 9442
+[2026-09-27 18:49:13 +0000] [9443] [INFO] Booting worker with pid: 9443
+[2026-09-27 18:49:13 +0000] [9444] [INFO] Booting worker with pid: 9444
+[2026-09-27 18:49:13 +0000] [9445] [INFO] Booting worker with pid: 9445
+[2026-09-27 18:49:13 +0000] [9446] [INFO] Booting worker with pid: 9446
+[2026-09-27 18:49:13 +0000] [9447] [INFO] Booting worker with pid: 9447
+[2026-09-27 18:49:13 +0000] [9448] [INFO] Booting worker with pid: 9448
+[2026-09-27 18:49:13 +0000] [9449] [INFO] Booting worker with pid: 9449
+[2026-09-27 18:49:13 +0000] [9450] [INFO] Booting worker with pid: 9450
+[2026-09-27 18:49:13 +0000] [9451] [INFO] Booting worker with pid: 9451
+[2026-09-27 18:49:13 +0000] [9452] [INFO] Booting worker with pid: 9452
+127.0.0.1 - - [27/Sep/2026:18:49:13 +0000] "GET /health HTTP/1.1" 200 39 "-" "python-requests/2.33.1"
+[2026-09-27 18:49:13 +0000] [9453] [INFO] Booting worker with pid: 9453
+[2026-09-27 18:49:13 +0000] [9455] [INFO] Booting worker with pid: 9455
+[2026-09-27 18:49:14 +0000] [9456] [INFO] Booting worker with pid: 9456
+[2026-09-27 18:49:14 +0000] [9457] [INFO] Booting worker with pid: 9457
+[2026-09-27 18:49:14 +0000] [9458] [INFO] Booting worker with pid: 9458
+[2026-09-27 18:49:14 +0000] [9459] [INFO] Booting worker with pid: 9459
+[2026-09-27 18:49:14 +0000] [9441] [INFO] Control socket listening at /run/user/1000/gunicorn.ctl
+127.0.0.1 - - [27/Sep/2026:18:49:16 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:19 +0000] "POST /api/pipeline HTTP/1.1" 200 1618 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:22 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:27 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:27 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:28 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:29 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:29 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:30 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:30 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:31 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:31 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:32 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:32 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:33 +0000] "POST /api/pipeline HTTP/1.1" 200 1617 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:34 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:34 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:35 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:35 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:36 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:36 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:37 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:37 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:38 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:39 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:39 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:40 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:40 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:41 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:42 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:42 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:42 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:43 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:44 +0000] "POST /api/pipeline HTTP/1.1" 200 1618 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:44 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:45 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:45 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:46 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:46 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:47 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:47 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:48 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:49 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:49 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:50 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:50 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:51 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:51 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:52 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:53 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:53 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:54 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:54 +0000] "POST /api/pipeline HTTP/1.1" 200 1618 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:55 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:55 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:56 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:56 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:57 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:57 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:58 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:59 +0000] "POST /api/pipeline HTTP/1.1" 200 1618 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:49:59 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:00 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:00 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:01 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:01 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:02 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:02 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:03 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:04 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:04 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:05 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:05 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:06 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:06 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:07 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:07 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:08 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:08 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:09 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:10 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:10 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:11 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:11 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:12 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:12 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:13 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:14 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:14 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:15 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:15 +0000] "POST /api/pipeline HTTP/1.1" 200 1618 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:16 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:16 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:17 +0000] "POST /api/pipeline HTTP/1.1" 200 1618 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:18 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:18 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:19 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:19 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:20 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:20 +0000] "POST /api/pipeline HTTP/1.1" 200 1618 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:21 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:21 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:22 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:22 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:23 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:24 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:18:50:24 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+[2026-09-27 18:50:25 +0000] [9446] [INFO] Worker exiting (pid: 9446)
+[2026-09-27 18:50:25 +0000] [9459] [INFO] Worker exiting (pid: 9459)
+[2026-09-27 18:50:25 +0000] [9458] [INFO] Worker exiting (pid: 9458)
+[2026-09-27 18:50:25 +0000] [9457] [INFO] Worker exiting (pid: 9457)
+[2026-09-27 18:50:25 +0000] [9456] [INFO] Worker exiting (pid: 9456)
+[2026-09-27 18:50:25 +0000] [9453] [INFO] Worker exiting (pid: 9453)
+[2026-09-27 18:50:25 +0000] [9452] [INFO] Worker exiting (pid: 9452)
+[2026-09-27 18:50:25 +0000] [9447] [INFO] Worker exiting (pid: 9447)
+[2026-09-27 18:50:25 +0000] [9451] [INFO] Worker exiting (pid: 9451)
+[2026-09-27 18:50:25 +0000] [9450] [INFO] Worker exiting (pid: 9450)
+[2026-09-27 18:50:25 +0000] [9444] [INFO] Worker exiting (pid: 9444)
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Handling signal: term
+[2026-09-27 18:50:25 +0000] [9445] [INFO] Worker exiting (pid: 9445)
+[2026-09-27 18:50:25 +0000] [9448] [INFO] Worker exiting (pid: 9448)
+127.0.0.1 - - [27/Sep/2026:18:50:25 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+[2026-09-27 18:50:25 +0000] [9442] [INFO] Worker exiting (pid: 9442)
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9444) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9445) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9446) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9447) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9448) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9450) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9451) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9452) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9453) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9456) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9457) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9458) was sent SIGTERM!
+[2026-09-27 18:50:25 +0000] [9441] [INFO] Worker (pid:9459) was sent SIGTERM!
+127.0.0.1 - - [27/Sep/2026:18:50:25 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+[2026-09-27 18:50:25 +0000] [9443] [INFO] Worker exiting (pid: 9443)
+127.0.0.1 - - [27/Sep/2026:18:50:26 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+[2026-09-27 18:50:26 +0000] [9455] [INFO] Worker exiting (pid: 9455)
+127.0.0.1 - - [27/Sep/2026:18:50:26 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+[2026-09-27 18:50:26 +0000] [9449] [INFO] Worker exiting (pid: 9449)
+[2026-09-27 18:50:27 +0000] [9441] [INFO] Shutting down: Master

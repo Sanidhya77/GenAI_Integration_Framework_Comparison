@@ -1,0 +1,3 @@
+comparison,phase,S_sim_s,S_today_s,ceiling_rps,completion_rate_rps,locust_rps,runs,share
+3 throughput: c25 today vs 25 / S_today,b,,3.255532,7.6792364504480375,7.598712090129335,7.134057718550702,3,0.9895140147281174
+"4 throughput: sim c25 v2, scaled by S_sim / S_today",b,2.7915430000000003,3.255532,7.6792364504480375,7.678180366184143,7.328297062147467,5,0.9998624753553678

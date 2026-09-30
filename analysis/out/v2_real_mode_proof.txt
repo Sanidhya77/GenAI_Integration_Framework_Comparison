@@ -1,0 +1,40 @@
+1. Request functions (body after removing the old USE_SIMULATED branch and docstring):
+   inference_sync   body identical: True; messages.create(...) call identical: True; kwargs ['model', 'max_tokens', 'temperature', 'system', 'messages']
+   stream_sync      body identical: True; messages.stream(...) call identical: True; kwargs ['model', 'max_tokens', 'temperature', 'system', 'messages']
+   inference_async  body identical: True; messages.create(...) call identical: True; kwargs ['model', 'max_tokens', 'temperature', 'system', 'messages']
+   stream_async     body identical: True; messages.stream(...) call identical: True; kwargs ['model', 'max_tokens', 'temperature', 'system', 'messages']
+2. Client construction:
+   get_sync_client: old Anthropic()  new Anthropic(**_client_kwargs())
+   get_async_client: old AsyncAnthropic()  new AsyncAnthropic(**_client_kwargs())
+   new _client_kwargs():
+      def _client_kwargs():
+          """Constructor arguments for the SDK clients.
+      
+          Real mode: no arguments, identical to the thesis version (dc06cb4).
+          Simulated mode: base_url of the local simulator and a dummy key.
+          """
+          if USE_SIMULATED:
+              return {'base_url': SIMULATED_ENDPOINT_URL, 'api_key': SIMULATED_API_KEY}
+          if os.environ.get('ALLOW_REAL_API') != '1':
+              raise RuntimeError('Real Anthropic API mode refused: SIMULATE is not 1 and ALLOW_REAL_API is not 1.')
+          return {}
+   real-mode return is an empty dict literal: True -> Anthropic() / AsyncAnthropic() with no arguments,
+   i.e. SDK defaults (max_retries=2, timeout 600 s / connect 5 s, limits 1000/100), as in the thesis
+3. Request constants in common/config.py:
+   identical: True  {'ANTHROPIC_MODEL': 'claude-haiku-4-5-20251001', 'MAX_TOKENS': 256, 'TEMPERATURE': 0.0, 'SYSTEM_PROMPT': 'You are a technical assistant specialising in web development.', 'USER_PROMPT': 'What is generative AI and how is it used in modern web applications?', 'RETRIEVAL_DELAY_SECONDS': 0.05}
+4. Other real-path modules (AST, docstrings ignored):
+   common/pipeline_service.py         identical: True
+   common/retrieval.py                identical: True
+   locust_tests/test_inference.py     identical: True
+   locust_tests/test_stream.py        identical: True
+   locust_tests/test_pipeline.py      identical: True
+   flask_app/gunicorn_config.py       identical: True
+   django_app/gunicorn_config.py      identical: True
+   django_app/api/views.py            identical: True
+   django_app/config/settings.py      identical: True
+5. App files (AST, docstrings ignored): HEAD minus the added startup call equals dc06cb4:
+   flask_app/app.py             startup calls added: 1; otherwise identical: True
+   fastapi_app/main.py          startup calls added: 1; otherwise identical: True
+   tornado_app/main.py          startup calls added: 1; otherwise identical: True
+   django_app/config/wsgi.py    startup calls added: 1; otherwise identical: True
+RESULT: real mode unchanged except the point of client creation

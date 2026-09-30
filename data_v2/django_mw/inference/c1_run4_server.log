@@ -1,0 +1,77 @@
+[2026-09-27 16:57:05 +0000] [6613] [INFO] Starting gunicorn 25.3.0
+[2026-09-27 16:57:05 +0000] [6613] [INFO] Listening at: http://0.0.0.0:8000 (6613)
+[2026-09-27 16:57:05 +0000] [6613] [INFO] Using worker: sync
+[2026-09-27 16:57:05 +0000] [6614] [INFO] Booting worker with pid: 6614
+[2026-09-27 16:57:05 +0000] [6615] [INFO] Booting worker with pid: 6615
+[2026-09-27 16:57:05 +0000] [6616] [INFO] Booting worker with pid: 6616
+[2026-09-27 16:57:05 +0000] [6617] [INFO] Booting worker with pid: 6617
+[2026-09-27 16:57:05 +0000] [6618] [INFO] Booting worker with pid: 6618
+[2026-09-27 16:57:05 +0000] [6619] [INFO] Booting worker with pid: 6619
+[2026-09-27 16:57:05 +0000] [6620] [INFO] Booting worker with pid: 6620
+[2026-09-27 16:57:05 +0000] [6621] [INFO] Booting worker with pid: 6621
+[2026-09-27 16:57:05 +0000] [6622] [INFO] Booting worker with pid: 6622
+[2026-09-27 16:57:05 +0000] [6623] [INFO] Booting worker with pid: 6623
+[2026-09-27 16:57:05 +0000] [6624] [INFO] Booting worker with pid: 6624
+[2026-09-27 16:57:05 +0000] [6625] [INFO] Booting worker with pid: 6625
+[2026-09-27 16:57:05 +0000] [6626] [INFO] Booting worker with pid: 6626
+127.0.0.1 - - [27/Sep/2026:16:57:05 +0000] "GET /health HTTP/1.1" 200 39 "-" "python-requests/2.33.1"
+[2026-09-27 16:57:05 +0000] [6628] [INFO] Booting worker with pid: 6628
+[2026-09-27 16:57:05 +0000] [6629] [INFO] Booting worker with pid: 6629
+[2026-09-27 16:57:05 +0000] [6630] [INFO] Booting worker with pid: 6630
+[2026-09-27 16:57:05 +0000] [6631] [INFO] Booting worker with pid: 6631
+[2026-09-27 16:57:05 +0000] [6613] [INFO] Control socket listening at /run/user/1000/gunicorn.ctl
+127.0.0.1 - - [27/Sep/2026:16:57:08 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:11 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:14 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:19 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:22 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:25 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:28 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:31 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:34 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:37 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:40 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:43 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:45 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:48 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:51 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:54 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:57:57 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:58:00 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:58:03 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:58:06 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:58:09 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:58:11 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:58:14 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+[2026-09-27 16:58:17 +0000] [6620] [INFO] Worker exiting (pid: 6620)
+[2026-09-27 16:58:17 +0000] [6631] [INFO] Worker exiting (pid: 6631)
+[2026-09-27 16:58:17 +0000] [6621] [INFO] Worker exiting (pid: 6621)
+[2026-09-27 16:58:17 +0000] [6624] [INFO] Worker exiting (pid: 6624)
+[2026-09-27 16:58:17 +0000] [6625] [INFO] Worker exiting (pid: 6625)
+[2026-09-27 16:58:17 +0000] [6626] [INFO] Worker exiting (pid: 6626)
+[2026-09-27 16:58:17 +0000] [6628] [INFO] Worker exiting (pid: 6628)
+[2026-09-27 16:58:17 +0000] [6617] [INFO] Worker exiting (pid: 6617)
+[2026-09-27 16:58:17 +0000] [6619] [INFO] Worker exiting (pid: 6619)
+[2026-09-27 16:58:17 +0000] [6629] [INFO] Worker exiting (pid: 6629)
+[2026-09-27 16:58:17 +0000] [6630] [INFO] Worker exiting (pid: 6630)
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Handling signal: term
+[2026-09-27 16:58:17 +0000] [6616] [INFO] Worker exiting (pid: 6616)
+[2026-09-27 16:58:17 +0000] [6623] [INFO] Worker exiting (pid: 6623)
+[2026-09-27 16:58:17 +0000] [6615] [INFO] Worker exiting (pid: 6615)
+[2026-09-27 16:58:17 +0000] [6614] [INFO] Worker exiting (pid: 6614)
+[2026-09-27 16:58:17 +0000] [6622] [INFO] Worker exiting (pid: 6622)
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6616) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6617) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6619) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6620) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6621) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6623) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6624) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6625) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6626) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6628) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6630) was sent SIGTERM!
+[2026-09-27 16:58:17 +0000] [6613] [INFO] Worker (pid:6631) was sent SIGTERM!
+127.0.0.1 - - [27/Sep/2026:16:58:17 +0000] "POST /api/inference HTTP/1.1" 200 1191 "-" "python-requests/2.33.1"
+[2026-09-27 16:58:17 +0000] [6618] [INFO] Worker exiting (pid: 6618)
+[2026-09-27 16:58:18 +0000] [6613] [INFO] Shutting down: Master

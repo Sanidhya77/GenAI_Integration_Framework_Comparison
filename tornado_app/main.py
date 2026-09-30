@@ -25,8 +25,11 @@ import tornado.web
 import tornado.httpserver
 
 from common.config import SERVER_HOST, SERVER_PORT, USER_PROMPT
-from common.anthropic_client import inference_async, stream_async
+from common.anthropic_client import get_async_client, inference_async, stream_async
 from common.pipeline_service import run_pipeline_async
+
+# Create the SDK client at server startup, not inside the first measured request
+get_async_client()
 
 FRAMEWORK_NAME = "tornado"
 

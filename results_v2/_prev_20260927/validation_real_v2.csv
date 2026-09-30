@@ -1,0 +1,16 @@
+phase,comparison,metric,a,a_median,a_p95,a_n,a_runs,a_method,b,b_median,b_p95,b_n,b_runs,b_method,median_ratio_a_over_b,p95_ratio_a_over_b
+b,1 drift: c1 today vs c1 thesis,latency_ms,real c1 today,3255.532,3894.2675,51,3,per-request pooled,real c1 thesis,2764.5585,3478.1009500000005,102,5,per-request pooled,1.1775956269328358,1.1196533844136984
+b,2 load: c25 today vs c1 today,latency_ms,real c25 today,3208.4925,3897.4949500000002,1262,3,per-request pooled,real c1 today,3255.532,3894.2675,51,3,per-request pooled,0.9855509022795659,1.0008287694669151
+b,1 drift: c1 today vs c1 thesis,ttft_ms,real c1 today,817.512,1109.339,51,3,per-request pooled,real c1 thesis,515.483,926.0060500000001,102,5,per-request pooled,1.5859145694426393,1.197982453786344
+b,2 load: c25 today vs c1 today,ttft_ms,real c25 today,775.0975,1172.566300000001,1262,3,per-request pooled,real c1 today,817.512,1109.339,51,3,per-request pooled,0.948117581148656,1.056995472078419
+b,1 drift: c1 today vs c1 thesis,tpot_ms,real c1 today,26.725,29.07,51,3,per-request pooled,real c1 thesis,203.425,214.00445000000002,102,5,per-request pooled,0.131375199705051,0.1358382968204633
+b,2 load: c25 today vs c1 today,tpot_ms,real c25 today,26.810000000000002,28.9048,1262,3,per-request pooled,real c1 today,26.725,29.07,51,3,per-request pooled,1.0031805425631433,0.9943171654626763
+b,1 drift: c1 today vs c1 thesis,token_count,real c1 today,92,101.0,51,3,per-request pooled,real c1 thesis,12.0,13.0,102,5,per-request pooled,7.666666666666667,7.769230769230769
+b,2 load: c25 today vs c1 today,token_count,real c25 today,91.0,101.0,1262,3,per-request pooled,real c1 today,92.0,101.0,51,3,per-request pooled,0.9891304347826086,1.0
+b,4a real vs sim c25 (absolute),latency_ms,real c25 today,3208.4925,3897.4949500000002,1262,3,per-request pooled,sim c25 v2,2791.968,2794.1617,2555,5,per-request pooled,1.149186702712925,1.3948709374979982
+b,"4b real vs sim c25 (sim scaled by S_today/S_sim, S_sim = sim c1 v2 median latency)",latency_ms,real c25 today,3208.4925,3897.4949500000002,1262,3,per-request pooled,sim c25 v2,3256.027640260601,3258.5859603539693,2555,5,"per-request pooled, scaled x1.1662",0.9854008793804967,1.1960693986346853
+b,4a real vs sim c25 (absolute),ttft_ms,real c25 today,775.0975,1172.566300000001,1262,3,per-request pooled,sim c25 v2,567.409,570.647,2555,5,per-request pooled,1.36602961884637,2.0548014797238943
+b,"4b real vs sim c25 (sim scaled by S_today/S_sim, S_sim = sim c1 v2 median latency)",ttft_ms,real c25 today,775.0975,1172.566300000001,1262,3,per-request pooled,sim c25 v2,661.7193991237104,665.4955948033041,2555,5,"per-request pooled, scaled x1.1662",1.1713386384416593,1.7619444954351176
+b,4a real vs sim c25 (absolute),tpot_ms,real c25 today,26.810000000000002,28.9048,1262,3,per-request pooled,sim c25 v2,202.097,202.271,2555,5,per-request pooled,0.13265906965467078,0.14290135511269536
+b,"4b real vs sim c25 (sim scaled by S_today/S_sim, S_sim = sim c1 v2 median latency)",tpot_ms,real c25 today,26.810000000000002,28.9048,1262,3,per-request pooled,sim c25 v2,235.68802293355324,235.89094388730533,2555,5,"per-request pooled, scaled x1.1662",0.11375206795110865,0.12253458960174833
+b,4a real vs sim c25 (absolute),token_count,real c25 today,91.0,101.0,1262,3,per-request pooled,sim c25 v2,12.0,12.0,2555,5,per-request pooled,7.583333333333333,8.416666666666666

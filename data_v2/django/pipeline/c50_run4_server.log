@@ -1,0 +1,34 @@
+[2026-09-26 23:49:10 +0000] [21872] [INFO] Starting gunicorn 25.3.0
+[2026-09-26 23:49:10 +0000] [21872] [INFO] Listening at: http://0.0.0.0:8000 (21872)
+[2026-09-26 23:49:10 +0000] [21872] [INFO] Using worker: sync
+[2026-09-26 23:49:10 +0000] [21873] [INFO] Booting worker with pid: 21873
+[2026-09-26 23:49:10 +0000] [21872] [INFO] Control socket listening at /run/user/1000/gunicorn.ctl
+127.0.0.1 - - [26/Sep/2026:23:49:11 +0000] "GET /health HTTP/1.1" 200 39 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:14 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:17 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:20 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:25 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:28 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:31 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:33 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:36 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:39 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:42 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:45 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:47 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:50 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:53 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:56 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:49:58 +0000] "POST /api/pipeline HTTP/1.1" 200 1619 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:50:01 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:50:04 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:50:07 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:50:10 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:50:12 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:50:15 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:50:18 +0000] "POST /api/pipeline HTTP/1.1" 200 1620 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:23:50:21 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+[2026-09-26 23:50:23 +0000] [21872] [INFO] Handling signal: term
+127.0.0.1 - - [26/Sep/2026:23:50:23 +0000] "POST /api/pipeline HTTP/1.1" 200 1621 "-" "python-requests/2.33.1"
+[2026-09-26 23:50:23 +0000] [21873] [INFO] Worker exiting (pid: 21873)
+[2026-09-26 23:50:24 +0000] [21872] [INFO] Shutting down: Master

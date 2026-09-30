@@ -1,0 +1,51 @@
+INFO:     Started server process [576]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:43684 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43692 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:18 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:43706 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:21 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:43714 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:25 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57186 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:31 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57194 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:35 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58520 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:38 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58526 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:42 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:58532 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:45 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:48010 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:49 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:48018 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:52 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:48034 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:25:56 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:52504 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:26:00 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:52520 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:26:03 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:50804 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:26:07 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:50812 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:26:10 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:50814 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:26:14 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:47194 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:26:17 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:47202 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:26:20 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:47218 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:26:24 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57326 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:26:27 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:57334 - "POST /api/inference/stream HTTP/1.1" 200 OK
+[2026-09-28 16:26:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [576]

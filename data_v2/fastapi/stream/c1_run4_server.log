@@ -1,0 +1,34 @@
+INFO:     Started server process [22505]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60906 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60914 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32862 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32866 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32868 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40762 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40766 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40768 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43472 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43488 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43490 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43492 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51244 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51258 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51270 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51280 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51738 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51750 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51766 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60378 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60384 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60390 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60406 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51592 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51602 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51604 - "POST /api/inference/stream HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [22505]

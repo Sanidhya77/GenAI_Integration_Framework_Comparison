@@ -1,0 +1,3 @@
+stream connection success = HTTP 200 AND 12 content chunks AND done event seen (test_stream.py raises on a non-200 status before reading the body, so done seen implies 200; a stream failing any condition counts as failed)
+pipeline completion = HTTP 200 AND all 4 stage timings present in the response (stages_logged = 4)
+closed_system_consistency = mean latency (steady window) x completion rate / c

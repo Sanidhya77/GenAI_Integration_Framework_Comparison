@@ -1,0 +1,187 @@
+{
+  "status": "complete",
+  "framework": "flask_mw",
+  "endpoint": "inference",
+  "concurrency": 50,
+  "run": 4,
+  "mode": "sim",
+  "git_sha": "ada7ab16b70a67c57c21c4235d95c1270f00236b",
+  "calibration_v2_sha256": "a5b54888dc4b21650bb46a11e4804510b39e8f7dd795272284eaeee3cc22340e",
+  "pip_freeze_sha256": "785c031a2b025739aa42b0603c5b66bedb1b531ba24df3ec6de7f03b0fbdd523",
+  "python": "3.12.3",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "nproc": 8,
+  "rest_mode": "short",
+  "duration_s": 60,
+  "monitor_interval_s": 0.25,
+  "run_start_ts": 1790521001.2438889,
+  "run_start_mono": 2456.968455516,
+  "anchor_start": {
+    "wall": 1790521001.2438889,
+    "mono": 2456.968455516
+  },
+  "mem_available_mb_at_start": 7436.3,
+  "mem_total_mb": 7942.2,
+  "loadavg_at_start": [
+    0.0966796875,
+    0.14892578125,
+    0.134765625
+  ],
+  "timesync_state": {
+    "systemd-timesyncd": "inactive",
+    "chronyd": "inactive",
+    "ntp": "inactive"
+  },
+  "clocksource": "tsc",
+  "apt_timers": {
+    "apt-daily.timer": "inactive",
+    "apt-daily-upgrade.timer": "inactive"
+  },
+  "allow_timesync": false,
+  "simulator_pid": 468,
+  "simulator_calibration_sha256": "a5b54888dc4b21650bb46a11e4804510b39e8f7dd795272284eaeee3cc22340e",
+  "server_cmd": [
+    "/home/sanidhya/experiment/venv/bin/python",
+    "-m",
+    "gunicorn",
+    "-c",
+    "flask_app/gunicorn_config_mw.py",
+    "flask_app.app:app"
+  ],
+  "server_cwd": ".",
+  "server_env": {
+    "SIMULATE": "1"
+  },
+  "server_pid": 2068,
+  "server_ready_ts": 1790521001.9700716,
+  "server_ready_mono": 2457.69463974,
+  "warmup": [
+    {
+      "status": 200,
+      "seconds": 2.9363
+    },
+    {
+      "status": 200,
+      "seconds": 2.9165
+    },
+    {
+      "status": 200,
+      "seconds": 2.9169
+    }
+  ],
+  "monitored_pid": 2068,
+  "worker_pids": [
+    2069,
+    2070,
+    2071,
+    2072,
+    2073,
+    2074,
+    2075,
+    2076,
+    2077,
+    2078,
+    2079,
+    2080,
+    2081,
+    2082,
+    2084,
+    2085,
+    2086
+  ],
+  "monitor_tree": true,
+  "monitor_cmd": [
+    "/home/sanidhya/experiment/venv/bin/python",
+    "monitoring/resource_monitor_v2.py",
+    "--pid",
+    "2068",
+    "--output",
+    "/home/sanidhya/experiment/data_v2/flask_mw/inference/c50_run4_resources.csv",
+    "--interval",
+    "0.25",
+    "--tree"
+  ],
+  "sim_monitor_cmd": [
+    "/home/sanidhya/experiment/venv/bin/python",
+    "monitoring/resource_monitor_v2.py",
+    "--pid",
+    "468",
+    "--output",
+    "/home/sanidhya/experiment/data_v2/flask_mw/inference/c50_run4_sim_monitor.csv",
+    "--interval",
+    "0.25"
+  ],
+  "spawn_rate": 17.3732,
+  "service_time_s": 2.878,
+  "uniform_spawn": true,
+  "locust_cmd": [
+    "/home/sanidhya/experiment/venv/bin/python",
+    "-m",
+    "locust",
+    "-f",
+    "locust_tests/test_inference.py,locust_tests/request_log.py",
+    "--headless",
+    "-u",
+    "50",
+    "-r",
+    "17.3732",
+    "-t",
+    "60s",
+    "--host",
+    "http://localhost:8000",
+    "--csv",
+    "/home/sanidhya/experiment/data_v2/flask_mw/inference/c50_run4"
+  ],
+  "locust_start_ts": 1790521012.7755606,
+  "locust_start_mono": 2468.500127999,
+  "locust_end_ts": 1790521073.0595355,
+  "locust_end_mono": 2528.784103874,
+  "locust_returncode": 0,
+  "run_end_ts": 1790521074.9401255,
+  "run_end_mono": 2530.664691302,
+  "anchor_end": {
+    "wall": 1790521074.9401255,
+    "mono": 2530.664691302
+  },
+  "clock_step_detected": false,
+  "clock_step_ms": 0.001,
+  "clock_offset_samples": 505,
+  "clock_sample_start": {
+    "mono_before": 2468.492561092,
+    "mono_after": 2468.497854336,
+    "mono_mid": 2468.4952077139997,
+    "host_ts": 1790521012.7640302,
+    "latency_s": 0.005293243999858532
+  },
+  "clock_sample_mid": {
+    "mono_before": 2498.528054351,
+    "mono_after": 2498.531994192,
+    "mono_mid": 2498.5300242715,
+    "host_ts": 1790521042.8050177,
+    "latency_s": 0.003939841000374145
+  },
+  "clock_sample_end": {
+    "mono_before": 2528.802581957,
+    "mono_after": 2528.807260798,
+    "mono_mid": 2528.8049213775,
+    "host_ts": 1790521073.0740447,
+    "latency_s": 0.004678840999986278
+  },
+  "clock_rate_ratio": 0.9999950120586888,
+  "clock_rate_uncertainty": 0.000613265355927186,
+  "clock_rate_ratio_first_half": 0.999794582847557,
+  "clock_rate_ratio_second_half": 1.000193931284788,
+  "clock_rate_half_diff": 0.00039934843723110625,
+  "clock_rate_unstable": false,
+  "clock_rate_off_nominal": false,
+  "monitor_cpu_pct": 5.491,
+  "sim_monitor_cpu_pct": 0.448,
+  "idle_rss_mb": 966.45,
+  "idle_uss_mb": 660.28,
+  "idle_drift": true,
+  "idle_samples": 8,
+  "idle_reference_run": 1,
+  "idle_rss_diff_mb": 2.06,
+  "idle_uss_diff_mb": 1.3,
+  "missing_files": []
+}

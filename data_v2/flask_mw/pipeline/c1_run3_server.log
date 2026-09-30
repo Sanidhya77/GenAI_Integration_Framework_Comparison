@@ -1,0 +1,73 @@
+[2026-09-27 16:03:27 +0000] [5049] [INFO] Starting gunicorn 25.3.0
+[2026-09-27 16:03:27 +0000] [5049] [INFO] Listening at: http://0.0.0.0:8000 (5049)
+[2026-09-27 16:03:27 +0000] [5049] [INFO] Using worker: sync
+[2026-09-27 16:03:27 +0000] [5050] [INFO] Booting worker with pid: 5050
+[2026-09-27 16:03:27 +0000] [5051] [INFO] Booting worker with pid: 5051
+[2026-09-27 16:03:27 +0000] [5052] [INFO] Booting worker with pid: 5052
+[2026-09-27 16:03:27 +0000] [5053] [INFO] Booting worker with pid: 5053
+[2026-09-27 16:03:27 +0000] [5054] [INFO] Booting worker with pid: 5054
+[2026-09-27 16:03:27 +0000] [5055] [INFO] Booting worker with pid: 5055
+[2026-09-27 16:03:27 +0000] [5056] [INFO] Booting worker with pid: 5056
+127.0.0.1 - - [27/Sep/2026:16:03:27 +0000] "GET /health HTTP/1.1" 200 36 "-" "python-requests/2.33.1"
+[2026-09-27 16:03:27 +0000] [5057] [INFO] Booting worker with pid: 5057
+[2026-09-27 16:03:27 +0000] [5059] [INFO] Booting worker with pid: 5059
+[2026-09-27 16:03:27 +0000] [5060] [INFO] Booting worker with pid: 5060
+[2026-09-27 16:03:27 +0000] [5061] [INFO] Booting worker with pid: 5061
+[2026-09-27 16:03:27 +0000] [5062] [INFO] Booting worker with pid: 5062
+[2026-09-27 16:03:27 +0000] [5063] [INFO] Booting worker with pid: 5063
+[2026-09-27 16:03:27 +0000] [5064] [INFO] Booting worker with pid: 5064
+[2026-09-27 16:03:27 +0000] [5065] [INFO] Booting worker with pid: 5065
+[2026-09-27 16:03:27 +0000] [5066] [INFO] Booting worker with pid: 5066
+[2026-09-27 16:03:27 +0000] [5067] [INFO] Booting worker with pid: 5067
+[2026-09-27 16:03:28 +0000] [5049] [INFO] Control socket listening at /run/user/1000/gunicorn.ctl
+127.0.0.1 - - [27/Sep/2026:16:03:30 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:03:33 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:03:36 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:03:41 +0000] "POST /api/pipeline HTTP/1.1" 200 1596 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:03:43 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:03:46 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:03:49 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:03:52 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:03:55 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:03:57 +0000] "POST /api/pipeline HTTP/1.1" 200 1593 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:00 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:03 +0000] "POST /api/pipeline HTTP/1.1" 200 1596 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:06 +0000] "POST /api/pipeline HTTP/1.1" 200 1596 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:08 +0000] "POST /api/pipeline HTTP/1.1" 200 1595 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:11 +0000] "POST /api/pipeline HTTP/1.1" 200 1596 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:14 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:17 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:20 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:22 +0000] "POST /api/pipeline HTTP/1.1" 200 1596 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:25 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:28 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:31 +0000] "POST /api/pipeline HTTP/1.1" 200 1595 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:33 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:16:04:36 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+[2026-09-27 16:04:38 +0000] [5057] [INFO] Worker exiting (pid: 5057)
+[2026-09-27 16:04:38 +0000] [5067] [INFO] Worker exiting (pid: 5067)
+[2026-09-27 16:04:38 +0000] [5066] [INFO] Worker exiting (pid: 5066)
+[2026-09-27 16:04:38 +0000] [5065] [INFO] Worker exiting (pid: 5065)
+[2026-09-27 16:04:38 +0000] [5054] [INFO] Worker exiting (pid: 5054)
+[2026-09-27 16:04:38 +0000] [5049] [INFO] Handling signal: term
+[2026-09-27 16:04:38 +0000] [5051] [INFO] Worker exiting (pid: 5051)
+[2026-09-27 16:04:38 +0000] [5064] [INFO] Worker exiting (pid: 5064)
+[2026-09-27 16:04:38 +0000] [5053] [INFO] Worker exiting (pid: 5053)
+[2026-09-27 16:04:38 +0000] [5052] [INFO] Worker exiting (pid: 5052)
+[2026-09-27 16:04:38 +0000] [5063] [INFO] Worker exiting (pid: 5063)
+[2026-09-27 16:04:38 +0000] [5062] [INFO] Worker exiting (pid: 5062)
+[2026-09-27 16:04:38 +0000] [5061] [INFO] Worker exiting (pid: 5061)
+[2026-09-27 16:04:38 +0000] [5060] [INFO] Worker exiting (pid: 5060)
+[2026-09-27 16:04:38 +0000] [5050] [INFO] Worker exiting (pid: 5050)
+[2026-09-27 16:04:38 +0000] [5059] [INFO] Worker exiting (pid: 5059)
+[2026-09-27 16:04:38 +0000] [5056] [INFO] Worker exiting (pid: 5056)
+[2026-09-27 16:04:39 +0000] [5049] [INFO] Worker (pid:5051) was sent SIGTERM!
+[2026-09-27 16:04:39 +0000] [5049] [INFO] Worker (pid:5053) was sent SIGTERM!
+[2026-09-27 16:04:39 +0000] [5049] [INFO] Worker (pid:5054) was sent SIGTERM!
+[2026-09-27 16:04:39 +0000] [5049] [INFO] Worker (pid:5057) was sent SIGTERM!
+[2026-09-27 16:04:39 +0000] [5049] [INFO] Worker (pid:5064) was sent SIGTERM!
+[2026-09-27 16:04:39 +0000] [5049] [INFO] Worker (pid:5065) was sent SIGTERM!
+[2026-09-27 16:04:39 +0000] [5049] [INFO] Worker (pid:5066) was sent SIGTERM!
+127.0.0.1 - - [27/Sep/2026:16:04:39 +0000] "POST /api/pipeline HTTP/1.1" 200 1597 "-" "python-requests/2.33.1"
+[2026-09-27 16:04:39 +0000] [5055] [INFO] Worker exiting (pid: 5055)
+[2026-09-27 16:04:39 +0000] [5049] [INFO] Shutting down: Master

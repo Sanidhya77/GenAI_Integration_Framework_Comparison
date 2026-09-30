@@ -1,0 +1,82 @@
+[2026-09-27 17:50:52 +0000] [7979] [INFO] Starting gunicorn 25.3.0
+[2026-09-27 17:50:52 +0000] [7979] [INFO] Listening at: http://0.0.0.0:8000 (7979)
+[2026-09-27 17:50:52 +0000] [7979] [INFO] Using worker: sync
+[2026-09-27 17:50:52 +0000] [7980] [INFO] Booting worker with pid: 7980
+[2026-09-27 17:50:52 +0000] [7981] [INFO] Booting worker with pid: 7981
+[2026-09-27 17:50:53 +0000] [7982] [INFO] Booting worker with pid: 7982
+[2026-09-27 17:50:53 +0000] [7983] [INFO] Booting worker with pid: 7983
+[2026-09-27 17:50:53 +0000] [7984] [INFO] Booting worker with pid: 7984
+[2026-09-27 17:50:53 +0000] [7985] [INFO] Booting worker with pid: 7985
+[2026-09-27 17:50:53 +0000] [7986] [INFO] Booting worker with pid: 7986
+[2026-09-27 17:50:53 +0000] [7987] [INFO] Booting worker with pid: 7987
+[2026-09-27 17:50:53 +0000] [7988] [INFO] Booting worker with pid: 7988
+[2026-09-27 17:50:53 +0000] [7989] [INFO] Booting worker with pid: 7989
+[2026-09-27 17:50:53 +0000] [7990] [INFO] Booting worker with pid: 7990
+127.0.0.1 - - [27/Sep/2026:17:50:53 +0000] "GET /health HTTP/1.1" 200 39 "-" "python-requests/2.33.1"
+[2026-09-27 17:50:53 +0000] [7992] [INFO] Booting worker with pid: 7992
+[2026-09-27 17:50:53 +0000] [7993] [INFO] Booting worker with pid: 7993
+[2026-09-27 17:50:53 +0000] [7994] [INFO] Booting worker with pid: 7994
+[2026-09-27 17:50:53 +0000] [7995] [INFO] Booting worker with pid: 7995
+[2026-09-27 17:50:53 +0000] [7996] [INFO] Booting worker with pid: 7996
+[2026-09-27 17:50:53 +0000] [7997] [INFO] Booting worker with pid: 7997
+[2026-09-27 17:50:53 +0000] [7979] [INFO] Control socket listening at /run/user/1000/gunicorn.ctl
+127.0.0.1 - - [27/Sep/2026:17:50:56 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:50:59 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:01 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:07 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:09 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:12 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:15 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:18 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:21 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:23 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:26 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:29 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:32 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:35 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:37 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:40 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:43 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:46 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:48 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:51 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:54 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:51:57 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:52:00 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:52:02 +0000] "POST /api/inference/stream HTTP/1.1" 200 1525 "-" "python-requests/2.33.1"
+127.0.0.1 - - [27/Sep/2026:17:52:04 +0000] "POST /api/inference/stream HTTP/1.1" 200 740 "-" "python-requests/2.33.1"
+[2026-09-27 17:52:04 +0000] [7990] [INFO] Worker exiting (pid: 7990)
+[2026-09-27 17:52:04 +0000] [7988] [INFO] Worker exiting (pid: 7988)
+[2026-09-27 17:52:04 +0000] [7995] [INFO] Worker exiting (pid: 7995)
+[2026-09-27 17:52:04 +0000] [7997] [INFO] Worker exiting (pid: 7997)
+[2026-09-27 17:52:04 +0000] [7996] [INFO] Worker exiting (pid: 7996)
+[2026-09-27 17:52:04 +0000] [7983] [INFO] Worker exiting (pid: 7983)
+[2026-09-27 17:52:04 +0000] [7986] [INFO] Worker exiting (pid: 7986)
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Handling signal: term
+[2026-09-27 17:52:04 +0000] [7989] [INFO] Worker exiting (pid: 7989)
+[2026-09-27 17:52:04 +0000] [7994] [INFO] Worker exiting (pid: 7994)
+[2026-09-27 17:52:04 +0000] [7985] [INFO] Worker exiting (pid: 7985)
+[2026-09-27 17:52:04 +0000] [7992] [INFO] Worker exiting (pid: 7992)
+[2026-09-27 17:52:04 +0000] [7993] [INFO] Worker exiting (pid: 7993)
+[2026-09-27 17:52:04 +0000] [7982] [INFO] Worker exiting (pid: 7982)
+[2026-09-27 17:52:04 +0000] [7981] [INFO] Worker exiting (pid: 7981)
+[2026-09-27 17:52:04 +0000] [7984] [INFO] Worker exiting (pid: 7984)
+[2026-09-27 17:52:04 +0000] [7987] [INFO] Worker exiting (pid: 7987)
+[2026-09-27 17:52:04 +0000] [7980] [INFO] Worker exiting (pid: 7980)
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7981) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7982) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7983) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7984) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7985) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7986) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7987) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7988) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7989) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7990) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7992) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7993) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7994) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7995) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7996) was sent SIGTERM!
+[2026-09-27 17:52:04 +0000] [7979] [INFO] Worker (pid:7997) was sent SIGTERM!
+[2026-09-27 17:52:05 +0000] [7979] [INFO] Shutting down: Master

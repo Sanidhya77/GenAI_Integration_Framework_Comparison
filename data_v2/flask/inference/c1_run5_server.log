@@ -1,0 +1,33 @@
+[2026-09-26 18:59:51 +0000] [19371] [INFO] Starting gunicorn 25.3.0
+[2026-09-26 18:59:51 +0000] [19371] [INFO] Listening at: http://0.0.0.0:8000 (19371)
+[2026-09-26 18:59:51 +0000] [19371] [INFO] Using worker: sync
+[2026-09-26 18:59:51 +0000] [19372] [INFO] Booting worker with pid: 19372
+[2026-09-26 18:59:51 +0000] [19371] [INFO] Control socket listening at /run/user/1000/gunicorn.ctl
+127.0.0.1 - - [26/Sep/2026:18:59:51 +0000] "GET /health HTTP/1.1" 200 36 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:18:59:54 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:18:59:57 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:00 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:05 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:08 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:11 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:14 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:17 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:20 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:23 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:25 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:28 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:31 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:34 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:37 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:40 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:43 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:46 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:49 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:51 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:54 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:00:57 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+127.0.0.1 - - [26/Sep/2026:19:01:00 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+[2026-09-26 19:01:03 +0000] [19371] [INFO] Handling signal: term
+127.0.0.1 - - [26/Sep/2026:19:01:03 +0000] "POST /api/inference HTTP/1.1" 200 1184 "-" "python-requests/2.33.1"
+[2026-09-26 19:01:03 +0000] [19372] [INFO] Worker exiting (pid: 19372)
+[2026-09-26 19:01:03 +0000] [19371] [INFO] Shutting down: Master

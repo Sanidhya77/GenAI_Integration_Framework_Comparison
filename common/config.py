@@ -44,8 +44,10 @@ SERVER_PORT = 8000
 """
 USE_SIMULATED = os.environ.get("SIMULATE", "0") == "1"
 
-# Simulated endpoint URL (runs as a separate service)
+# Simulated Messages API (runs as a separate service); used as the SDK base_url
 SIMULATED_ENDPOINT_URL = "http://127.0.0.1:9000"
+# Dummy key sent to the simulator; never valid for api.anthropic.com
+SIMULATED_API_KEY = "sk-ant-simulated-dummy-key"
 
 
 # Gunicorn configuration for Flask and Django

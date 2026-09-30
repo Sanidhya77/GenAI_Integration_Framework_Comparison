@@ -34,6 +34,10 @@ from common.config import (
 
 from anthropic import Anthropic
 
+# This script calls the real Anthropic API; refuse unless explicitly allowed.
+if os.environ.get("ALLOW_REAL_API") != "1":
+    sys.exit("Refusing to call the real Anthropic API: set ALLOW_REAL_API=1 to run this script.")
+
 # Number of calibration runs
 NUM_RUNS = 5
 

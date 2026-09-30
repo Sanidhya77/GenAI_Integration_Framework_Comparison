@@ -1,0 +1,49 @@
+INFO:     Started server process [493]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:40606 - "GET /health HTTP/1.1" 200 OK
+[2026-09-28 16:13:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:40618 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:13:36 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:40630 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:13:40 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33722 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:13:46 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:13:50 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:13:53 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:13:57 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:01 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:04 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:08 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:11 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:15 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:19 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:22 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:26 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:30 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:33 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:37 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+[2026-09-28 16:14:41 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     127.0.0.1:33732 - "POST /api/inference HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for background tasks to complete. (CTRL+C to force quit)
+[2026-09-28 16:14:44 - httpx:1740 - INFO] HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [493]
