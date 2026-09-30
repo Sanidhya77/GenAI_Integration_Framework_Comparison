@@ -75,7 +75,7 @@ Per run, `data_v2/` holds Locust CSVs (`_stats`, `_stats_history`, `_failures`, 
 - Host: laptop with an Intel Core i5-12500H, Windows with a WSL2 VM (kernel 6.6.87.2-microsoft-standard-WSL2), 8 vCPUs, 7,942 MiB RAM, clocksource `tsc`. Load generator, simulator, monitors and server share the host.
 - Python 3.12.3. Flask 3.1.3, Django 6.0.3, FastAPI 0.135.3 (Starlette 1.0.0), Tornado 6.5.5; Gunicorn 25.3.0, Uvicorn 0.42.0 (asyncio and h11; uvloop and httptools not installed); Locust 2.43.4 (gevent 25.9.1); httpx 0.28.1; anthropic 0.88.0; psutil 7.2.2; pytest 9.0.2; matplotlib 3.10.8 and numpy 2.4.4 for the figures. Full list: `environment.txt`.
 - Model: `claude-haiku-4-5-20251001`, max_tokens 256, temperature 0.0. The code was run and tested with anthropic 0.88.0 only; keep the pinned versions.
-- All 564 runs record the same git SHA (ada7ab1, tag `v2-freeze`), calibration sha256 and pip-freeze sha256.
+- All 564 runs record the same git SHA, calibration sha256 and pip-freeze sha256. The recorded SHA is ada7ab1, which is 14f5663 (tag `v2-freeze`) after the message-only history rewrite of 30 Sep 2026; see [HASH_MAP.md](HASH_MAP.md).
 
 ### Clock requirement
 
