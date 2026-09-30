@@ -18,7 +18,7 @@ authors:
     affiliation: Riga Technical University
 version: "2.0"
 license: MIT
-repository-code: "https://github.com/Sanidhya77/GenAI_Integration_Framework_Comparision"
+repository-code: "https://github.com/Sanidhya77/GenAI_Integration_Framework_Comparison"
 keywords:
   - benchmark
   - web frameworks

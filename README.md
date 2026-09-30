@@ -106,8 +106,8 @@ Run everything from the repository root on Linux or WSL2 (the clock-rate check n
 ### 1 Setup (minutes)
 
 ```bash
-git clone https://github.com/Sanidhya77/GenAI_Integration_Framework_Comparision.git
-cd GenAI_Integration_Framework_Comparision
+git clone https://github.com/Sanidhya77/GenAI_Integration_Framework_Comparison.git
+cd GenAI_Integration_Framework_Comparison
 python3.12 -m venv venv
 venv/bin/pip install $(grep '==' environment.txt)   # environment.txt ends with two info lines, hence the grep
 venv/bin/pip install matplotlib==3.10.8 numpy==2.4.4
@@ -236,7 +236,7 @@ Please cite the paper, and the software and data record if you use the code or t
   year      = {2026},
   publisher = {Zenodo},
   doi       = {TODO},
-  url       = {https://github.com/Sanidhya77/GenAI_Integration_Framework_Comparision}
+  url       = {https://github.com/Sanidhya77/GenAI_Integration_Framework_Comparison}
 }
 ```
 
