@@ -351,7 +351,8 @@ def main():
     ax.set_yticks(range(len(items)))
     ax.set_yticklabels([it[0] for it in items][::-1])
     ax.grid(axis="y", visible=False)
-    ax.set_xlabel("relative to v2 (v2 = 1, log scale)")
+    # Centred under the whole figure: centred under the axes, the label ran past the right edge (clipped).
+    fig.supxlabel("relative to v2 (v2 = 1, log scale)", fontsize=plt.rcParams["axes.labelsize"], color=INK)
     fig.legend(handles=[plt.Rectangle((0, 0), 1, 1, fc="#bdbcb5", ec=INK2, hatch="////", label="thesis (April 2026)"),
                         plt.Rectangle((0, 0), 1, 1, fc=INK2, ec=INK2, label="v2 (corrected harness)")],
                loc="outside upper center", ncol=2, handlelength=1.4, columnspacing=1.0)
