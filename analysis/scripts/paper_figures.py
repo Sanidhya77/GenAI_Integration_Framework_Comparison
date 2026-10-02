@@ -275,25 +275,46 @@ def main():
         f"{n.v('CPUSI.tornado.c100'):.1f} (Tornado) times an inference request. Low-concurrency values are noisy "
         "because CPU samples are quantised in 4 % steps. " + bar_note(vis, tot))
 
-    # F4 validation
+    # F4 validation. Real API: no error bar; the three per-run values are drawn as dots (top: run medians, bottom:
+    # run p95s), read from final_real_per_run.csv and checked against the numbers.csv row of the bar (n = 3, min,
+    # max, and mean = centre of the t-interval). Scaled simulator: bootstrap CI over runs as error bars.
+    per_run = {}
+    for r in read(os.path.join(ROOT, "analysis", "out", "final_real_per_run.csv")):
+        if r["phase"] in ("A", "B") and r["framework"] == "fastapi":
+            per_run.setdefault((r["phase"], int(r["concurrency"])), []).append(r)
+
+    def run_values(ph, c, stn, idx):
+        rows = sorted(per_run[(ph, c)], key=lambda r: int(r["run"]))
+        xs = [float(r["latency_ms_median" if stn == "p50" else "latency_ms_p95"]) for r in rows]
+        row = n.n[idx]
+        mean = sum(xs) / len(xs)
+        assert len(xs) == int(row["n_runs"]) == 3, idx
+        assert abs(min(xs) - float(row["min"])) < 1e-6 and abs(max(xs) - float(row["max"])) < 1e-6, idx
+        assert abs(mean - (float(row["ci_low"]) + float(row["ci_high"])) / 2) < 1e-3, idx
+        return xs
+
     fig, axs = plt.subplots(2, 1, figsize=(W_IN, 3.7), sharex=True, layout="constrained")
     b = Bars()
     groups = [("A", "inference", 1), ("A", "inference", 25), ("B", "stream", 1), ("B", "stream", 25)]
     col = STYLE["fastapi"]["color"]
     for ax, stn, lab in ((axs[0], "p50", "median latency (s)"), (axs[1], "p95", "p95 latency (s)")):
         for k, (ph, ep, c) in enumerate(groups):
-            for off, idx, style in ((-0.19, f"V{ph}.lat.{stn}.c{c}", "real"),
-                                    (0.19, f"V{ph}.simsc.lat.{stn}.c{c}", "sim")):
-                v = n.v(idx) / 1000
-                lo, hi = (x / 1000 for x in n.ci(idx))
-                ax.bar(k + off, v, width=0.36, color=col if style == "real" else "white", edgecolor=col, lw=0.8,
-                       hatch=None if style == "real" else "////", zorder=2)
-                ax.errorbar([k + off], [v], yerr=[[v - lo], [hi - v]], fmt="none", ecolor=INK, elinewidth=0.7,
-                            capsize=1.8, capthick=0.7, zorder=3)
-                b.add(ax, k + off, lo, hi, 2.0)
+            idx = f"V{ph}.lat.{stn}.c{c}"
+            ax.bar(k - 0.19, n.v(idx) / 1000, width=0.36, color=col, edgecolor=col, lw=0.8, zorder=2)
+            ax.plot([k - 0.19 + dx for dx in (-0.09, 0.0, 0.09)], [x / 1000 for x in run_values(ph, c, stn, idx)],
+                    ls="none", marker="o", ms=2.8, mfc="white", mec=INK, mew=0.6, zorder=4)
+            idx = f"V{ph}.simsc.lat.{stn}.c{c}"
+            v = n.v(idx) / 1000
+            lo, hi = (x / 1000 for x in n.ci(idx))
+            ax.bar(k + 0.19, v, width=0.36, color="white", edgecolor=col, lw=0.8, hatch="////", zorder=2)
+            ax.errorbar([k + 0.19], [v], yerr=[[v - lo], [hi - v]], fmt="none", ecolor=INK, elinewidth=0.7,
+                        capsize=1.8, capthick=0.7, zorder=3)
+            b.add(ax, k + 0.19, lo, hi, 2.0)
         ax.set_ylabel(lab)
         ax.grid(axis="x", visible=False)
         ax.set_ylim(0, 10.5 if stn == "p95" else 4.6)
+        # Fixed ticks (as rendered before the two-row legend shortened the axes and the auto locator changed them).
+        ax.yaxis.set_major_locator(FixedLocator([0, 2, 4, 6, 8, 10] if stn == "p95" else [0, 1, 2, 3, 4]))
     axs[1].set_xticks(range(4))
     axs[1].set_xticklabels(["c = 1", "c = 25", "c = 1", "c = 25"])
     axs[1].text(0.5, -0.2, "inference (Phase A)", transform=axs[1].get_xaxis_transform(), ha="center", va="top",
@@ -301,8 +322,10 @@ def main():
     axs[1].text(2.5, -0.2, "stream (Phase B)", transform=axs[1].get_xaxis_transform(), ha="center", va="top",
                 fontsize=8, color=INK)
     fig.legend(handles=[plt.Rectangle((0, 0), 1, 1, fc=col, ec=col, label="real API, 3 runs"),
+                        plt.Line2D([], [], ls="none", marker="o", ms=2.8, mfc="white", mec=INK, mew=0.6,
+                                   label="per run"),
                         plt.Rectangle((0, 0), 1, 1, fc="white", ec=col, hatch="////", label="simulator scaled, 5 runs")],
-               loc="outside upper center", ncol=2, handlelength=1.4, columnspacing=1.0)
+               loc="outside upper center", ncol=2, handlelength=1.4, columnspacing=1.0)  # 2 rows: 3 columns clip
     vis, tot = b.visible(fig)
     save(fig, d, "F4_validation")
     cap["F4_validation"] = (
@@ -311,8 +334,9 @@ def main():
         "bottom: p95 latency, pooled over the runs' requests. The scaled c = 1 medians are equal by construction "
         f"(the scale factor is defined from them); at c = 25 real / simulated median is {n.v('VA.sim4b.lat.p50'):.3f} "
         f"(inference) and {n.v('VB.sim4b.lat.p50'):.3f} (stream), while the deterministic simulator has no tail "
-        f"(one real inference run at c = 25 has a p95 of {n.v('VA.maxrunp95'):,.0f} ms). Error bars: 95 % CI (real single levels: t-interval over the "
-        "3 run medians, df 2; scaled simulator: bootstrap over runs); " + (
+        f"(one real inference run at c = 25 has a p95 of {n.v('VA.maxrunp95'):,.0f} ms). Real API: the three per-run "
+        "values (dots; top: run medians, bottom: run p95s); scaled simulator: 95 % bootstrap CI over runs (error "
+        "bars); " + (
             f"{vis} of {tot} are longer than 2 pt." if vis else "all are shorter than 2 pt."))
 
     # F5 thesis vs v2
@@ -340,8 +364,10 @@ def main():
                     capsize=1.2, zorder=3)
         (x0, _), (x1, _) = ax.transData.transform([(lo / v, 0), (hi / v, 0)])
         b.items.append((ax, None, lo / v, hi / v, None))
-        ax.text(t / v * 1.08, y + 0.19, fth.format(t), va="center", ha="left", fontsize=7.5, color=INK)
-        ax.text(1.08, y - 0.19, fv2.format(v), va="center", ha="left", fontsize=7.5, color=INK)
+        # Both labels start right of the longer bar of the pair: next to its own bar, a label ran into the other bar.
+        xl = max(t / v, 1.0) * 1.08
+        ax.text(xl, y + 0.19, fth.format(t), va="center", ha="left", fontsize=7.5, color=INK)
+        ax.text(xl, y - 0.19, fv2.format(v), va="center", ha="left", fontsize=7.5, color=INK)
     ax.set_xscale("log")
     ax.xaxis.set_major_locator(FixedLocator([0.5, 1, 3, 10, 30]))
     ax.xaxis.set_minor_locator(NullLocator())
