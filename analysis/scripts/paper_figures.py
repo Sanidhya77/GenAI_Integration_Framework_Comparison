@@ -341,7 +341,7 @@ def main():
 
     # F5 thesis vs v2
     items = [
-        ("Async/sync throughput", "P.th.ratio", "RA1.inf.c100", "{:.0f}", "{:.1f}"),
+        ("Async/sync throughput", "P.th.ratio", "RA1.inf.c100", "{:.0f}", "{:.2f}"),  # 100.00, as in the text and T6
         ("FastAPI throughput", "P.th.fastapiX", "X.inf.fastapi.c100", "{:.2f} req/s", "{:.2f} req/s"),
         ("Async latency", "P.th.asynclat", "P.asynclat", "{:,.0f} ms", "{:,.0f} ms"),
         ("FastAPI TTFT", "P.th.ttft.fastapi", "TTFT.str.fastapi.c100", "{:,.0f} ms", "{:.0f} ms"),
