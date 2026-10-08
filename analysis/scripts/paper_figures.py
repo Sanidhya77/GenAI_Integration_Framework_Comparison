@@ -1,7 +1,9 @@
 """
-Publication figures F1 to F6 (+ appendix FA) for the paper, from analysis/out/paper/numbers.csv (paper_stats.py).
+Publication figures F1 to F6 (+ appendix FA) for the paper, from analysis/out/paper_v2.1/numbers.csv (paper_stats.py,
+analysis v2.1 of 8 Oct 2026).
 Read-only on data. Vector PDF (Type 42 fonts) and PNG (300 dpi), width 3.33 in (one ACM column) unless noted,
-text 8 to 9 pt. Also writes captions.md with a draft caption per figure; whether the 95 % CI error bars are
+text 8 to 9 pt. Also writes captions.md with a draft caption per figure; whether the error bars (the interval of
+each point: range of 5 runs, or a 95 % bootstrap CI for pooled statistics) are
 visible is measured on the rendered figure and stated in the caption.
 
 Style: one colour, marker and fill per configuration in every figure (Okabe-Ito colours; checked with the
@@ -25,7 +27,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.ticker import FixedLocator, FuncFormatter, NullLocator  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-IN = os.path.join(ROOT, "analysis", "out", "paper")
+IN = os.path.join(ROOT, "analysis", "out", "paper_v2.1")
 EPS = [("inference", "inf"), ("stream", "str"), ("pipeline", "pip")]
 CS = [1, 5, 10, 25, 50, 100]
 W_IN = 3.33
@@ -130,13 +132,13 @@ def save(fig, d, name):
     plt.close(fig)
 
 
-def bar_note(vis, tot):
+def bar_note(vis, tot, what="the range of the 5 runs (a 93.75 % confidence interval for the median)"):
     if vis == 0:
-        return (f"Error bars show the 95 % CI of each point ({tot} points); all are smaller than the markers, so none "
+        return (f"Error bars show {what} for each point ({tot} points); all are smaller than the markers, so none "
                 f"is visible.")
     if vis == tot:
-        return f"Error bars show the 95 % CI; all {tot} are visible."
-    return (f"Error bars show the 95 % CI; {vis} of {tot} extend beyond the marker, the rest are smaller than the "
+        return f"Error bars show {what}; all {tot} are visible."
+    return (f"Error bars show {what}; {vis} of {tot} extend beyond the marker, the rest are smaller than the "
             f"marker.")
 
 
@@ -241,7 +243,9 @@ def main():
         "R = N/X = c/X from the measured throughput. One sync worker at c >= 25 has no marker: no steady-state request "
         "completes in the 60 s window, and R reaches "
         f"{n.v('LR.inf.flask.c100') / 1000:.0f} s at c = 100. Measured steady-state means lie on R within "
-        f"{dev_ssr:.2f} %, while async latency stays at S. " + bar_note(vis, tot))
+        f"{dev_ssr:.2f} %, while async latency stays at S. " + bar_note(
+            vis, tot, "the range of the 5 runs (a 93.75 % confidence interval for the median), or for steady-state "
+                      "means a 95 % bootstrap CI over whole runs"))
 
     # F3 peak USS vs c
     fig, ax = plt.subplots(figsize=(W_IN, 2.9), layout="constrained")
@@ -277,7 +281,8 @@ def main():
 
     # F4 validation. Real API: no error bar; the three per-run values are drawn as dots (top: run medians, bottom:
     # run p95s), read from final_real_per_run.csv and checked against the numbers.csv row of the bar (n = 3, min,
-    # max, and mean = centre of the t-interval). Scaled simulator: bootstrap CI over runs as error bars.
+    # max, and since v2.1 the interval of the row is that range of 3 runs). Scaled simulator: bootstrap CI over runs
+    # as error bars.
     per_run = {}
     for r in read(os.path.join(ROOT, "analysis", "out", "final_real_per_run.csv")):
         if r["phase"] in ("A", "B") and r["framework"] == "fastapi":
@@ -287,10 +292,10 @@ def main():
         rows = sorted(per_run[(ph, c)], key=lambda r: int(r["run"]))
         xs = [float(r["latency_ms_median" if stn == "p50" else "latency_ms_p95"]) for r in rows]
         row = n.n[idx]
-        mean = sum(xs) / len(xs)
         assert len(xs) == int(row["n_runs"]) == 3, idx
         assert abs(min(xs) - float(row["min"])) < 1e-6 and abs(max(xs) - float(row["max"])) < 1e-6, idx
-        assert abs(mean - (float(row["ci_low"]) + float(row["ci_high"])) / 2) < 1e-3, idx
+        assert row["interval"] == "range3", idx
+        assert abs(min(xs) - float(row["ci_low"])) < 1e-6 and abs(max(xs) - float(row["ci_high"])) < 1e-6, idx
         return xs
 
     fig, axs = plt.subplots(2, 1, figsize=(W_IN, 3.7), sharex=True, layout="constrained")
@@ -397,7 +402,8 @@ def main():
         f"overstated async latency, first-token time, the Stage 2 sleep and async memory by {over[0]:.1f} to "
         f"{over[1]:.1f} times; the causes were a new API "
         "client per request, synchronised user bursts and memory carried between runs (Table T6). The v2 bars carry "
-        f"their 95 % CI as a white error bar; the widest is {wmax:.1f} pt, i.e. "
+        f"their interval (range of 5 runs, or a 95 % bootstrap CI for ratios) as a white error bar; the widest is "
+        f"{wmax:.1f} pt, i.e. "
         f"{'not visible' if wmax < 2 else 'visible'} at this size.")
 
     # FA appendix: stream and pipeline
@@ -417,11 +423,12 @@ def main():
         "Appendix (two-column width): stream (left) and pipeline (right) endpoints; rows (a) throughput with 1/S, "
         "17/S and c/S, (b) mean latency (sync: steady state) with R = N/X lines, (c) peak USS, (d) CPU per request. "
         f"S = {S['str']:.4f} s (stream) and {S['pip']:.4f} s (pipeline); the patterns of the inference endpoint hold "
-        "on both. " + bar_note(vis, tot))
+        "on both. " + bar_note(vis, tot, "the range of the 5 runs (a 93.75 % confidence interval for the median), or "
+                                         "for steady-state means a 95 % bootstrap CI over whole runs"))
 
     with open(os.path.join(d, "captions.md"), "w", encoding="utf-8") as fh:
         fh.write("# Figure captions (drafts)\n\nGenerated by `venv/bin/python analysis/scripts/paper_figures.py` from "
-                 "analysis/out/paper/numbers.csv; numbers in the captions are numbers.csv values. Files: "
+                 "analysis/out/paper_v2.1/numbers.csv; numbers in the captions are numbers.csv values. Files: "
                  "<name>.pdf (vector, Type 42 fonts) and <name>.png (300 dpi). Width 3.33 in (one ACM column) unless "
                  "noted. Colours (Okabe-Ito), markers and line styles are the same for each configuration in every "
                  "figure: Flask blue filled circle, Django sky-blue hollow square (one sync worker, solid line); "

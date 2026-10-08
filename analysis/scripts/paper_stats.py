@@ -2,7 +2,8 @@
 Paper statistics for the v2 benchmark (read-only: no server, no Locust, no simulator, no API call).
 
 Every number planned for the paper is recomputed from run-level values with the estimator of
-RESULTS_FINAL.md, and given a 95 % confidence interval across runs plus the run range.
+RESULTS_FINAL.md, and given an uncertainty interval whose kind matches the estimator (v2.1, 8 Oct 2026), plus
+the run range.
 
 Estimators (value column), as in RESULTS_FINAL:
   simulated cells   median of the 5 per-run values (scripts/aggregate_v2.py rule); throughput =
@@ -15,14 +16,22 @@ Estimators (value column), as in RESULTS_FINAL:
   ratios            as defined in RESULTS_FINAL (for example mean(FastAPI, Tornado) / mean(Flask,
                     Django) of the per-configuration medians)
 
-Confidence intervals (ci_low, ci_high):
-  one group of runs  t-interval of the mean of the per-run values: mean +/- t(0.975, n - 1) SD / sqrt(n)
-                     (n = 5, df = 4, t = 2.7764; real API n = 3, df = 2, t = 4.3027). The value is
-                     the RESULTS_FINAL estimator (a median or a pooled statistic), so it can lie
-                     outside this interval; such rows are flagged.
-  ratios and any statistic that combines several groups of runs: percentile bootstrap over runs,
-                     runs resampled with replacement within each group, 10,000 resamples, seed
-                     20260929 combined with crc32(id) (numpy default_rng).
+Intervals (ci_low, ci_high; the column "interval" names the kind). v2.1 (8 Oct 2026) replaces the
+t-interval of v2.0, which was an interval for the mean of the per-run values while the value is a median
+or a pooled statistic:
+  os93.75   one group of 5 runs, value = median of the per-run values (or a monotone function of it):
+            [min, max] of the 5 per-run values = distribution-free confidence interval for the median
+            from the order statistics X(1), X(5), level 1 - 2/32 = 93.75 % (Le Boudec 2010, Theorem 2.1;
+            no 95 % interval of this kind exists for n <= 5).
+  boot95    one group of 5 runs with a pooled statistic (requests of the runs pooled), and every
+            statistic that combines several groups of runs: percentile bootstrap over whole runs
+            (runs resampled with replacement within each group; each resample pools the requests of
+            its runs and recomputes the same statistic as the value), 10,000 resamples, seed 20260929
+            combined with crc32(id) (numpy default_rng). Never resamples single requests. Rows with a
+            group of 3 runs are flagged "approximate: 3 runs per group".
+  range3    one group of 3 real-API runs: range of the 3 per-run values, reported as a range, not as a
+            confidence interval (the order-statistic interval would have only 75 % confidence).
+  none      constants, and differences against a printed thesis value (Table 6, first panel).
   min, max           range of the per-run values; for multi-group statistics the range over all
                      combinations of one run per group.
   constants (calibration, thesis values, counts) have no CI.
@@ -57,7 +66,7 @@ import final_mw  # noqa: E402  cycle estimator
 import final_real  # noqa: E402  real-run discovery, thesis c = 1 streams, permutation test
 import validate_real_v2 as vr  # noqa: E402  prefixes and thesis Locust values
 
-OUT = os.path.join(ROOT, "analysis", "out", "paper")
+OUT = os.path.join(ROOT, "analysis", "out", "paper_v2.1")
 AOUT = os.path.join(ROOT, "analysis", "out")
 CAL = json.load(open(os.path.join(ROOT, "simulated_endpoint", "calibration_v2.json")))["values"]
 S = {k: float(v) for k, v in CAL["service_time_s"].items()}
@@ -141,16 +150,28 @@ class Reg:
             cv = [x for x in cv if x is not None and math.isfinite(x)]
             if cv:
                 mn, mx = min(cv), max(cv)
-        kind = ci if ci != "auto" else ("t" if len(groups) == 1 else "boot")
+        if ci == "none":
+            kind = "none"
+        elif len(groups) == 1 and sizes[0] <= 3:
+            kind = "range3"
+        elif len(groups) == 1:
+            kind = "os" if (ci == "os" or (ci == "auto" and stat is med0)) else "boot"
+        else:
+            kind = "boot"
         lo = hi = None
-        if kind == "t":
+        approx = len(groups) > 1 and min(sizes) <= 3 and kind == "boot"
+        if kind in ("os", "range3"):
             per = [stat([[x]]) for x in groups[0]]
             n = len(per)
-            m, sd = statistics.mean(per), statistics.stdev(per)
-            h = T[n - 1] * sd / math.sqrt(n)
-            lo, hi = m - h, m + h
-            cim = (f"95 % CI: mean of the {n} per-run values +/- t(0.975, {n - 1}) = {T[n - 1]:.4f} x SD / "
-                   f"sqrt({n})")
+            lo, hi = min(per), max(per)
+            if kind == "os":
+                lev = 1 - 2 * 0.5 ** n
+                cim = (f"interval: [min, max] of the {n} per-run values, a distribution-free confidence interval "
+                       f"for the median from the order statistics X(1), X({n}) at level {lev * 100:.2f} % "
+                       f"(Le Boudec 2010, Theorem 2.1)")
+            else:
+                cim = (f"interval: range of the {n} per-run values (not a confidence interval; the order-statistic "
+                       f"interval would have {(1 - 2 * 0.5 ** n) * 100:.0f} % confidence)")
         elif kind == "boot":
             rng = np.random.default_rng([self.seed, zlib.crc32((seed_id or nid).encode())])
             idx = [rng.integers(0, n, size=(self.B, n)) for n in sizes]
@@ -160,24 +181,26 @@ class Reg:
                 if r is not None and math.isfinite(r):
                     reps.append(r)
             lo, hi = (float(x) for x in np.percentile(reps, [2.5, 97.5]))
-            cim = (f"95 % CI: percentile bootstrap over runs, {self.B:,} resamples, runs resampled with "
-                   f"replacement within each of {len(groups)} group(s) of {'/'.join(map(str, sizes))} runs, "
-                   f"seed {self.seed} + crc32({seed_id or 'id'})" + (f", {self.B - len(reps)} undefined resamples dropped"
-                                                        if len(reps) < self.B else ""))
+            cim = (f"95 % CI: percentile bootstrap over whole runs, {self.B:,} resamples, runs resampled with "
+                   f"replacement within each of {len(groups)} group(s) of {'/'.join(map(str, sizes))} runs, the same "
+                   f"statistic recomputed on each resample, seed {self.seed} + crc32({seed_id or 'id'})"
+                   + (f", {self.B - len(reps)} undefined resamples dropped" if len(reps) < self.B else "")
+                   + ("; approximate: 3 runs per group" if approx else ""))
         else:
-            cim = f"no CI ({kind})"
+            cim = "no interval (difference against a printed thesis value)" if ci == "none" else f"no CI ({kind})"
         mm = "min/max: per-run values" if len(groups) == 1 else \
             "min/max: over all combinations of one run per group"
+        ikind = {"os": "os93.75", "boot": "boot95", "range3": "range3", "none": "none"}.get(kind, kind)
         row = dict(id=nid, description=desc, value=v, unit=unit, ci_low=lo, ci_high=hi, min=mn, max=mx,
-                   n_runs="+".join(map(str, sizes)), method=f"{value_rule}; {cim}; {mm}", source_files=src)
+                   n_runs="+".join(map(str, sizes)), method=f"{value_rule}; {cim}; {mm}", source_files=src,
+                   interval=ikind)
         flags = []
         if wide and lo is not None and v not in (0, None):
             rel = (hi - lo) / 2 / abs(v)
             if rel > 0.10:
-                flags.append(f"wide CI: half-width {rel * 100:.0f} % of the value")
-        if kind == "t" and lo is not None and max(lo - v, v - hi) > 0.005 * abs(v):
-            flags.append("value (median or pooled statistic) lies more than 0.5 % outside the t-interval of the "
-                         "per-run mean")
+                flags.append(f"wide interval: half-width {rel * 100:.0f} % of the value")
+        if approx:
+            flags.append("approximate: 3 runs per group")
         if check is not None and lo is not None:
             c = check(v, lo, hi)
             if c:
@@ -189,7 +212,7 @@ class Reg:
     def const(self, nid, desc, unit, value, *, section, used_in, src, nd, why, note="", n_runs="n/a",
               mn=None, mx=None):
         row = dict(id=nid, description=desc, value=value, unit=unit, ci_low=None, ci_high=None, min=mn, max=mx,
-                   n_runs=n_runs, method=f"no CI: {why}", source_files=src)
+                   n_runs=n_runs, method=f"no CI: {why}", source_files=src, interval="none")
         return self._put(row, dict(section=section, used_in=used_in, decimals=nd, flag=note))
 
     def rng_(self, nid, desc, unit, ids, *, section, used_in, nd, note="", check=None):
@@ -212,9 +235,11 @@ class Reg:
         row = dict(id=nid, description=desc, value=f"{fmt(vmin, nd)} to {fmt(vmax, nd)}".replace(",", ""),
                    unit=unit, ci_low=lo, ci_high=hi, min=min(mns) if mns else None, max=max(mxs) if mxs else None,
                    n_runs=";".join(sorted({r["n_runs"] for r in rs})),
-                   method=f"range over {len(ids)} numbers ({compact(ids)}); CI: envelope (lowest lower and highest "
-                          f"upper bound) of their 95 % CIs; min/max: envelope of their run ranges",
-                   source_files=" | ".join(srcs[:3]) + (" | ..." if len(srcs) > 3 else ""))
+                   method=f"range over {len(ids)} numbers ({compact(ids)}); interval: envelope (lowest lower and highest "
+                          f"upper bound) of their intervals ({'/'.join(sorted({r.get('interval', '') for r in rs}))}); "
+                          f"min/max: envelope of their run ranges",
+                   source_files=" | ".join(srcs[:3]) + (" | ..." if len(srcs) > 3 else ""),
+                   interval="/".join(sorted({r.get("interval", "") for r in rs})))
         return self._put(row, dict(section=section, used_in=used_in, decimals=nd, flag="; ".join(flags),
                                    _vmin=vmin, _vmax=vmax))
 
@@ -608,8 +633,9 @@ def main():
             th = 100 * S[ep] / W * 1000
             reg.add(f"RTH.{k}", f"R = c / X_cycle over the theory c S / 17 = {th:,.0f} ms, {LABEL[cfg]}, {ep}, c = 100",
                     "ratio", [x], lambda g, th=th: 100 / statistics.median(g[0]) * 1000 / th, section="5.5 Multi-worker",
-                    used_in="5.5 text (range)", src=SRC_CYC.format(cfg=cfg, ep=ep, c=100), nd=4, ci="boot",
-                    value_rule="value: (c / median X_cycle) / (c S / 17)")
+                    used_in="5.5 text (range)", src=SRC_CYC.format(cfg=cfg, ep=ep, c=100), nd=4, ci="os",
+                    value_rule="value: (c / median X_cycle) / (c S / 17), a monotone function of the median of the per-run "
+                               "X_cycle")
     reg.rng_("N.RTH", "17 workers: R / (c S / 17) at c = 100, all endpoints", "ratio",
              [f"RTH.{EA[e]}.{CA[f]}.c100" for e in EPS for f in MW], section="5.5 Multi-worker", used_in="5.5 text", nd=4)
     reg.rng_("N.TTFT.c1", "stream TTFT p50 at c = 1, six configurations (simulator, fixed upstream)", "ms",
@@ -766,7 +792,7 @@ def main():
                             lambda g, key=key, fn=fn: pm(g, 0, key, fn), section=sec,
                             used_in="6 text; T5; F4" if key == "lat" else "6 text; T5", src=srcr, nd=nd,
                             value_rule=f"value: {stn} pooled over the 3 runs' requests (validate_real_v2.py)",
-                            check=(lambda v, lo, hi: f"CI [{lo:,.0f}, {hi:,.0f}] ms spans {hi / lo - 1:.0%} "
+                            check=(lambda v, lo, hi: f"run range [{lo:,.0f}, {hi:,.0f}] ms spans {hi / lo - 1:.0%} "
                                    f"(output-mode mix between runs)" if hi / lo > 1.10 else None)
                             if (key == "lat" and stn == "p50") else None)
         reg.expect(f"V{ph}.lat.p50.c1", vref(p, "2 load", "latency_ms", "b_median"), what="validation_real_v2 S_today")
@@ -975,12 +1001,17 @@ def main():
                     value_rule="value: real c = 25 CPU ms x simulated load efficiency (x Tornado / FastAPI) x c / S_today / 10 "
                                "(final_stream_cpu.py Method 2)",
                     check=lambda v, lo, hi: "CI includes 100 % (one core)" if lo <= 100 <= hi else None)
+    chunks_by_run = {int(os.path.basename(d["prefix"]).split("_run")[1]): d["chunks"] for d in r25b}
+    real25 = [(float(r["cpu_ms_per_request"]), chunks_by_run[int(r["run"])]) for r in rb[25]]
+    assert abs(float(np.mean(np.concatenate([x[1] for x in real25]))) - ch25) < 1e-9
     reg.add("D.m1.check.c25", "Method 1 prediction / measured CPU per request, FastAPI stream c = 25 (92.08 chunks)", "x",
             [col("fastapi", "inference", 25, "cpu_ms_per_request"), col("fastapi", "stream", 25, "cpu_ms_per_request"),
-             [float(r["cpu_ms_per_request"]) for r in rb[25]]],
-            lambda g: (statistics.median(g[0]) + ch25 * (statistics.median(g[1]) - statistics.median(g[0])) / N_SIM)
-            / statistics.median(g[2]), section=sec, used_in="8 text", src=SRC_PR + "; " + SRC_RPR, nd=2,
-            value_rule="value: (inference ms + 92.08 x (stream ms - inference ms) / 12) / measured real ms")
+             real25],
+            lambda g: (statistics.median(g[0]) + float(np.mean(np.concatenate([x[1] for x in g[2]]))) * (
+                statistics.median(g[1]) - statistics.median(g[0])) / N_SIM) / statistics.median(x[0] for x in g[2]),
+            section=sec, used_in="8 text", src=SRC_PR + "; " + SRC_RPR, nd=2,
+            value_rule="value: (inference ms + mean chunks x (stream ms - inference ms) / 12) / measured real ms; v2.1: "
+                       "the chunk count is recomputed from the same resampled real runs")
     fsc = {(r["method"], r["framework"], int(r["concurrency"])): r for r in read(os.path.join(AOUT, "final_stream_cpu.csv"))}
     for fw in ASYNC:
         for c in (50, 100):
@@ -1012,7 +1043,8 @@ def main():
         r = reg.by[v2id]
         g = [[r2 for r2 in reg_runs[v2id]]]
         reg.add(nid, desc, "%", g, lambda g: (statistics.median(g[0]) / th - 1) * 100, section=sec, used_in="T6",
-                src=r["source_files"] + "; thesis value", nd=0, value_rule="value: (v2 median / thesis value - 1) x 100")
+                src=r["source_files"] + "; thesis value", nd=0, ci="none",
+                value_rule="value: (v2 median / thesis value - 1) x 100")
 
     reg_runs = {"X.inf.fastapi.c100": xs("fastapi", "inference", 100),
                 "ST2.fastapi.c100": col("fastapi", "pipeline", 100, "stage2_p50_ms"),
@@ -1029,13 +1061,13 @@ def main():
     reg.add("P.d.ratio", "v2 vs thesis async / sync throughput ratio at c = 100 (inference)", "%",
             ratio_groups(ASYNC, SYNC1, "inference", 100, "throughput_completion_rate"),
             lambda g: (mean_ratio(2)(g) / 64 - 1) * 100, section=sec, used_in="T6", src=SRC_PR + "; thesis value", nd=0,
-            seed_id="RA1.inf.c100", value_rule="value: (v2 ratio / 64 - 1) x 100")
+            seed_id="RA1.inf.c100", ci="none", value_rule="value: (v2 ratio / 64 - 1) x 100")
     reg.add("P.d.mem.inf", "v2 vs thesis async / sync peak RSS ratio (inference)", "%",
             ratio_groups(ASYNC, SYNC1, "inference", 100, "peak_rss_mb"), lambda g: (mean_ratio(2)(g) / 2.9 - 1) * 100,
-            section=sec, used_in="T6", src=SRC_PR + "; thesis value", nd=0, seed_id="MRSS.inf.c100", value_rule="value: (v2 ratio / 2.9 - 1) x 100")
+            section=sec, used_in="T6", src=SRC_PR + "; thesis value", nd=0, seed_id="MRSS.inf.c100", ci="none", value_rule="value: (v2 ratio / 2.9 - 1) x 100")
     reg.add("P.d.mem.str", "v2 vs thesis async / sync peak RSS ratio (stream)", "%",
             ratio_groups(ASYNC, SYNC1, "stream", 100, "peak_rss_mb"), lambda g: (mean_ratio(2)(g) / 4.5 - 1) * 100,
-            section=sec, used_in="T6", src=SRC_PR + "; thesis value", nd=0, seed_id="MRSS.str.c100", value_rule="value: (v2 ratio / 4.5 - 1) x 100")
+            section=sec, used_in="T6", src=SRC_PR + "; thesis value", nd=0, seed_id="MRSS.str.c100", ci="none", value_rule="value: (v2 ratio / 4.5 - 1) x 100")
     reg.add("P.v2sync", "v2 one-worker sync throughput, inference, c = 100 (mean of Flask and Django)", "req/s",
             [xs("flask", "inference", 100), xs("django", "inference", 100)],
             lambda g: statistics.mean(statistics.median(x) for x in g), section=sec, used_in="7 text; T6", src=SRC_PR,
@@ -1043,7 +1075,7 @@ def main():
     reg.add("P.d.sync", "v2 vs thesis single-worker sync ceiling (0.34 req/s), inference", "%",
             [xs("flask", "inference", 100), xs("django", "inference", 100)],
             lambda g: (statistics.mean(statistics.median(x) for x in g) / 0.34 - 1) * 100, section=sec, used_in="T6",
-            src=SRC_PR + "; thesis value", nd=1, seed_id="P.v2sync", value_rule="value: (v2 / 0.34 - 1) x 100")
+            src=SRC_PR + "; thesis value", nd=1, seed_id="P.v2sync", ci="none", value_rule="value: (v2 / 0.34 - 1) x 100")
     reg_runs["TTFT.str.flask.c100"] = col("flask", "stream", 100, "ttft_p50_ms")
     reg_runs["TTFT.str.django.c100"] = col("django", "stream", 100, "ttft_p50_ms")
     pct_vs("TTFT.str.flask.c100", 28163, "P.d.ttft.flask", "v2 (censored) vs thesis Flask TTFT at c = 100")
@@ -1051,7 +1083,7 @@ def main():
     reg.add("P.d.asynclat", "v2 vs thesis async latency at c = 100 (4,500 ms), inference", "%",
             [col("fastapi", "inference", 100, "latency_p50_ms"), col("tornado", "inference", 100, "latency_p50_ms")],
             lambda g: (statistics.mean(statistics.median(x) for x in g) / 4500 - 1) * 100, section=sec, used_in="T6",
-            src=SRC_PR + "; thesis value", nd=0, seed_id="P.asynclat", value_rule="value: (v2 / 4,500 - 1) x 100")
+            src=SRC_PR + "; thesis value", nd=0, seed_id="P.asynclat", ci="none", value_rule="value: (v2 / 4,500 - 1) x 100")
     reg.add("P.d.spread", "Phase C TTFT spread today / April spread, minus 1", "%",
             [pc[fw] for fw in final_real.FWS] + [ap_[fw] for fw in final_real.FWS],
             lambda g: ((max(pmc(g, i, "ttft_ms") for i in range(4)) - min(pmc(g, i, "ttft_ms") for i in range(4)))
@@ -1079,10 +1111,10 @@ def main():
     with open(os.path.join(OUT, "numbers.csv"), "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["id", "description", "value", "unit", "ci_low", "ci_high", "min", "max", "n_runs", "method",
-                    "source_files"])
+                    "source_files", "interval"])
         for r in reg.rows:
             w.writerow([r["id"], r["description"], num(r["value"]), r["unit"], num(r["ci_low"]), num(r["ci_high"]),
-                        num(r["min"]), num(r["max"]), r["n_runs"], r["method"], r["source_files"]])
+                        num(r["min"]), num(r["max"]), r["n_runs"], r["method"], r["source_files"], r.get("interval", "")])
     with open(os.path.join(OUT, "numbers_meta.csv"), "w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["id", "section", "used_in", "decimals", "flag"])
