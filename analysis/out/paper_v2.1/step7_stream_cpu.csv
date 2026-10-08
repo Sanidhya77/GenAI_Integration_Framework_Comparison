@@ -1,0 +1,52 @@
+group,quantity,framework,concurrency,source,value,range_low,range_high,n_runs,unit
+a1,inference CPU per request,fastapi,1,live Phase A,13.125510000000132,12.943117647058472,13.527649411764608,3,ms
+a1,inference CPU per request,fastapi,1,simulated,12.496566000001621,11.99473799998668,12.50378999998793,5,ms
+a1,live / simulated inference CPU per request (ratio of medians),fastapi,1,live Phase A / simulated,1.0503293464779386,1.0351355586642903,1.1277986573595546,3+5,x (range: extreme run pairs)
+a1,inference CPU per request,fastapi,25,live Phase A,6.520306391780743,6.237276391414216,6.538715725190851,3,ms
+a1,inference CPU per request,fastapi,25,simulated,5.813062166666361,5.7401303488833335,5.922755647060878,5,ms
+a1,live / simulated inference CPU per request (ratio of medians),fastapi,25,live Phase A / simulated,1.1216646588040822,1.0531037853147658,1.1391232128487938,3+5,x (range: extreme run pairs)
+a2,stream CPU per request,fastapi,1,live Phase B,114.12136235294008,111.76074364705897,125.8802819999998,3,ms
+a2,mean chunks per response,fastapi,1,live Phase B,92.52941176470588,88.11764705882354,97.70588235294117,3,chunks
+a2,CPU per relayed chunk (reference: live Phase A inference median = 13.13 ms),fastapi,1,live Phase B,1.1193584592790389,1.0914999936427077,1.1540223503913272,3,ms per chunk
+a2,stream CPU per request,fastapi,1,live Phase B,114.12136235294008,111.76074364705897,125.8802819999998,3,ms
+a2,mean chunks per response,fastapi,1,live Phase B,92.52941176470588,88.11764705882354,97.70588235294117,3,chunks
+a2,CPU per relayed chunk (reference: simulated inference median (sensitivity) = 12.50 ms),fastapi,1,live Phase B,1.126496008010664,1.098297226954834,1.160459465382281,3,ms per chunk
+a2,stream CPU per request,fastapi,1,simulated,30.001935238105943,29.52271619048026,30.943234285708364,5,ms
+a2,mean chunks per response,fastapi,1,simulated,12.0,12.0,12.0,5,chunks
+a2,CPU per relayed chunk (reference: simulated inference median = 12.50 ms),fastapi,1,simulated,1.4587807698420268,1.4188458492065532,1.5372223571422285,5,ms per chunk
+a2,stream CPU per request,fastapi,25,live Phase B,64.82705787119411,63.68419078032007,66.85927555025124,3,ms
+a2,mean chunks per response,fastapi,25,live Phase B,91.36533957845434,87.33867276887872,98.05276381909547,3,chunks
+a2,CPU per relayed chunk (reference: live Phase A inference median = 6.52 ms),fastapi,25,live Phase B,0.6381714526365444,0.6153724465104743,0.6545082788218012,3,ms per chunk
+a2,stream CPU per request,fastapi,25,live Phase B,64.82705787119411,63.68419078032007,66.85927555025124,3,ms
+a2,mean chunks per response,fastapi,25,live Phase B,91.36533957845434,87.33867276887872,98.05276381909547,3,chunks
+a2,CPU per relayed chunk (reference: simulated inference median (sensitivity) = 5.81 ms),fastapi,25,live Phase B,0.6459122898990939,0.6225853408498855,0.6626060000567682,3,ms per chunk
+a2,stream CPU per request,fastapi,25,simulated,24.32375855773086,24.049970573385465,24.65448505087959,5,ms
+a2,mean chunks per response,fastapi,25,simulated,12.0,12.0,12.0,5,chunks
+a2,CPU per relayed chunk (reference: simulated inference median = 5.81 ms),fastapi,25,simulated,1.5425580325887083,1.519742367226592,1.5701185736844359,5,ms per chunk
+a3,stream CPU per request,flask,1,live Phase C,86.8761674999962,85.64840250000655,90.61143499999952,3,ms
+a3,mean chunks per response,flask,1,live Phase C,101.0,101.0,101.0,3,chunks
+a3,CPU per relayed chunk (reference: simulated inference median = 5.00 ms),flask,1,live Phase C,0.8106221534653134,0.798466064356505,0.8476049999999997,3,ms per chunk
+a3,stream CPU per request,flask,1,simulated,13.809184761907783,13.801668571437144,13.812757904761215,5,ms
+a3,mean chunks per response,flask,1,simulated,12.0,12.0,12.0,5,chunks
+a3,CPU per relayed chunk (reference: simulated inference median = 5.00 ms),flask,1,simulated,0.7338212301590193,0.7331948809531328,0.734118992063472,5,ms per chunk
+a3,stream CPU per request,django,1,live Phase C,85.00723499998686,76.87099250000131,89.99102499999711,3,ms
+a3,mean chunks per response,django,1,live Phase C,101.0,89.625,101.0,3,chunks
+a3,CPU per relayed chunk (reference: simulated inference median = 4.50 ms),django,1,live Phase C,0.807462164574698,0.7970795940593353,0.8464240495049813,3,ms per chunk
+a3,stream CPU per request,django,1,simulated,14.290655238056347,13.802596190466177,14.764211428576218,5,ms
+a3,mean chunks per response,django,1,simulated,12.0,12.0,12.0,5,chunks
+a3,CPU per relayed chunk (reference: simulated inference median = 4.50 ms),django,1,simulated,0.8157049365051954,0.7750333492060145,0.8551679523818514,5,ms per chunk
+a3,stream CPU per request,fastapi,1,live Phase C,122.49573499999994,113.11975499999338,134.38483924999954,3,ms
+a3,mean chunks per response,fastapi,1,live Phase C,101.0,95.3125,101.0,3,chunks
+a3,CPU per relayed chunk (reference: simulated inference median = 12.50 ms),fastapi,1,live Phase C,1.0891006831683,1.0557187042622085,1.2068145866336428,3,ms per chunk
+a3,stream CPU per request,fastapi,1,live Phase C,122.49573499999994,113.11975499999338,134.38483924999954,3,ms
+a3,mean chunks per response,fastapi,1,live Phase C,101.0,95.3125,101.0,3,chunks
+a3,CPU per relayed chunk (reference: live Phase A inference median (sensitivity) = 13.13 ms),fastapi,1,live Phase C,1.0828735148514832,1.0491199475409128,1.200587418316826,3,ms per chunk
+a3,stream CPU per request,fastapi,1,simulated,30.001935238105943,29.52271619048026,30.943234285708364,5,ms
+a3,mean chunks per response,fastapi,1,simulated,12.0,12.0,12.0,5,chunks
+a3,CPU per relayed chunk (reference: simulated inference median = 12.50 ms),fastapi,1,simulated,1.4587807698420268,1.4188458492065532,1.5372223571422285,5,ms per chunk
+a3,stream CPU per request,tornado,1,live Phase C,120.61295249999831,103.10883499999704,125.0063125000043,3,ms
+a3,mean chunks per response,tornado,1,live Phase C,101.0,89.6875,101.0,3,chunks
+a3,CPU per relayed chunk (reference: simulated inference median = 4.50 ms),tornado,1,live Phase C,1.1496185990096983,1.099454896167005,1.1931172128711436,3,ms per chunk
+a3,stream CPU per request,tornado,1,simulated,18.099379047524135,17.615567619005947,18.578862857178876,5,ms
+a3,mean chunks per response,tornado,1,simulated,12.0,12.0,12.0,5,chunks
+a3,CPU per relayed chunk (reference: simulated inference median = 4.50 ms),tornado,1,simulated,1.1331587539587789,1.0928411349155966,1.173115738096674,5,ms per chunk

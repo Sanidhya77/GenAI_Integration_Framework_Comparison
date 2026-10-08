@@ -1,0 +1,15 @@
+name,pattern,n,min,min_id,max,max_id,interval_low,interval_high,note
+"idle USS, single-process, inference c = 1 (N.USSI1)",USSI\.inf\.(flask|django|fastapi|tornado)\.c1$,4,42.61,USSI.inf.flask.c1,50.34,USSI.inf.django.c1,42.56,50.36,as printed in 5.3
+"idle USS, single-process, all endpoints and levels",USSI\.(inf|str|pip)\.(flask|django|fastapi|tornado)\.c\d+$,72,42.57,USSI.inf.flask.c5,51.41,USSI.str.django.c1,42.56,51.47,
+"idle USS, single-process, c = 100 (Table 4 cells)",USSI\.(inf|str|pip)\.(flask|django|fastapi|tornado)\.c100$,12,42.6,USSI.inf.flask.c100,51.4,USSI.str.django.c100,42.57,51.47,
+"idle USS, Flask 17w, all endpoints and levels",USSI\.(inf|str|pip)\.flask17w\.c\d+$,18,657.48,USSI.pip.flask17w.c5,660.82,USSI.str.flask17w.c100,657.16,663.19,
+"idle USS, Django 17w, all endpoints and levels",USSI\.(inf|str|pip)\.django17w\.c\d+$,18,787.73,USSI.pip.django17w.c10,791.45,USSI.str.django17w.c5,787.56,793.64,
+"idle USS, Flask 17w, c = 100 (Table 4 cells)",USSI\.(inf|str|pip)\.flask17w\.c100$,3,658.74,USSI.inf.flask17w.c100,660.82,USSI.str.flask17w.c100,657.31,663.16,
+"idle USS, Django 17w, c = 100 (Table 4 cells)",USSI\.(inf|str|pip)\.django17w\.c100$,3,789.51,USSI.inf.django17w.c100,791.11,USSI.str.django17w.c100,787.96,793.55,
+"17w / async peak USS, c = 100, inference (Figure 3)",M17A\.inf\.,4,12.64280443,M17A.inf.flask17w.fastapi,16.78952772,M17A.inf.django17w.tornado,12.63814091,16.81023849,
+"17w / async peak USS, c = 100, all endpoints (N.M17A)",M17A\.,12,10.7878881,M17A.str.flask17w.fastapi,16.78952772,M17A.inf.django17w.tornado,10.77133211,16.81023849,
+"steady-state mean / R, 17 workers, all endpoints (N.SSR17)",SSR\.(inf|str|pip)\.(flask|django)17w\.,18,0.9965358941,SSR.inf.flask17w.c25,0.9992724275,SSR.str.flask17w.c50,0.9964109539,0.9993258429,
+"steady-state mean / R, 17 workers, inference (Figure 2)",SSR\.inf\.(flask|django)17w\.,6,0.9965358941,SSR.inf.flask17w.c25,0.9985937148,SSR.inf.flask17w.c50,0.9964109539,0.9987479536,
+"steady-state mean / R, one worker c = 5, 10, all endpoints (N.SSR1)",SSR\.(inf|str|pip)\.(flask|django)\.,12,0.9999263437,SSR.pip.flask.c5,1.000127994,SSR.pip.django.c10,0.999835329,1.000252549,
+"steady-state mean / R, one worker, inference (Figure 2)",SSR\.inf\.(flask|django)\.,4,0.999999823,SSR.inf.django.c10,1.000113853,SSR.inf.flask.c10,0.9999040828,1.000252549,
+"R / (c S / 17), 17 workers, c = 100 (N.RTH)",RTH\.,6,1.002443855,RTH.str.flask17w.c100,1.00382418,RTH.pip.django17w.c100,1.002351933,1.003971564,
