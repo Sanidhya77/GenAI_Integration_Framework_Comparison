@@ -11,6 +11,7 @@ repository are licensed under CC BY 4.0:
   analysis/out/   analysis outputs (CSV tables, Markdown tables, figures, test evidence)
   data/           thesis (v1) raw data
   results/        thesis (v1) summaries and charts
+  paper_snapshot/tables/  table sources from the checked manuscript, as analysis outputs
 
 Everything else in the repository (source code, scripts, configuration and
 documentation) is licensed under the MIT License, see LICENSE.

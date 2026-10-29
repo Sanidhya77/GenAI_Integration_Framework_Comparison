@@ -9,7 +9,8 @@ order after dropping header and panel-label rows; t3_latency in the paper holds 
 panels; for t6 the generator's last (cause) column is ignored, because the paper dropped it. The caption
 footnote of t6 (steady-state TTFT growth) is checked against its numbers.csv row.
 
-Usage: venv/bin/python analysis/scripts/paper_tables_check.py [--paper-dir ~/paper_context/paper]
+Usage: python analysis/scripts/paper_tables_check.py [--paper-dir DIR]
+The default is the checked-in paper_snapshot/ directory, independent of the current working directory.
 Exit status 0 when every row matches.
 """
 
@@ -47,7 +48,8 @@ def body_rows(path, drop_last_col=False):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--paper-dir", default=os.path.expanduser("~/paper_context/paper"))
+    ap.add_argument("--paper-dir", default=os.path.join(ROOT, "paper_snapshot"),
+                    help="manuscript directory containing tables/ (default: repository paper_snapshot/)")
     a = ap.parse_args()
     tmp = tempfile.mkdtemp(prefix="tables_check_")
     subprocess.run([sys.executable, os.path.join(ROOT, "analysis", "scripts", "paper_tables.py"), "--paper-dir", tmp],

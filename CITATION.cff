@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this software or data, please cite the paper (preferred-citation) and this software record."
+message: "If you use this software or data, cite this software record using the DOI on the matching Zenodo version record."
 type: software
 title: "Benchmarking Python Web Frameworks under Generative AI Workloads: benchmark code and data"
 abstract: >-
@@ -8,7 +8,8 @@ abstract: >-
   with blocking, SSE streaming and RAG-style pipeline endpoints at 1 to 100
   concurrent users and 5 runs per configuration. Includes the harness, a
   calibrated simulator of the Anthropic Messages API, the raw per-run data, a
-  real-API validation and the analysis scripts.
+  real-API validation, analysis scripts and the checked JISA manuscript prepared on 26 October 2026
+  table snapshot with a portable numerical consistency checker.
 authors:
   - family-names: Thakur
     given-names: Sanidhya
@@ -16,13 +17,8 @@ authors:
   - family-names: Nidagundi
     given-names: Padmaraj
     affiliation: Riga Technical University
-version: "2.0"
-doi: 10.5281/zenodo.23062472
-date-released: "2026-09-30"
+version: "2.1"
 identifiers:
-  - type: doi
-    value: 10.5281/zenodo.23062472
-    description: "Version DOI of the v2.0 release on Zenodo"
   - type: doi
     value: 10.5281/zenodo.23062471
     description: "Concept DOI on Zenodo (all versions, resolves to the latest)"
@@ -40,16 +36,3 @@ keywords:
   - large language models
   - generative AI
   - performance evaluation
-preferred-citation:
-  type: article
-  title: "Benchmarking Python Web Frameworks under Generative AI Workloads: A Comparison of Synchronous and Asynchronous Architectures"
-  authors:
-    - family-names: Thakur
-      given-names: Sanidhya
-      affiliation: Riga Technical University
-    - family-names: Nidagundi
-      given-names: Padmaraj
-      affiliation: Riga Technical University
-  year: 2026
-  # TODO: add the arXiv identifier (and url: "https://arxiv.org/abs/<id>") once the preprint is public
-  notes: "arXiv preprint, identifier TODO"

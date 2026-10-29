@@ -6,6 +6,22 @@ Code and data for the paper **"Benchmarking Python Web Frameworks under Generati
 
 Licences: code under the MIT License ([LICENSE](LICENSE)); data and analysis outputs under CC BY 4.0 ([LICENSE-DATA](LICENSE-DATA)).
 
+## Reproduce the manuscript tables
+
+See [ARTIFACT.md](ARTIFACT.md) for the v2.1 artifact guide and validation limits.
+The exact table sources from the JISA manuscript prepared on 26 October 2026
+(from the checked 23 October baseline) are in
+`paper_snapshot/tables/`. With Python and its standard library only, run:
+
+```sh
+python analysis/scripts/paper_tables_check.py
+```
+
+Expected: **123 body rows, 854 numbers compared; 0 problems**. This checks
+agreement with the archived aggregate numbers and does not rerun experiments.
+The manuscript is currently unpublished; this repository is its code/data
+artifact, and no arXiv or journal publication identifier has been assigned.
+
 ## What this is
 
 A controlled benchmark of four Python web frameworks used as the web layer in front of a hosted LLM API:
@@ -17,7 +33,7 @@ A controlled benchmark of four Python web frameworks used as the web layer in fr
 | FastAPI 0.135.3 | asynchronous (ASGI) | Uvicorn 0.42.0, one process |
 | Tornado 6.5.5 | asynchronous (event loop) | built-in HTTP server, one process |
 
-Every framework exposes the same three endpoints, with the shared logic in `common/`, so the framework and its server are the only variables:
+Every framework exposes the same three endpoints, with the shared logic in `common/`, so matched endpoint and upstream settings can be compared across the server configurations:
 
 - `POST /api/inference`: blocking request and response.
 - `POST /api/inference/stream`: token streaming over Server-Sent Events (SSE).
@@ -27,20 +43,22 @@ Load comes from a closed-loop Locust generator with zero think time at 1, 5, 10,
 
 ## Why a simulator
 
-The study compares frameworks, not LLM providers. The upstream is therefore an HTTP/SSE-level simulator of the Anthropic Messages API (`simulated_endpoint/simulator.py`), calibrated on real measurements (`simulated_endpoint/calibration_v2.json`): 2.878 s for an inference call; a stream of 12 chunks, the first after 557.3 ms and the rest 202.1 ms apart; 2.7115 s for the pipeline's model call. The unmodified Anthropic SDK reaches it through `base_url`, so the framework code path is the one used against the real API. The simulator is deterministic, so every framework faces identical upstream behaviour. Live provider APIs differ between providers and change over time: between April and September 2026 the real inference service time rose by 26.3 % (95 % CI 16.3 to 33.5 %) and a streamed response went from 12 to about 92 chunks.
+The study compares frameworks, not LLM providers. The upstream is therefore an HTTP/SSE-level simulator of the Anthropic Messages API (`simulated_endpoint/simulator.py`), calibrated on real measurements (`simulated_endpoint/calibration_v2.json`): 2.878 s for an inference call; a stream of 12 chunks, the first after 557.3 ms and the rest 202.1 ms apart; 2.7115 s for the pipeline's model call. The unmodified Anthropic SDK reaches it through `base_url`, so the framework code path is the one used against the real API. The simulator is deterministic, so every framework faces identical upstream behaviour. Live provider APIs differ between providers and change over time: between April and September 2026 the real inference service time rose by 26.3 % (approximate 95 % bootstrap CI 16.3 to 33.5 %) and a streamed response went from 12 to about 92 chunks.
 
 A validation against the live API is included in `data_v2_real/`: FastAPI inference (Phase A) and streaming (Phase B) at 1 and 25 users, and streaming at 1 user for all four frameworks (Phase C).
 
 ## Key results
 
-Value [95 % CI] as reported in the paper; S = calibrated service time of an endpoint.
+The manuscript distinguishes five-run ranges, whole-run bootstrap intervals and
+descriptive three-run live-API ranges. Do not read every bracket as a 95% interval.
+The current checked values are in `analysis/out/paper_v2.1/numbers.csv` and the
+matched table sources under `paper_snapshot/tables/`.
 
-- One synchronous worker saturates at 1/S: Flask inference at c = 100 reaches 0.3464 req/s [0.3463, 0.3464] (1/S = 0.3475 req/s), while FastAPI reaches 34.6309 req/s [34.6258, 34.6362] (c/S = 34.75 req/s).
-- Async / one-worker sync throughput, inference, c = 100: 100.00 x [99.99, 100.02] (thesis: 64). Async / 17-worker sync: 5.883 x [5.882, 5.884] (theory 100 / 17 = 5.882).
-- Within a class (Flask vs Django, FastAPI vs Tornado) throughput differs by at most 0.08 %; Django's peak USS is 17.7 to 18.3 % [17.6, 18.4] above Flask's.
-- Async / one-worker sync peak RSS, inference, c = 100: 1.044 x [1.042, 1.046] (thesis: 2.9). Pipeline Stage 2 (a 50 ms sleep) p50, FastAPI, c = 100: 51.39 ms [51.37, 51.43] (thesis: 643.9 ms).
-- In a 60 s run the full-window mean understates the one-worker steady-state latency at c = 10 by 23.6 to 24.7 % [23.5, 24.8].
-- Real API (FastAPI inference): median latency at c = 25 / c = 1 = 1.001 [0.900, 1.093]. Real streaming at c = 25 costs 46.5 % of one core [43.0, 48.8], against 20.8 % with the 12-chunk simulator.
+- At 100 simulated concurrent users, one sync worker completes about 0.346 inference requests/s; one async process completes about 34.63-34.64 requests/s. This follows the operational concurrency ceilings and is not claimed as a new law.
+- Async / one-worker sync inference throughput is 100.00 [99.99, 100.02], and async / 17-worker sync throughput is 5.883 [5.882, 5.884] (95% whole-run bootstrap intervals).
+- Within-class throughput point differences are at most 0.152%; the fixed run order prevents using these small differences to rank frameworks.
+- At 100 users, the 17-worker pools hold 10.8-16.8 times the peak USS of a single async process over the tested endpoints.
+- At 25 live streaming users, FastAPI uses 46.5% of one core [44.5, 46.6], a descriptive three-run range, versus 20.8% with the simulator's 12-chunk stream. The simulator does not reproduce current streaming CPU cost, tails or absolute TTFT.
 
 ## Repository layout
 
@@ -61,14 +79,16 @@ Value [95 % CI] as reported in the paper; S = calibrated service time of an endp
 | `scripts/run_real_validation.py`, `.sh` | real-API validation driver (Phases A, B, C) |
 | `scripts/run_config.sh`, `aggregate_data.py`, `calibrate_simulator.py` | v1 (thesis) orchestrator, aggregation and calibration |
 | `tests/` | pytest suite (simulator contract, server paths, retry detection, clock, aggregation) |
-| `analysis/scripts/` | `final_*.py` (full v2 analysis), `paper_*.py` (paper numbers with 95 % CIs, LaTeX tables, figures), audit scripts of the v1 harness (`p1` to `p12`, `ast_compare`, `common_load`, `v2_t5_bursts`, `v2_real_mode_proof`) |
+| `analysis/scripts/` | `final_*.py` (full v2 analysis), `paper_*.py` (paper numbers and intervals, LaTeX tables, figures), audit scripts of the v1 harness (`p1` to `p12`, `ast_compare`, `common_load`, `v2_t5_bursts`, `v2_real_mode_proof`) |
 | `analysis/CODE_AUDIT.md` | audit of the v1 harness that motivated v2 |
-| `analysis/out/` | analysis outputs: CSV and Markdown tables, figures, `paper/numbers.csv`, test evidence |
+| `analysis/out/` | analysis outputs: CSV and Markdown tables, figures, current `paper_v2.1/numbers.csv`, historical `paper/numbers.csv`, test evidence |
 | `data_v2/` | 540 simulated v2 runs: `<framework>/<endpoint>/c<N>_run<R>_*` for flask, django, fastapi, tornado, flask_mw, django_mw |
 | `data_v2_real/` | 24 real-API runs: `fastapi/{inference,stream}/` (Phases A, B), `phase_c/<framework>/stream/` |
 | `results_v2/` | aggregates: `per_run_v2.csv`, `summary_v2.csv`, `summary_v2_long.csv`, `clock_rate_summary.csv`, validation CSVs (`_prev_20260927/` = superseded pre-final aggregate) |
 | `data/`, `results/` | thesis (v1) raw data and summaries, see [Thesis version (v1)](#thesis-version-v1) |
 | `environment.txt` | pinned Python packages (`pip freeze`) |
+| `paper_snapshot/` | checked manuscript table sources and SHA-256 provenance |
+| `ARTIFACT.md` | portable numerical table check and its validation limits |
 
 Per run, `data_v2/` holds Locust CSVs (`_stats`, `_stats_history`, `_failures`, `_exceptions`), the per-request log (`_requests`, `_inflight`, `_locust_meta.json`), endpoint metrics (`_stream_metrics` or `_pipeline_metrics`), the server and simulator monitors (`_resources`, `_sim_monitor`), the server and Locust logs, and `_meta.json` (git SHA, calibration and pip-freeze hashes, commands, PIDs, clock and idle-memory checks).
 
@@ -177,17 +197,17 @@ The scripts only read the committed data (run time not recorded). They rewrite `
 ### 7 Paper numbers, tables and figures
 
 ```bash
-venv/bin/python analysis/scripts/paper_stats.py                           # -> analysis/out/paper/numbers.csv (95 % CIs)
+venv/bin/python analysis/scripts/paper_stats.py                           # -> analysis/out/paper_v2.1/numbers.csv
 venv/bin/python analysis/scripts/paper_tables.py     --paper-dir /tmp/paper_out   # -> tables/t1_setup.tex ... t6_thesis_vs_v2.tex
 venv/bin/python analysis/scripts/paper_figures.py    --paper-dir /tmp/paper_out   # -> figures/F1 ... F6, FA (.pdf, .png)
 venv/bin/python analysis/scripts/paper_numbers_md.py --paper-dir /tmp/paper_out   # -> NUMBERS.md
 ```
 
-Always pass `--paper-dir`: the default is the authors' local paper folder. Confidence intervals are t-intervals over runs or percentile bootstraps over runs (10,000 resamples, fixed seeds). Not needed for reproduction: `final_thesis_text.py` searches the thesis PDF, which is not in this repository, and `paper_claims.py` writes the authors' claims map and a LaTeX skeleton. Some v1 audit scripts read `logs/`, which is not published.
+The table checker defaults to the included `paper_snapshot/` directory. For the other paper-generation commands, pass `--paper-dir` explicitly; their defaults may refer to the authors' local folder. The v2.1 table generator and checker consume `analysis/out/paper_v2.1/numbers.csv`; the older `analysis/out/paper/` is retained for historical provenance. Current manuscript intervals use the five-run min/max range (93.75% population-median coverage only under the stated independent, common continuous-distribution assumptions), percentile bootstraps over whole runs (10,000 resamples, fixed seeds), and descriptive three-run live-API ranges. Bootstrap intervals involving three-run groups are approximate. Earlier analysis outputs are retained as historical versions; their interval definitions must not be mixed with the current manuscript. Not needed for reproduction: `final_thesis_text.py` searches the thesis PDF, which is not in this repository, and `paper_claims.py` writes the authors' claims map and a LaTeX skeleton. Some v1 audit scripts read `logs/`, which is not published.
 
 ## Thesis version (v1)
 
-The bachelor thesis "Comparative Analysis of Python-Based Web Frameworks for Efficient Integration of Generative AI Services" (Riga Technical University, Institute of Applied Computer Systems) used the v1 harness, tagged `thesis-v1`. **The thesis results are superseded.** Harness artefacts in v1 changed several headline numbers, as documented in the paper; for example, at c = 100 the async / one-worker sync throughput ratio was 64 in the thesis and is 100.00 in v2, the peak RSS ratio 2.9 and now 1.044, and FastAPI pipeline Stage 2 p50 643.9 ms and now 51.39 ms. `analysis/CODE_AUDIT.md` lists the artefacts: a new HTTP client per request in the simulated path, synchronised bursts of users, no server restart between runs (memory carried over), sync latency censored by the 60 s window, the done signal counted as a token and no first-token delay in the simulated stream.
+The bachelor thesis "Comparative Analysis of Python-Based Web Frameworks for Efficient Integration of Generative AI Services" (Riga Technical University, Institute of Applied Computer Systems) used the v1 harness, tagged `thesis-v1`. **The thesis results are superseded for the corrected article.** The two campaigns differed in six harness flaws and other implementation details. No per-flaw ablation was run, so observed differences cannot be attributed to an individual flaw. For example, at c = 100 the async / one-worker sync throughput ratio was 64 in the thesis and is 100.00 in v2, the peak RSS ratio 2.9 and now 1.044, and FastAPI pipeline Stage 2 p50 643.9 ms and now 51.39 ms. `analysis/CODE_AUDIT.md` lists the artefacts: a new HTTP client per request in the simulated path, synchronised bursts of users, no server restart between runs (memory carried over), sync latency censored by the 60 s window, the done signal counted as a token and no first-token delay in the simulated stream.
 
 v1 design, kept for reference:
 
@@ -217,34 +237,22 @@ python monitoring/resource_monitor.py --pid <SERVER_PID> --output data/flask/inf
 
 ## How to cite
 
-Please cite the paper, and the software and data record if you use the code or the data.
+Cite the software/data version that you actually used. This checkout is prepared
+as version 2.1. Obtain its specific version DOI from the corresponding published
+Zenodo record; a new version DOI must not be inferred from the v2.0 record.
 
-- Paper: Sanidhya Thakur and Padmaraj Nidagundi. *Benchmarking Python Web Frameworks under Generative AI Workloads: A Comparison of Synchronous and Asynchronous Architectures.* arXiv:TODO, 2026.
-- Software and data: Sanidhya Thakur and Padmaraj Nidagundi. *Benchmarking Python Web Frameworks under Generative AI Workloads: benchmark code and data*, version 2.0. Zenodo, 2026. DOI: [10.5281/zenodo.23062472](https://doi.org/10.5281/zenodo.23062472). The concept DOI [10.5281/zenodo.23062471](https://doi.org/10.5281/zenodo.23062471) covers all versions and resolves to the latest one (the badge above).
+- All versions: [10.5281/zenodo.23062471](https://doi.org/10.5281/zenodo.23062471).
+- Earlier v2.0 archive: [10.5281/zenodo.23062472](https://doi.org/10.5281/zenodo.23062472).
+- Associated paper: Sanidhya Thakur and Padmaraj Nidagundi. *Benchmarking Python
+  Web Frameworks under Generative AI Workloads: A Comparison of Synchronous and
+  Asynchronous Architectures.* Unpublished manuscript, 2026. No arXiv identifier,
+  preprint DOI or journal DOI is assigned in this repository.
 
-```bibtex
-@misc{thakur2026benchmarking,
-  author        = {Thakur, Sanidhya and Nidagundi, Padmaraj},
-  title         = {Benchmarking Python Web Frameworks under Generative AI Workloads: A Comparison of Synchronous and Asynchronous Architectures},
-  year          = {2026},
-  eprint        = {TODO},
-  archivePrefix = {arXiv}
-}
-
-@software{thakur2026benchmarkcode,
-  author    = {Thakur, Sanidhya and Nidagundi, Padmaraj},
-  title     = {Benchmarking Python Web Frameworks under Generative AI Workloads: benchmark code and data},
-  version   = {2.0},
-  year      = {2026},
-  publisher = {Zenodo},
-  doi       = {10.5281/zenodo.23062472},
-  url       = {https://github.com/Sanidhya77/GenAI_Integration_Framework_Comparison}
-}
-```
-
-`CITATION.cff` holds the same metadata (GitHub shows it as "Cite this repository").
+`CITATION.cff` describes this software release. It retains the all-versions DOI
+as a clearly labelled identifier; it does not misidentify v2.0's DOI as v2.1's.
+The DOI badge above links to the complete software version series.
 
 ## Licence
 
 - Code (everything except the folders below): MIT License, see [LICENSE](LICENSE).
-- Data and outputs in `data_v2/`, `data_v2_real/`, `results_v2/`, `analysis/out/`, `data/` and `results/`: Creative Commons Attribution 4.0 International (CC BY 4.0), see [LICENSE-DATA](LICENSE-DATA).
+- Data and outputs in `data_v2/`, `data_v2_real/`, `results_v2/`, `analysis/out/`, `data/`, `results/` and `paper_snapshot/tables/`: Creative Commons Attribution 4.0 International (CC BY 4.0), see [LICENSE-DATA](LICENSE-DATA).

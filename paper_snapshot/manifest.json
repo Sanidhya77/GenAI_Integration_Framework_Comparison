@@ -1,0 +1,25 @@
+{
+  "manuscript_revision": "JISA preparation 2026-10-26; numerical baseline 2026-10-23",
+  "prepared_date": "2026-10-29",
+  "base_repository_commit": "455b1290f032c04f0e4d0e2db3bc68ab3842eca0",
+  "algorithm": "SHA-256",
+  "source_identifiers_not_included": {
+    "main.tex": "e58721b71ec83ac5fc7329ea07ff0c60cec56619f96d2ae44fa27e71a20562bf",
+    "references.bib": "09b8aade958e18e596c5c999676ff5bb24de6b30d5e9f3fff0a4874843f87c2b",
+    "manuscript_jisa.pdf": "e768f6609e996fab9dcfc75afc6c24d76f9527fd1b9c391089370c97dec0ed1e"
+  },
+  "files": {
+    "paper_snapshot/tables/t0_frameworks.tex": "441f30574149519ebce74b29da21f92b17a0a68db8021a3ec0f6ffab2d6cd882",
+    "paper_snapshot/tables/t1_setup.tex": "5959ce326467f48df8e4efd01f42c38f57cc0c5993904a31051581a5622782da",
+    "paper_snapshot/tables/t2_throughput.tex": "a30276b92315b61e0ddb9be51e050f56b3dbdaedfd2a3b718541b6700eb36816",
+    "paper_snapshot/tables/t3_latency.tex": "af36b0639b5693d49b5f0d28856073e1b8df1feeab0c4a07a2c0e43eb5ef51cd",
+    "paper_snapshot/tables/t4_resources.tex": "d5fb17452f60c187ab3a37a9bebc2aa00a0eb65ca127104fda0da8b7f3f317f0",
+    "paper_snapshot/tables/t5_validation.tex": "1f001b8a5ed21b9585200f2f313ba20bcab92c36fb679a9a00fa8970b0b7f28b",
+    "paper_snapshot/tables/t6_thesis_vs_v2.tex": "59cf360ece5db37a56c51b1578a563acb2c184e1d1aa34f417cb348bb342641a",
+    "analysis/out/paper_v2.1/numbers.csv": "908781bf3be71dd936900ddbf67243955fa2bf7f579bdeec71642319121452a5",
+    "analysis/out/paper_v2.1/numbers_meta.csv": "9c3043f8a25ab6fa77fac40c23f316c8ee367ac53f6fc8866a4d7e8dec743924",
+    "analysis/scripts/paper_tables.py": "7bc55901ca2bfe487d2adf749ca0cb4100ffc245201328303664c4fc5fd2e37d"
+  },
+  "validation_scope": "Numerical body cells in t2_throughput.tex through t6_thesis_vs_v2.tex, plus the final file's P.ttft.growth footnote. Rendered PDF table numbering differs from filenames.",
+  "hash_representation": "SHA-256 of Git source-archive bytes. Text files use the line endings stored in Git (normally LF). Windows core.autocrlf may change working-tree line endings; use Git blob bytes or normalize CRLF to LF when checking those text files."
+}
